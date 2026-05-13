@@ -17,7 +17,7 @@ book:
 format:
   html:
     theme: cosmo
-    number_sections: false
+    number-sections: false
     citations-hover: true
     footnotes-hover: true
     toc: true
