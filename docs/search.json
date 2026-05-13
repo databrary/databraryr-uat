@@ -6,7 +6,7 @@
     "section": "",
     "text": "About\nThis repository documents the procedures used to test the databraryr R package.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>index</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Home</span>"
     ]
   },
   {
@@ -14,9 +14,9 @@
     "href": "index.html#set-up",
     "title": "User Acceptance Testing (UAT) for databraryr",
     "section": "Set-up",
-    "text": "Set-up\nInstall the package from GitHub.\nremotes::install_github(repo = \"NYU-Databrary/databraryr\", ref = \"development\")\n\n\n\n\n\n\nImportant\n\n\n\nNote that I am testing from the development branch.",
+    "text": "Set-up\n\nAPI credentials\nDatabrary permits secure API access only to specifically authorized users.\nDetailed information about the application process may be found here.\n\n\nInstall package\nInstall the databraryr package from GitHub.\nremotes::install_github(repo = \"NYU-Databrary/databraryr\", ref = \"development\")\n\n\n\n\n\n\nImportant\n\n\n\nNote that this tests the development branch.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>index</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Home</span>"
     ]
   },
   {
@@ -34,7 +34,7 @@
     "href": "institutions.html#setup",
     "title": "Institutions",
     "section": "Setup",
-    "text": "Setup\n\nlibrary(databraryr)\n\nWelcome to the databraryr package.\n\nlogin_db(email = Sys.getenv(\"DB_LOGIN_ACCT\"),\n         password = Sys.getenv(\"DB_LOGIN_PW\"),\n         client_id = Sys.getenv(\"DB_API_CLIENT_ID\"),\n         client_secret = Sys.getenv(\"DB_API_CLIENT_SECRET\"),\n         store = FALSE,\n         overwrite = FALSE)\n\n[1] TRUE",
+    "text": "Setup\n\nlibrary(databraryr)\n\nWelcome to the databraryr package.\n\nlogin_db(email = Sys.getenv(\"USERNAME\"),\n         password = Sys.getenv(\"PASSWORD\"),\n         client_id = Sys.getenv(\"CLIENT_ID\"),\n         client_secret = Sys.getenv(\"CLIENT_SECRET\"),\n         store = FALSE,\n         overwrite = FALSE)\n\n[1] TRUE",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Institutions</span>"
     ]
@@ -84,7 +84,7 @@
     "href": "users.html#setup",
     "title": "Users",
     "section": "Setup",
-    "text": "Setup\n\nlibrary(databraryr)\n\nWelcome to the databraryr package.\n\nlogin_db(email = Sys.getenv(\"DB_LOGIN_ACCT\"),\n         password = Sys.getenv(\"DB_LOGIN_PW\"),\n         client_id = Sys.getenv(\"DB_API_CLIENT_ID\"),\n         client_secret = Sys.getenv(\"DB_API_CLIENT_SECRET\"),\n         store = FALSE,\n         overwrite = FALSE)\n\n[1] TRUE",
+    "text": "Setup\n\nlibrary(databraryr)\n\nWelcome to the databraryr package.\n\nlogin_db(email = Sys.getenv(\"USERNAME\"),\n         password = Sys.getenv(\"PASSWORD\"),\n         client_id = Sys.getenv(\"CLIENT_ID\"),\n         client_secret = Sys.getenv(\"CLIENT_SECRET\"),\n         store = FALSE,\n         overwrite = FALSE)\n\n[1] TRUE",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Users</span>"
     ]
@@ -134,7 +134,7 @@
     "href": "volumes.html#setup",
     "title": "Volumes",
     "section": "Setup",
-    "text": "Setup\n\nlibrary(databraryr)\n\nWelcome to the databraryr package.\n\nlogin_db(email = Sys.getenv(\"DB_LOGIN_ACCT\"),\n         password = Sys.getenv(\"DB_LOGIN_PW\"),\n         client_id = Sys.getenv(\"DB_API_CLIENT_ID\"),\n         client_secret = Sys.getenv(\"DB_API_CLIENT_SECRET\"),\n         store = FALSE,\n         overwrite = FALSE)\n\n[1] TRUE",
+    "text": "Setup\n\nlibrary(databraryr)\n\nWelcome to the databraryr package.\n\nlogin_db(email = Sys.getenv(\"USERNAME\"),\n         password = Sys.getenv(\"PASSWORD\"),\n         client_id = Sys.getenv(\"CLIENT_ID\"),\n         client_secret = Sys.getenv(\"CLIENT_SECRET\"),\n         store = FALSE,\n         overwrite = FALSE)\n\n[1] TRUE",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Volumes</span>"
     ]
@@ -184,7 +184,7 @@
     "href": "sessions-folders.html#setup",
     "title": "Sessions & Folders",
     "section": "Setup",
-    "text": "Setup\n\nlibrary(databraryr)\n\nWelcome to the databraryr package.\n\nlogin_db(email = Sys.getenv(\"DB_LOGIN_ACCT\"),\n         password = Sys.getenv(\"DB_LOGIN_PW\"),\n         client_id = Sys.getenv(\"DB_API_CLIENT_ID\"),\n         client_secret = Sys.getenv(\"DB_API_CLIENT_SECRET\"),\n         store = FALSE,\n         overwrite = FALSE)\n\n[1] TRUE",
+    "text": "Setup\n\nlibrary(databraryr)\n\nWelcome to the databraryr package.\n\nlogin_db(email = Sys.getenv(\"USERNAME\"),\n         password = Sys.getenv(\"PASSWORD\"),\n         client_id = Sys.getenv(\"CLIENT_ID\"),\n         client_secret = Sys.getenv(\"CLIENT_SECRET\"),\n         store = FALSE,\n         overwrite = FALSE)\n\n[1] TRUE",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Sessions & Folders</span>"
     ]

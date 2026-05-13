@@ -13,10 +13,10 @@ This page documents testing of functions related to sessions and folders.
 #| label: "login to Databrary"
 library(databraryr)
 
-login_db(email = Sys.getenv("DB_LOGIN_ACCT"),
-         password = Sys.getenv("DB_LOGIN_PW"),
-         client_id = Sys.getenv("DB_API_CLIENT_ID"),
-         client_secret = Sys.getenv("DB_API_CLIENT_SECRET"),
+login_db(email = Sys.getenv("USERNAME"),
+         password = Sys.getenv("PASSWORD"),
+         client_id = Sys.getenv("CLIENT_ID"),
+         client_secret = Sys.getenv("CLIENT_SECRET"),
          store = FALSE,
          overwrite = FALSE)
 ```

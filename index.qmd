@@ -1,5 +1,5 @@
 ---
-title: "index"
+title: "Home"
 format: html
 ---
 
@@ -9,13 +9,21 @@ This repository documents the procedures used to test the `databraryr` R package
 
 ## Set-up
 
-Install the package from GitHub.
+### API credentials
+
+Databrary permits secure API access only to specifically authorized users.
+
+Detailed information about the application process may be found [here](https://databrary.github.io/guide/more-information/api-access.html).
+
+### Install package
+
+Install the `databraryr` package from GitHub.
 
 ```r
 remotes::install_github(repo = "NYU-Databrary/databraryr", ref = "development")
 ```
 
 ::: {.callout-important}
-Note that I am testing from the `development` branch.
+Note that this tests the `development` branch.
 :::
 
