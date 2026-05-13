@@ -1,0 +1,74 @@
+---
+title: "Sessions & Folders"
+format: html
+---
+
+## About
+
+This page documents testing of functions related to sessions and folders.
+
+## Setup
+
+```{r}
+#| label: "login to Databrary"
+library(databraryr)
+
+login_db(email = Sys.getenv("DB_LOGIN_ACCT"),
+         password = Sys.getenv("DB_LOGIN_PW"),
+         client_id = Sys.getenv("DB_API_CLIENT_ID"),
+         client_secret = Sys.getenv("DB_API_CLIENT_SECRET"),
+         store = FALSE,
+         overwrite = FALSE)
+```
+
+## Testing `_sessions*` functions
+
+```{r}
+#| label: "testing _session* functions"
+get_session_by_id(session_id = 6256,
+                  vol_id = 1,
+                  vb = TRUE)
+get_session_by_name(vb = TRUE) # Name contains "Advisory Board Meeting"
+get_session_file(vb = TRUE, file_id = 27227) # PDF agenda from volume 1
+list_session_assets(session_id = 6256,
+                    vol_id = 1,
+                    vb = TRUE)
+```
+
+The following is very slow, so we do not run it by default.
+
+```{r}
+#| label: "very slow _session* functions"
+#| eval: false
+# The following is very slow, and there are only 22 rows.
+list_session_activity(vol_id = 1,
+                      session_id = 6256,
+                      vb = TRUE)
+```
+
+## Testing `_folders*` functions
+
+```{r}
+#| label: "testing _folders* functions"
+
+get_folder_by_id(folder_id = 9807,
+                 vol_id = 1,
+                 vb = TRUE)
+
+get_folder_file(
+  vol_id = 1,
+  folder_id = 9807,
+  file_id = 1,
+  vb = TRUE
+)
+
+list_folder_assets(folder_id = 9807,
+                   vol_id = 1,
+                   vb = TRUE)
+```
+
+## Clean-up
+
+```{r}
+logout_db()
+```

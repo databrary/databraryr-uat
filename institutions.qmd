@@ -1,0 +1,44 @@
+---
+title: "Institutions"
+format: html
+---
+
+## About
+
+This page documents testing of functions related to institutions.
+
+## Setup
+
+```{r}
+#| label: "login to Databrary"
+library(databraryr)
+
+login_db(email = Sys.getenv("DB_LOGIN_ACCT"),
+         password = Sys.getenv("DB_LOGIN_PW"),
+         client_id = Sys.getenv("DB_API_CLIENT_ID"),
+         client_secret = Sys.getenv("DB_API_CLIENT_SECRET"),
+         store = FALSE,
+         overwrite = FALSE)
+```
+
+## Testing `_institution*` functions
+
+```{r}
+#| label: "testing _institution* functions"
+get_institution_avatar(institution_id = 1, 
+                       dest_path = "databrary.png",
+                       vb = TRUE)      
+get_institution_by_id(institution_id = 12,
+                      vb = TRUE)  
+list_institution_affiliates(institution_id = 12,
+                            vb = TRUE)
+list_institutions(search_string = "The Pennsylvania",
+                  vb = TRUE)
+
+```
+
+## Clean-up
+
+```{r}
+logout_db()
+```

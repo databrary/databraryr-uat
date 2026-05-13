@@ -1,0 +1,24 @@
+project:
+  type: book
+  output-dir: "docs"
+  render:
+    - "*.qmd"
+
+book:
+  title: "User Acceptance Testing (UAT) for `databraryr`"
+  author: ["Rick Gilmore"]
+  date: last-modified
+  chapters:
+    - index.qmd
+    - institutions.qmd
+    - users.qmd
+    - volumes.qmd
+    - sessions-folders.qmd
+format:
+  html:
+    theme: cosmo
+    number_sections: false
+    citations-hover: true
+    footnotes-hover: true
+    toc: true
+    toc-depth: 4

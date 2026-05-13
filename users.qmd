@@ -1,0 +1,63 @@
+---
+title: "Users"
+format: html
+---
+
+## About
+
+This page documents the results of testing functions that involve *users*.
+
+::: {.callout-important}
+These functions are intended to access only *public* data.
+:::
+
+## Setup
+
+```{r}
+#| label: "login to Databrary"
+library(databraryr)
+
+login_db(email = Sys.getenv("DB_LOGIN_ACCT"),
+         password = Sys.getenv("DB_LOGIN_PW"),
+         client_id = Sys.getenv("DB_API_CLIENT_ID"),
+         client_secret = Sys.getenv("DB_API_CLIENT_SECRET"),
+         store = FALSE,
+         overwrite = FALSE)
+```
+
+## Testing `_user*` functions
+
+```{r}
+#| label: "test _user* functions"
+get_user_avatar(user_id = 6,
+                dest_path = "rog.png",
+                vb = TRUE)
+get_user_by_id(user_id = 6,
+               vb = TRUE)
+list_user_affiliates(user_id = 6,
+                     vb = TRUE)
+
+list_user_sponsors(user_id = 6,
+                   vb = TRUE)
+list_user_volumes(user_id = 6,
+                  vb = TRUE)
+list_users(search = "Gilmore",
+           vb = TRUE)
+search_users(search_string = "Gilmore", vb = TRUE)
+
+```
+
+This is very slow, so we do not run it by default.
+
+```{r}
+#| label: "test slow function"
+#| eval: false
+list_user_history(user_id = 6,
+                  vb = TRUE)
+```
+
+## Clean-up
+
+```{r}
+logout_db()
+```

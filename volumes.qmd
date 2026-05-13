@@ -1,0 +1,113 @@
+---
+title: "Volumes"
+format: html
+---
+
+## About
+
+This page documents the results of testing functions that involve *volumes*.
+
+::: {.callout-important}
+These functions are intended to access only *public* data.
+:::
+
+## Setup
+
+```{r}
+#| label: "login to Databrary"
+library(databraryr)
+
+login_db(email = Sys.getenv("DB_LOGIN_ACCT"),
+         password = Sys.getenv("DB_LOGIN_PW"),
+         client_id = Sys.getenv("DB_API_CLIENT_ID"),
+         client_secret = Sys.getenv("DB_API_CLIENT_SECRET"),
+         store = FALSE,
+         overwrite = FALSE)
+```
+
+## Testing `get_*` functions
+
+```{r}
+#| label: "testing get_* functions"
+
+get_volume_by_id()
+get_volume_collaborator_by_id(vol_id = 1, collaborator_id = 1) # Karen
+```
+
+## Testing`list_*` functions
+
+```{r}
+#| label: "testing list_* functions"
+list_volume_assets(vol_id = 1, vb = TRUE)
+list_volume_collaborators(vol_id = 1, vb = TRUE)
+list_volume_folders(vol_id = 1, vb = TRUE)
+list_volume_funding(vol_id = 1, vb = TRUE)
+list_volume_info(vol_id = 1, vb = TRUE)
+list_volume_links(vol_id = 1 , vb = TRUE)
+list_volume_records(
+  vol_id = 2,
+  category_id = 1,
+  # Participant
+  vb = TRUE
+)
+list_volume_records(
+  vol_id = 2,
+  category_id = 2,
+  # Pilot
+  vb = TRUE
+)
+list_volume_records(
+  vol_id = 2,
+  category_id = 3,
+  # Exclusion
+  vb = TRUE
+)
+list_volume_records(
+  vol_id = 2,
+  category_id = 4,
+  # Condition
+  vb = TRUE
+)
+list_volume_records(
+  vol_id = 2,
+  category_id = 5,
+  # Group
+  vb = TRUE
+)
+list_volume_records(
+  vol_id = 2,
+  category_id = 6,
+  # Task
+  vb = TRUE
+)
+list_volume_records(
+  vol_id = 2,
+  category_id = 7,
+  # Context
+  vb = TRUE
+)
+
+list_volume_session_assets(vol_id = 2,
+                           session_id = 11,
+                           vb = TRUE)
+
+list_volume_sessions(vol_id = 1, vb = TRUE)
+
+list_volume_tags(vol_id = 1, vb = TRUE)
+
+list_volumes(search = "PLAY", vb = TRUE)
+```
+
+The following function is _very_ slow, so we do not run it by default.
+
+```{r}
+#| label: "test slow volume_* functions"
+#| eval: false
+list_volume_activity(vol_id = 31) # Very slow
+```
+
+## Clean-up
+
+```{r}
+logout_db()
+```

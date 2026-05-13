@@ -1,0 +1,21 @@
+---
+title: "index"
+format: html
+---
+
+## About
+
+This repository documents the procedures used to test the `databraryr` R package.
+
+## Set-up
+
+Install the package from GitHub.
+
+```r
+remotes::install_github(repo = "NYU-Databrary/databraryr", ref = "development")
+```
+
+::: {.callout-important}
+Note that I am testing from the `development` branch.
+:::
+
