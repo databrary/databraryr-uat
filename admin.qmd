@@ -1,13 +1,19 @@
 ---
-title: "Login, status, & logout"
+title: "admin"
 format: html
 ---
 
 ## About
 
-This document describes the testing procedures for functions related to access of Databrary 2.0 via the API using the `databraryr` package.
+This page tests administrative functions using an account on the staging server.
+It makes use of credentials specific to that account.
+The credentials are stored in `~/.Renviron`
 
 ## Setup
+
+```{r}
+remotes::install_github(repo = "NYU-Databrary/databraryr", ref = "development")
+```
 
 ```{r}
 library(databraryr)
@@ -16,7 +22,8 @@ library(databraryr)
 ## Login
 
 ```{r}
-#| label: "login to Databrary"
+#| label: "login to Databrary (staging)"
+
 login_db(email = Sys.getenv("DATABRARY_LOGIN"),
          password = Sys.getenv("DATABRARY_PASSWORD"),
          client_id = Sys.getenv("DATABRARY_CLIENT_ID"),
@@ -24,25 +31,11 @@ login_db(email = Sys.getenv("DATABRARY_LOGIN"),
          store = FALSE,
          overwrite = FALSE,
          vb = TRUE)
-
 ```
-
 ## Check `whoami()`
 
 ```{r}
 who <- whoami()
 
 message(who$message, "\nGreat news, user: ", who$user)
-```
-
-## Check `get_db_stats()`
-
-```{r}
-get_db_stats()
-```
-
-## Logout
-
-```{r}
-logout_db()
 ```

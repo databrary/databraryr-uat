@@ -27,3 +27,6 @@ remotes::install_github(repo = "NYU-Databrary/databraryr", ref = "development")
 Note that this tests the `development` branch.
 :::
 
+### Add credentials to `.Renviron`
+
+Run `usethis::edit_r_environ('user')`

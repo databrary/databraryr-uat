@@ -7,3 +7,5 @@
 .positai
 databraryr-uat.Rproj
 *.png
+.Renviron
+.Renviron-STG
