@@ -8,7 +8,9 @@ format: html
 This page documents the results of testing functions that involve *volumes*.
 
 ::: {.callout-important}
-These functions are intended to access only *public* data.
+Most functions are intended to access only *public* data.
+
+The `create_volume_record` function accesses a public or private volume that the person testing has write privileges on.
 :::
 
 ## Setup
@@ -26,7 +28,7 @@ login_db(email = Sys.getenv("DATABRARY_LOGIN"),
          vb = TRUE)
 ```
 
-## Testing `get_*` functions
+## `get_*` functions
 
 ```{r}
 #| label: "testing get_* functions"
@@ -35,7 +37,7 @@ get_volume_by_id()
 get_volume_collaborator_by_id(vol_id = 1, collaborator_id = 1) # Karen
 ```
 
-## Testing`list_*` functions
+## `list_*` functions
 
 ```{r}
 #| label: "testing list_* functions"

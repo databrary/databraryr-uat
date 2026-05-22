@@ -1,22 +1,50 @@
 ---
 title: "admin"
 format: html
+params:
+  pull_databraryr: false
+  verbose_login: true
+  switch_account: false
 ---
 
 ## About
 
 This page tests administrative functions using an account on the staging server.
 It makes use of credentials specific to that account.
-The credentials are stored in `~/.Renviron`
+The credentials are stored in `~/.Renviron`.
 
 ## Setup
 
 ```{r}
-remotes::install_github(repo = "NYU-Databrary/databraryr", ref = "development")
+if (params$pull_databraryr) {
+  message("Pulling latest version of `databraryr` from GitHub.")
+  remotes::install_github(repo = "NYU-Databrary/databraryr", ref = "development")
+} else {
+  message("Using installed version of `databraryr`.")
+}
+
 ```
+
+To switch between accounts, open '~/.Renviron`, uncomment the relevant environment variables
+
+```{r}
+#| label: "edit-renviron"
+#| eval: false
+
+if (params$switch_account) {
+  source("R/restart_r.R")
+  usethis::edit_r_environ(scope = "user")
+}
+```
+
+Then restart R.
+
+Now, we can confirm that the correct API endpoint and user account are selected.
 
 ```{r}
 library(databraryr)
+databraryr:::DATABRARY_BASE_URL
+Sys.getenv("DATABRARY_LOGIN")
 ```
 
 ## Login
@@ -29,13 +57,35 @@ login_db(email = Sys.getenv("DATABRARY_LOGIN"),
          client_id = Sys.getenv("DATABRARY_CLIENT_ID"),
          client_secret = Sys.getenv("DATABRARY_CLIENT_SECRET"),
          store = FALSE,
-         overwrite = FALSE,
-         vb = TRUE)
+         overwrite = FALSE)
 ```
-## Check `whoami()`
+
+### Check `whoami()`
 
 ```{r}
 who <- whoami()
 
 message(who$message, "\nGreat news, user: ", who$user)
+```
+
+## Test `get_*` functions
+
+These functions retrieve usage statistics.
+
+### Check `get_institution_statistics()`
+
+```{r}
+databraryr::get_institution_statistics(institution_id = 8) # NYU 
+```
+
+### Check `get_user_statistics()`
+
+```{r}
+databraryr::get_user_statistics(user_id = 5) # Karen Adolph
+```
+
+## Clean-up
+
+```{r}
+logout_db()
 ```

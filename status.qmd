@@ -1,6 +1,10 @@
 ---
 title: "Login, status, & logout"
 format: html
+params:
+  test_endpoint: "staging"
+  prod_api: "https://api.databrary.org"
+  staging_api: "https://api.stg-databrary.its.nyu.edu"
 ---
 
 ## About
@@ -10,32 +14,82 @@ This document describes the testing procedures for functions related to access o
 ## Setup
 
 ```{r}
+#| label: library-databrary
+#| 
 library(databraryr)
+```
+
+## Check endpoint
+
+```{r}
+#| label: check-endpoint
+#| 
+assertthat::is.string(params$test_endpoint)
+assertthat::is.string(params$prod_api)
+assertthat::is.string(params$staging_api)
+
+this_endpoint <- databraryr:::DATABRARY_BASE_URL
+
+if (params$test_endpoint == "production") {
+  message("Test target: Production API.")
+  if (this_endpoint == params$prod_api) {
+    message("Databraryr API target endpoint is correct.")
+  } else {
+    message(paste0(
+      "Target: ",
+      params$test_endpoint,
+      " | databraryr base: ",
+      this_endpoint
+    ))
+    stop(
+      "`databraryr` API target endpoint does not match testing target endpoint. Check ~/.Renviron."
+    )
+  }
+} else if (params$test_endpoint == "staging") {
+  message("Test target: Staging API.")
+  if (this_endpoint == params$staging_api) {
+    message("Databraryr API target endpoint is correct.")
+  } else {
+    message(paste0(
+      "Target: ",
+      params$test_endpoint,
+      " | databraryr base: ",
+      this_endpoint
+    ))
+    stop(
+      "`databraryr` API target endpoint does not match testing target endpoint. Check ~/.Renviron."
+    )
+  }
+} else {
+  stop("API endpoint not specified properly")
+}
 ```
 
 ## Login
 
 ```{r}
 #| label: "login to Databrary"
-login_db(email = Sys.getenv("DATABRARY_LOGIN"),
-         password = Sys.getenv("DATABRARY_PASSWORD"),
-         client_id = Sys.getenv("DATABRARY_CLIENT_ID"),
-         client_secret = Sys.getenv("DATABRARY_CLIENT_SECRET"),
-         store = FALSE,
-         overwrite = FALSE,
-         vb = TRUE)
-
+login_db(
+  email = Sys.getenv("DATABRARY_LOGIN"),
+  password = Sys.getenv("DATABRARY_PASSWORD"),
+  client_id = Sys.getenv("DATABRARY_CLIENT_ID"),
+  client_secret = Sys.getenv("DATABRARY_CLIENT_SECRET"),
+  store = FALSE,
+  overwrite = FALSE,
+  vb = TRUE
+)
 ```
 
-## Check `whoami()`
+## `whoami()`
 
 ```{r}
+#| label: whoami
 who <- whoami()
 
 message(who$message, "\nGreat news, user: ", who$user)
 ```
 
-## Check `get_db_stats()`
+## `get_db_stats()`
 
 ```{r}
 get_db_stats()

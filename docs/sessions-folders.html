@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sessions-folders.html"><span class="chapter-title">Sessions &amp; Folders</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./status.html">Any Authorized Investigator</a></li><li class="breadcrumb-item"><a href="./sessions-folders.html"><span class="chapter-title">Sessions &amp; Folders</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -149,26 +149,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Home</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Any Authorized Investigator</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./status.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Login, status, &amp; logout</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./institutions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Institutions</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./users.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Users</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./volumes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Volumes</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sessions-folders.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Sessions &amp; Folders</span></a>
   </div>
 </li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -190,7 +206,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./status.html">Any Authorized Investigator</a></li><li class="breadcrumb-item"><a href="./sessions-folders.html"><span class="chapter-title">Sessions &amp; Folders</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-title">Sessions &amp; Folders</span></h1>
 </div>
@@ -220,12 +236,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stderr">
 <pre><code>Welcome to the databraryr package.</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">login_db</span>(<span class="at">email =</span> <span class="fu">Sys.getenv</span>(<span class="st">"USERNAME"</span>),</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">password =</span> <span class="fu">Sys.getenv</span>(<span class="st">"PASSWORD"</span>),</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">client_id =</span> <span class="fu">Sys.getenv</span>(<span class="st">"CLIENT_ID"</span>),</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">client_secret =</span> <span class="fu">Sys.getenv</span>(<span class="st">"CLIENT_SECRET"</span>),</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">login_db</span>(<span class="at">email =</span> <span class="fu">Sys.getenv</span>(<span class="st">"DATABRARY_LOGIN"</span>),</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">password =</span> <span class="fu">Sys.getenv</span>(<span class="st">"DATABRARY_PASSWORD"</span>),</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">client_id =</span> <span class="fu">Sys.getenv</span>(<span class="st">"DATABRARY_CLIENT_ID"</span>),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">client_secret =</span> <span class="fu">Sys.getenv</span>(<span class="st">"DATABRARY_CLIENT_SECRET"</span>),</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">store =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">overwrite =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">overwrite =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Login successful.</code></pre>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
@@ -234,9 +254,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="testing-_sessions-functions" class="level2">
 <h2 class="anchored" data-anchor-id="testing-_sessions-functions">Testing <code>_sessions*</code> functions</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_session_by_id</span>(<span class="at">session_id =</span> <span class="dv">6256</span>,</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">vol_id =</span> <span class="dv">1</span>,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_session_by_id</span>(<span class="at">session_id =</span> <span class="dv">6256</span>,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">vol_id =</span> <span class="dv">1</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$id
 [1] 6256
@@ -291,7 +311,7 @@ $has_full_access
 $contains_different_release_levels
 [1] FALSE</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_session_by_name</span>(<span class="at">vb =</span> <span class="cn">TRUE</span>) <span class="co"># Name contains "Advisory Board Meeting"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_session_by_name</span>(<span class="at">vb =</span> <span class="cn">TRUE</span>) <span class="co"># Name contains "Advisory Board Meeting"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 [[1]]$id
@@ -677,7 +697,7 @@ list()
 [[7]]$contains_different_release_levels
 [1] FALSE</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_session_file</span>(<span class="at">vb =</span> <span class="cn">TRUE</span>, <span class="at">file_id =</span> <span class="dv">27227</span>) <span class="co"># PDF agenda from volume 1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_session_file</span>(<span class="at">vb =</span> <span class="cn">TRUE</span>, <span class="at">file_id =</span> <span class="dv">27227</span>) <span class="co"># PDF agenda from volume 1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$id
 [1] 27227
@@ -771,11 +791,11 @@ $has_full_access
 $thumbnail_url
 NULL</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_session_assets</span>(<span class="at">session_id =</span> <span class="dv">6256</span>,</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">vol_id =</span> <span class="dv">1</span>,</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_session_assets</span>(<span class="at">session_id =</span> <span class="dv">6256</span>,</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">vol_id =</span> <span class="dv">1</span>,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 5 × 16
+<pre><code># A tibble: 5 × 18
   asset_id asset_name     asset_permission asset_size asset_mime_type
      &lt;int&gt; &lt;chr&gt;          &lt;chr&gt;                 &lt;int&gt; &lt;chr&gt;          
 1     9826 Introduction   public             88610655 video/mp4      
@@ -783,26 +803,27 @@ NULL</code></pre>
 3     9830 Databrary 1    public            899912341 video/mp4      
 4     9832 Datavyu        public            764340542 video/mp4      
 5    22412 Slides         public              4573426 application/pdf
-# ℹ 11 more variables: asset_format_id &lt;int&gt;, asset_format_name &lt;chr&gt;,
-#   format_extension &lt;list&gt;, asset_created_at &lt;chr&gt;, asset_updated_at &lt;chr&gt;,
-#   asset_sha1 &lt;chr&gt;, session_id &lt;dbl&gt;, vol_id &lt;dbl&gt;, session_name &lt;chr&gt;,
-#   session_release &lt;chr&gt;, session_date &lt;chr&gt;</code></pre>
+# ℹ 13 more variables: asset_format_id &lt;int&gt;, asset_format_name &lt;chr&gt;,
+#   format_extension &lt;list&gt;, asset_duration &lt;dbl&gt;, asset_created_at &lt;chr&gt;,
+#   asset_updated_at &lt;chr&gt;, asset_sha1 &lt;chr&gt;, asset_thumbnail_url &lt;chr&gt;,
+#   session_id &lt;dbl&gt;, vol_id &lt;dbl&gt;, session_name &lt;chr&gt;, session_release &lt;chr&gt;,
+#   session_date &lt;chr&gt;</code></pre>
 </div>
 </div>
 <p>The following is very slow, so we do not run it by default.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The following is very slow, and there are only 22 rows.</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">list_session_activity</span>(<span class="at">vol_id =</span> <span class="dv">1</span>,</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">session_id =</span> <span class="dv">6256</span>,</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The following is very slow, and there are only 22 rows.</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">list_session_activity</span>(<span class="at">vol_id =</span> <span class="dv">1</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">session_id =</span> <span class="dv">6256</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="testing-_folders-functions" class="level2">
 <h2 class="anchored" data-anchor-id="testing-_folders-functions">Testing <code>_folders*</code> functions</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_folder_by_id</span>(<span class="at">folder_id =</span> <span class="dv">9807</span>,</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">vol_id =</span> <span class="dv">1</span>,</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_folder_by_id</span>(<span class="at">folder_id =</span> <span class="dv">9807</span>,</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">vol_id =</span> <span class="dv">1</span>,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$id
 [1] 9807
@@ -837,12 +858,12 @@ $has_full_access
 $contains_different_release_levels
 [1] FALSE</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_folder_file</span>(</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">vol_id =</span> <span class="dv">1</span>,</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">folder_id =</span> <span class="dv">9807</span>,</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">file_id =</span> <span class="dv">1</span>,</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">vb =</span> <span class="cn">TRUE</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_folder_file</span>(</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">vol_id =</span> <span class="dv">1</span>,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">folder_id =</span> <span class="dv">9807</span>,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">file_id =</span> <span class="dv">1</span>,</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">vb =</span> <span class="cn">TRUE</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$id
 [1] 1
@@ -925,11 +946,11 @@ $has_full_access
 $thumbnail_url
 NULL</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_folder_assets</span>(<span class="at">folder_id =</span> <span class="dv">9807</span>,</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">vol_id =</span> <span class="dv">1</span>,</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_folder_assets</span>(<span class="at">folder_id =</span> <span class="dv">9807</span>,</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">vol_id =</span> <span class="dv">1</span>,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 7 × 15
+<pre><code># A tibble: 7 × 17
   asset_id asset_name                asset_permission asset_size asset_mime_type
      &lt;int&gt; &lt;chr&gt;                     &lt;chr&gt;                 &lt;int&gt; &lt;chr&gt;          
 1        1 counting_demo_video       public               394499 video/mp4      
@@ -939,17 +960,17 @@ NULL</code></pre>
 5   117035 counting (demo Datavyu f… public                 1030 application/vn…
 6   153108 databrary-institutions-i… public                 1826 text/csv       
 7   153109 volumes-citations-monthly public                  417 text/csv       
-# ℹ 10 more variables: asset_format_id &lt;int&gt;, asset_format_name &lt;chr&gt;,
-#   format_extension &lt;list&gt;, asset_created_at &lt;chr&gt;, asset_updated_at &lt;chr&gt;,
-#   asset_sha1 &lt;chr&gt;, folder_id &lt;dbl&gt;, vol_id &lt;dbl&gt;, folder_name &lt;chr&gt;,
-#   folder_release &lt;chr&gt;</code></pre>
+# ℹ 12 more variables: asset_format_id &lt;int&gt;, asset_format_name &lt;chr&gt;,
+#   format_extension &lt;list&gt;, asset_duration &lt;dbl&gt;, asset_created_at &lt;chr&gt;,
+#   asset_updated_at &lt;chr&gt;, asset_sha1 &lt;chr&gt;, asset_thumbnail_url &lt;chr&gt;,
+#   folder_id &lt;dbl&gt;, vol_id &lt;dbl&gt;, folder_name &lt;chr&gt;, folder_release &lt;chr&gt;</code></pre>
 </div>
 </div>
 </section>
 <section id="clean-up" class="level2">
 <h2 class="anchored" data-anchor-id="clean-up">Clean-up</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">logout_db</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">logout_db</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>

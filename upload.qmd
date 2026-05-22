@@ -1,0 +1,197 @@
+---
+title: "Create/Update/Delete"
+format: html
+params:
+  test_vol_id: 1777
+  test_endpoint: "staging"
+  prod_api: "https://api.databrary.org"
+  staging_api: "https://api.stg-databrary.its.nyu.edu"
+---
+
+## About
+
+This documents the results of testing functions that involve file uploads.
+
+::: {.callout-important}
+To make use of them, the tester must have write privileges on a Databrary volume.
+:::
+
+::: {.callout-warning}
+These tests presume that the tester is accessing the test environment using a regular, Authorized Investigator, account.
+:::
+
+## Setup
+
+```{r}
+#| label: check-endpoint
+#| 
+assertthat::is.string(params$test_endpoint)
+assertthat::is.string(params$prod_api)
+assertthat::is.string(params$staging_api)
+
+this_endpoint <- databraryr:::DATABRARY_BASE_URL
+
+if (params$test_endpoint == "production") {
+  message("Test target: Production API.")
+  if (this_endpoint == params$prod_api) {
+    message("Databraryr API target endpoint is correct.")
+  } else {
+    message(paste0(
+      "Target: ",
+      params$test_endpoint,
+      " | databraryr base: ",
+      this_endpoint
+    ))
+    stop(
+      "`databraryr` API target endpoint does not match testing target endpoint. Check ~/.Renviron."
+    )
+  }
+} else if (params$test_endpoint == "staging") {
+  message("Test target: Staging API.")
+  if (this_endpoint == params$staging_api) {
+    message("Databraryr API target endpoint is correct.")
+  } else {
+    message(paste0(
+      "Target: ",
+      params$test_endpoint,
+      " | databraryr base: ",
+      this_endpoint
+    ))
+    stop(
+      "`databraryr` API target endpoint does not match testing target endpoint. Check ~/.Renviron."
+    )
+  }
+} else {
+  stop("API endpoint not specified properly")
+}
+```
+
+```{r}
+#| label: "login to Databrary"
+library(databraryr)
+
+login_db(email = Sys.getenv("DATABRARY_LOGIN"),
+         password = Sys.getenv("DATABRARY_PASSWORD"),
+         client_id = Sys.getenv("DATABRARY_CLIENT_ID"),
+         client_secret = Sys.getenv("DATABRARY_CLIENT_SECRET"),
+         store = FALSE,
+         overwrite = FALSE,
+         vb = TRUE)
+```
+
+## `create_*` functions
+
+```{r}
+#| label: create-folder
+x <- assertthat::is.number(params$test_vol_id)
+x <- assertthat::assert_that(params$test_vol_id > 0)
+
+folder_name <- date() |> stringr::str_replace_all(pattern = " ", "-")
+new_folder <- create_folder(vol_id = params$test_vol_id, name = folder_name)
+
+new_folder
+```
+
+```{r}
+#| label: create-session
+session_name <- date() |> stringr::str_replace_all(pattern = " ", "-")
+new_session <- create_session(vol_id = params$test_vol_id, name = session_name)
+
+new_session
+```
+
+```{r}
+#| label: create-volume-record
+
+record_P001 <- create_volume_record(
+  vol_id = params$test_vol_id,
+  category_id = 1,
+  name = "P001",
+  participant = list(birthday = list(
+    year = 1776, month = 7, day = 04))
+)
+
+record_control_group <- create_volume_record(vol_id = params$test_vol_id,
+                                             category_id = 6,
+                                             name = "Control group")
+
+record_task_A <- create_volume_record(
+  vol_id = params$test_vol_id,
+  category_id = 6,
+  name = "Task A",
+  measures = list("30" = "Extra value")
+)
+
+record_P001
+record_control_group
+record_task_A
+```
+
+::: {.callout-note}
+2026-05-22: Gilmore needs more guidance about the standard procedure for associating records with sessions and files.
+:::
+
+## 
+
+## `delete_*` functions
+
+```{r}
+databraryr::delete_record_measure(vol_id = params$test_vol_id, record_id = record_control_group$record_id)
+
+databraryr::delete_session_file()
+databraryr::delete_session()
+
+databraryr::delete_folder()
+
+databraryr::delete_volume_record()
+```
+
+
+## `bulk_assign*` functions
+
+```{r}
+bulk_assign_records()
+bulk_unassign_records()
+```
+
+### `bulk_{create,rename,delete}_*`
+
+```{r}
+bulk_create_folders()
+
+bulk_create_records()
+
+bulk_create_records()
+
+bulk_rename_files()
+
+bulk_rename_folders()
+
+bulk_rename_sessions()
+
+bulk_delete_files()
+
+bulk_delete_folders()
+
+bulk_delete_records()
+
+bulk_delete_sessions()
+```
+
+### `check_duplicate_*` functions
+
+```{r}
+databraryr::check_duplicate_files_in_folder()
+
+databraryr::check_duplicate_files_in_session()
+```
+
+### `bulk_upload`
+
+```{r}
+bulk_upload_files()
+
+complete_upload()
+```
+
+

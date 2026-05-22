@@ -2,7 +2,11 @@ project:
   type: book
   output-dir: "docs"
   render:
-    - "*.qmd"
+    - "status.qmd"
+    - "users.qmd"
+    - "institutions.qmd"
+    - "volumes.qmd"
+    - "sessions-folders.qmd"
 
 book:
   title: "User Acceptance Testing (UAT) for `databraryr`"
@@ -10,10 +14,17 @@ book:
   date: last-modified
   chapters:
     - index.qmd
-    - institutions.qmd
-    - users.qmd
-    - volumes.qmd
-    - sessions-folders.qmd
+    - part: "Authorized Investigators"
+      chapters:
+      - status.qmd
+      - institutions.qmd
+      - users.qmd
+      - volumes.qmd
+      - sessions-folders.qmd
+    # - part: "Owners & Admins"
+    #   chapters:
+    #   - upload.qmd
+    #   - admin.qmd
 format:
   html:
     theme: cosmo

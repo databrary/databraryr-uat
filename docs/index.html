@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Rick Gilmore">
-<meta name="dcterms.date" content="2026-05-13">
+<meta name="dcterms.date" content="2026-05-22">
 
 <title>User Acceptance Testing (UAT) for databraryr</title>
 <style>
@@ -70,7 +70,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./institutions.html" rel="next">
+<link href="./status.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -151,26 +151,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Home</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Any user</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./status.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Login, status, &amp; logout</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./institutions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Institutions</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./users.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Users</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./volumes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Volumes</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sessions-folders.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sessions &amp; Folders</span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Owners/Admins</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./upload.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Create/Update/Delete</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./admin.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">admin</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -186,6 +223,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#api-credentials" id="toc-api-credentials" class="nav-link" data-scroll-target="#api-credentials">API credentials</a></li>
   <li><a href="#install-package" id="toc-install-package" class="nav-link" data-scroll-target="#install-package">Install package</a></li>
+  <li><a href="#add-credentials-to-.renviron" id="toc-add-credentials-to-.renviron" class="nav-link" data-scroll-target="#add-credentials-to-.renviron">Add credentials to <code>.Renviron</code></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -212,7 +250,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 13, 2026</p>
+      <p class="date">May 22, 2026</p>
     </div>
   </div>
   
@@ -252,6 +290,10 @@ Important
 <p>Note that this tests the <code>development</code> branch.</p>
 </div>
 </div>
+</section>
+<section id="add-credentials-to-.renviron" class="level3">
+<h3 class="anchored" data-anchor-id="add-credentials-to-.renviron">Add credentials to <code>.Renviron</code></h3>
+<p>Run <code>usethis::edit_r_environ('user')</code></p>
 
 
 </section>
@@ -662,8 +704,8 @@ Important
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./institutions.html" class="pagination-link" aria-label="Institutions">
-        <span class="nav-page-text"><span class="chapter-title">Institutions</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./status.html" class="pagination-link" aria-label="Login, status, &amp; logout">
+        <span class="nav-page-text"><span class="chapter-title">Login, status, &amp; logout</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
