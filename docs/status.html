@@ -186,6 +186,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Owners &amp; Admins</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./upload.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Create/Update/Delete</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -200,8 +216,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
   <li><a href="#check-endpoint" id="toc-check-endpoint" class="nav-link" data-scroll-target="#check-endpoint">Check endpoint</a></li>
   <li><a href="#login" id="toc-login" class="nav-link" data-scroll-target="#login">Login</a></li>
-  <li><a href="#check-whoami" id="toc-check-whoami" class="nav-link" data-scroll-target="#check-whoami">Check <code>whoami()</code></a></li>
-  <li><a href="#check-get_db_stats" id="toc-check-get_db_stats" class="nav-link" data-scroll-target="#check-get_db_stats">Check <code>get_db_stats()</code></a></li>
+  <li><a href="#whoami" id="toc-whoami" class="nav-link" data-scroll-target="#whoami"><code>whoami()</code></a></li>
+  <li><a href="#get_db_stats" id="toc-get_db_stats" class="nav-link" data-scroll-target="#get_db_stats"><code>get_db_stats()</code></a></li>
   <li><a href="#logout" id="toc-logout" class="nav-link" data-scroll-target="#logout">Logout</a></li>
   </ul>
 </nav>
@@ -261,7 +277,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (params<span class="sc">$</span>test_endpoint <span class="sc">==</span> <span class="st">"production"</span>) {</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">"Test target: Production API."</span>)</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (this_endpoint <span class="sc">==</span> params<span class="sc">$</span>prod_api) {</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"Databraryr API target is correct."</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"Databraryr API target endpoint is correct."</span>)</span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="fu">paste0</span>(</span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Target: "</span>,</span>
@@ -270,13 +286,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>      this_endpoint</span>
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    ))</span>
 <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>      <span class="st">"API endpoint does not match testing target. Check ~/.Renviron and this document's YAML parameters."</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>      <span class="st">"`databraryr` API target endpoint does not match testing target endpoint. Check ~/.Renviron."</span></span>
 <span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (params<span class="sc">$</span>test_endpoint <span class="sc">==</span> <span class="st">"staging"</span>) {</span>
 <span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">"Test target: Staging API."</span>)</span>
 <span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (this_endpoint <span class="sc">==</span> params<span class="sc">$</span>staging_api) {</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"Databraryr API target is correct."</span>)</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"Databraryr API target endpoint is correct."</span>)</span>
 <span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
 <span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="fu">paste0</span>(</span>
 <span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Target: "</span>,</span>
@@ -285,7 +301,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>      this_endpoint</span>
 <span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    ))</span>
 <span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(</span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>      <span class="st">"API endpoint does not match testing target. Check ~/.Renviron and this document's YAML parameters."</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>      <span class="st">"`databraryr` API target endpoint does not match testing target endpoint. Check ~/.Renviron."</span></span>
 <span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
@@ -295,7 +311,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>Test target: Staging API.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Databraryr API target is correct.</code></pre>
+<pre><code>Databraryr API target endpoint is correct.</code></pre>
 </div>
 </div>
 </section>
@@ -319,27 +335,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="check-whoami" class="level2">
-<h2 class="anchored" data-anchor-id="check-whoami">Check <code>whoami()</code></h2>
+<section id="whoami" class="level2">
+<h2 class="anchored" data-anchor-id="whoami"><code>whoami()</code></h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>who <span class="ot">&lt;-</span> <span class="fu">whoami</span>()</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(who<span class="sc">$</span>message, <span class="st">"</span><span class="sc">\n</span><span class="st">Great news, user: "</span>, who<span class="sc">$</span>user)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>OAuth2 endpoint is working!
-Great news, user: rick.o.gilmore@gmail.com</code></pre>
+Great news, user: rogilmore@psu.edu</code></pre>
 </div>
 </div>
 </section>
-<section id="check-get_db_stats" class="level2">
-<h2 class="anchored" data-anchor-id="check-get_db_stats">Check <code>get_db_stats()</code></h2>
+<section id="get_db_stats" class="level2">
+<h2 class="anchored" data-anchor-id="get_db_stats"><code>get_db_stats()</code></h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_db_stats</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 11
   date                institutions affiliates investigators hours_of_recordings
   &lt;dttm&gt;                     &lt;int&gt;      &lt;int&gt;         &lt;int&gt;               &lt;int&gt;
-1 2026-05-22 08:31:44          851        672          1886                 143
+1 2026-05-22 14:11:58          851        672          1886                 143
 # ℹ 6 more variables: authorized_users &lt;int&gt;, total_volumes &lt;int&gt;,
 #   public_volumes &lt;int&gt;, total_files &lt;int&gt;, total_duration_hours &lt;dbl&gt;,
 #   total_storage_tb &lt;dbl&gt;</code></pre>

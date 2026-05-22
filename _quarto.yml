@@ -21,9 +21,9 @@ book:
       - users.qmd
       - volumes.qmd
       - sessions-folders.qmd
-    # - part: "Owners & Admins"
-    #   chapters:
-    #   - upload.qmd
+    - part: "Owners & Admins"
+      chapters:
+      - upload.qmd
     #   - admin.qmd
 format:
   html:

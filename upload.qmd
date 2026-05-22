@@ -102,7 +102,8 @@ new_session
 
 ```{r}
 #| label: create-volume-record
-
+#| eval: false
+#| 
 record_P001 <- create_volume_record(
   vol_id = params$test_vol_id,
   category_id = 1,
@@ -128,7 +129,7 @@ record_task_A
 ```
 
 ::: {.callout-note}
-2026-05-22: Gilmore needs more guidance about the standard procedure for associating records with sessions and files.
+2026-05-22: Gilmore needs more guidance about the standard procedure for associating records with sessions and files. So, I'm setting `eval: false` for the above chunk.
 :::
 
 ## `upload_file`
@@ -180,17 +181,150 @@ proc.time() - start_upload
 result_folder
 ```
 
+## `bulk_rename_*` functions
+
+In the code below, I set `n_to_rename` to 3, but confirm that there are at least 3 files or sessions before renaming.
+If there aren't enough files or sessions, the chunk exits with an error message.
+
+```{r}
+#| label: bulk-rename-files
+n_to_rename <- 3
+
+these_files <- list_session_assets(session_id = new_session$id, vol_id = params$test_vol_id)
+
+if(dim(these_files)[1] < n_to_rename) {
+  n_to_rename = dim(these_files)[1]
+}
+
+if (n_to_rename < 1) {
+  stop("No files to rename in volume ", params$test_vol_id, ", session ", new_session$id)
+}
+
+file_asset_ids <- these_files$asset_id[1:n_to_rename]
+new_file_names <- stringr::str_replace(these_files$asset_name[1:n_to_rename], pattern = "_", replacement = "--")
+
+bulk_rename_these <- bulk_rename_files(vol_id = params$test_vol_id,
+                  session_id = new_session$id,
+                  file_ids = file_asset_ids,
+                  new_names = new_file_names)
+
+renamed_files <- list_session_assets(session_id = new_session$id, vol_id = params$test_vol_id)
+
+cbind(old_names = these_files$asset_name[1:n_to_rename], new_names = renamed_files$asset_name[1:n_to_rename])
+```
+
+```{r}
+#| label: bulk-rename-sessions
+#| eval: false
+n_to_rename <- 3
+
+these_sessions <- list_volume_sessions(vol_id = params$test_vol_id) |> 
+  dplyr::arrange(desc(session_id))
+
+if(dim(these_sessions)[1] < n_to_rename) {
+  n_to_rename = dim(these_sessions)[1]
+}
+
+if (n_to_rename < 1) {
+  stop("No sessions to rename in volume ", params$test_vol_id)
+}
+
+selected_session_ids <- these_sessions$session_id[1:n_to_rename]
+new_session_names <- stringr::str_replace(these_sessions$session_name[1:n_to_rename], pattern = "-", replacement = "__")
+
+bulk_rename_these <- bulk_rename_sessions(vol_id = params$test_vol_id, 
+                                          session_ids = selected_session_ids,
+                                          new_names = new_session_names)
+
+renamed_sessions <- list_volume_sessions(vol_id = params$test_vol_id) |> 
+  dplyr::arrange(desc(session_id))
+
+cbind(old_names = these_sessions$session_name[1:n_to_rename], new_names = renamed_sessions$session_name[1:n_to_rename])
+```
+
+::: {.callout-warning}
+2026-05-22: ROG to stop here. Why does the above code generate multiple session records with the same `session_name` and `session_id`?
+I'm setting `eval: false` in the chunk above until we can squash this bug.
+:::
+
 ## `delete_*` functions
+
+```{r}
+#| label: delete-folder
+vol_folders <- list_volume_folders(vol_id = params$test_vol_id) |>
+  dplyr::arrange(desc(folder_id))
+
+delete_folder_id <- vol_folders$folder_id[1]
+
+delete_folder(vol_id = params$test_vol_id, folder_id = delete_folder_id)
+```
+
+::: {.callout-note}
+2026-05-22: ROG notes that none of the folders he created today show up under `list_volume_folders()`.
+This doesn't block the above code from working, but it means that the procedure for deleting the "latest" folder isn't actually deleting the most recent folder.
+Also, it looks like the create folder scheme is creating multiple folder copies with the same id's and names.
+:::
+
+```{r}
+#| label: delete-session-file
+vol_sessions <- list_volume_sessions(vol_id = params$test_vol_id) |>
+  dplyr::arrange(desc(session_id))
+
+delete_session_id <- vol_sessions$session_id[1]
+
+session_files <- list_session_assets(session_id = delete_session_id, vol_id = params$test_vol_id)
+
+session_files
+
+if (dim(session_files)[1] > 0) {
+  delete_asset_id <- vol_sessions$session_id[1]
+  
+  delete_session_file(
+    vol_id = params$test_vol_id,
+    session_id = delete_session_id,
+    file_id = delete_asset_id
+  )
+  
+  list_session_assets(session_id = delete_session_id, vol_id = params$test_vol_id)
+} else {
+  stop("No files to delete in volume ",
+       params$test_vol_id,
+       ", session ",
+       delete_session_id)
+}
+```
+
+::: {.callout-note}
+2026-05-22: ROG notes that the file metadata does not show that the file has been deleted.
+:::
+
+```{r}
+#| label: delete-session
+vol_sessions <- list_volume_sessions(vol_id = params$test_vol_id) |>
+  dplyr::arrange(desc(session_id))
+
+# Before deletion
+head(vol_sessions)
+
+delete_session_id <- vol_sessions$session_id[1]
+
+delete_session(vol_id = params$test_vol_id, session_id = delete_session_id)
+
+# After deletion
+list_volume_sessions(vol_id = params$test_vol_id) |>
+  dplyr::arrange(desc(session_id)) |>
+  head()
+```
+
+::: {.callout-warning}
+2026-05-22: ROG unless otherwise noted, the chunks below have `eval: false` set to prevent them from running.
+This leaves the document in a state that renders successfully while I add code to handle testing the remaining functions.
+:::
 
 ```{r}
 #| label: delete-functions
 #| eval: false
-databraryr::delete_record_measure(vol_id = params$test_vol_id, record_id = record_control_group$record_id)
-
-databraryr::delete_session_file()
-databraryr::delete_session()
-
-databraryr::delete_folder()
+delete_record_measure(vol_id = params$test_vol_id, record_id = record_control_group$record_id)
 
 databraryr::delete_volume_record()
 ```
@@ -212,14 +346,6 @@ bulk_unassign_records()
 bulk_create_folders()
 
 bulk_create_records()
-
-bulk_create_records()
-
-bulk_rename_files()
-
-bulk_rename_folders()
-
-bulk_rename_sessions()
 
 bulk_delete_files()
 

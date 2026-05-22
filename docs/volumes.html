@@ -186,6 +186,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Owners &amp; Admins</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./upload.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Create/Update/Delete</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -198,8 +214,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a></li>
   <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
-  <li><a href="#testing-get_-functions" id="toc-testing-get_-functions" class="nav-link" data-scroll-target="#testing-get_-functions">Testing <code>get_*</code> functions</a></li>
-  <li><a href="#testinglist_-functions" id="toc-testinglist_-functions" class="nav-link" data-scroll-target="#testinglist_-functions">Testing<code>list_*</code> functions</a></li>
+  <li><a href="#get_-functions" id="toc-get_-functions" class="nav-link" data-scroll-target="#get_-functions"><code>get_*</code> functions</a></li>
+  <li><a href="#list_-functions" id="toc-list_-functions" class="nav-link" data-scroll-target="#list_-functions"><code>list_*</code> functions</a></li>
   <li><a href="#clean-up" id="toc-clean-up" class="nav-link" data-scroll-target="#clean-up">Clean-up</a></li>
   </ul>
 </nav>
@@ -266,15 +282,15 @@ Important
 </div>
 </div>
 </section>
-<section id="testing-get_-functions" class="level2">
-<h2 class="anchored" data-anchor-id="testing-get_-functions">Testing <code>get_*</code> functions</h2>
+<section id="get_-functions" class="level2">
+<h2 class="anchored" data-anchor-id="get_-functions"><code>get_*</code> functions</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_volume_by_id</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 23
      id updated_at      created_at title description short_name owner_connection
   &lt;int&gt; &lt;chr&gt;           &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;      &lt;list&gt;          
-1     1 2026-03-05T08:… 2025-03-0… Data… "Our missi… &lt;NA&gt;       &lt;named list [8]&gt;
+1     1 2026-03-04T14:… 2025-03-0… Data… "Our missi… &lt;NA&gt;       &lt;named list [8]&gt;
 # ℹ 16 more variables: owner_institution &lt;list&gt;, sharing_level &lt;chr&gt;,
 #   access_level &lt;chr&gt;, has_admin_access &lt;lgl&gt;, fundings &lt;list&gt;,
 #   coauthors &lt;list&gt;, links &lt;list&gt;, enabled_categories &lt;list&gt;,
@@ -341,8 +357,8 @@ NULL</code></pre>
 </div>
 </div>
 </section>
-<section id="testinglist_-functions" class="level2">
-<h2 class="anchored" data-anchor-id="testinglist_-functions">Testing<code>list_*</code> functions</h2>
+<section id="list_-functions" class="level2">
+<h2 class="anchored" data-anchor-id="list_-functions"><code>list_*</code> functions</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volume_assets</span>(<span class="at">vol_id =</span> <span class="dv">1</span>, <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -369,17 +385,10 @@ NULL</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volume_collaborators</span>(<span class="at">vol_id =</span> <span class="dv">1</span>, <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 8 × 15
+<pre><code># A tibble: 1 × 15
   collaborator_id volume_id collaborator_user_id collaborator_first_name
             &lt;int&gt;     &lt;dbl&gt;                &lt;int&gt; &lt;chr&gt;                  
-1           -2785         1                  437 Andrea                 
-2           -1162         1                22582 Paweł                  
-3            3181         1                22594 Beniamin               
-4           -2388         1                23334 Iwona                  
-5           -2683         1                24900 Anika                  
-6           -2754         1                25150 Seunghee               
-7           -2755         1                25155 Isabella               
-8           -2756         1                25163 Brianna                
+1           -1162         1                22582 Paweł                  
 # ℹ 11 more variables: collaborator_last_name &lt;chr&gt;, collaborator_email &lt;chr&gt;,
 #   collaborator_is_authorized_investigator &lt;lgl&gt;,
 #   collaborator_has_avatar &lt;lgl&gt;, sponsor_user_id &lt;int&gt;,
@@ -388,14 +397,23 @@ NULL</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volume_folders</span>(<span class="at">vol_id =</span> <span class="dv">1</span>, <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 10
-  folder_id folder_name  folder_release folder_file_count folder_accessible_fi…¹
-      &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;                      &lt;int&gt;                  &lt;int&gt;
-1      9807 Top-level m… public                         7                      7
-# ℹ abbreviated name: ¹​folder_accessible_file_count
-# ℹ 5 more variables: folder_has_full_access &lt;lgl&gt;,
-#   folder_contains_different_release_levels &lt;lgl&gt;, folder_created_at &lt;chr&gt;,
-#   folder_updated_at &lt;chr&gt;, vol_id &lt;int&gt;</code></pre>
+<pre><code># A tibble: 12 × 9
+   folder_id folder_name folder_release folder_file_count folder_has_full_access
+       &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;          &lt;named list&gt;      &lt;lgl&gt;                 
+ 1         1 Test folder public         &lt;int [1]&gt;         TRUE                  
+ 2         1 Test folder public         &lt;int [1]&gt;         TRUE                  
+ 3         1 Test folder public         &lt;int [1]&gt;         TRUE                  
+ 4         1 Test folder public         &lt;int [1]&gt;         TRUE                  
+ 5      9807 Top-level … public         &lt;int [1]&gt;         TRUE                  
+ 6      9807 Top-level … public         &lt;int [1]&gt;         TRUE                  
+ 7      9807 Top-level … public         &lt;int [1]&gt;         TRUE                  
+ 8      9807 Top-level … public         &lt;int [1]&gt;         TRUE                  
+ 9     76079 date test   private        &lt;int [1]&gt;         TRUE                  
+10     76079 date test   private        &lt;int [1]&gt;         TRUE                  
+11     76079 date test   private        &lt;int [1]&gt;         TRUE                  
+12     76079 date test   private        &lt;int [1]&gt;         TRUE                  
+# ℹ 4 more variables: folder_contains_different_release_levels &lt;lgl&gt;,
+#   folder_created_at &lt;chr&gt;, folder_updated_at &lt;chr&gt;, vol_id &lt;int&gt;</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volume_funding</span>(<span class="at">vol_id =</span> <span class="dv">1</span>, <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
@@ -419,7 +437,7 @@ NULL</code></pre>
 <pre><code># A tibble: 1 × 20
   vol_id vol_name          vol_short_name vol_desc vol_created_at vol_updated_at
    &lt;int&gt; &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt;    &lt;chr&gt;          &lt;chr&gt;         
-1      1 Databrary sponso… &lt;NA&gt;           "Our mi… 2025-03-05T16… 2026-03-05T08…
+1      1 Databrary sponso… &lt;NA&gt;           "Our mi… 2025-03-05T16… 2026-03-04T14…
 # ℹ 14 more variables: vol_sharing_level &lt;chr&gt;, vol_access_level &lt;chr&gt;,
 #   vol_owner_connection &lt;list&gt;, vol_owner_institution &lt;list&gt;,
 #   vol_n_sessions &lt;int&gt;, vol_n_sessions_shared &lt;int&gt;, vol_file_counts &lt;list&gt;,
@@ -429,12 +447,13 @@ NULL</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volume_links</span>(<span class="at">vol_id =</span> <span class="dv">1</span> , <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 3
+<pre><code># A tibble: 4 × 3
   link_id link_label                                      link_url              
     &lt;int&gt; &lt;chr&gt;                                           &lt;chr&gt;                 
 1      51 Video as data (Invited article in APS Observer) http://www.psychologi…
 2      52 2016-12-16 NIH PLAY workshop videocast          https://videocast.nih…
-3     245 Databrary sponsored workshops and events        doi:10.17910/B7159Q   </code></pre>
+3     245 Databrary sponsored workshops and events        https://doi.org/10.17…
+4    1034 Databrary on Github                             https://github.com/da…</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volume_records</span>(</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">vol_id =</span> <span class="dv">2</span>,</span>
@@ -443,11 +462,14 @@ NULL</code></pre>
 <span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">vb =</span> <span class="cn">TRUE</span></span>
 <span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 15
-  record_id record_volume record_volume_name record_category_id record_measures 
-      &lt;int&gt;         &lt;int&gt; &lt;chr&gt;                           &lt;int&gt; &lt;list&gt;          
-1         5             2 &lt;NA&gt;                                1 &lt;named list [5]&gt;
-2         6             2 &lt;NA&gt;                                1 &lt;named list [5]&gt;
+<pre><code># A tibble: 5 × 15
+  record_id record_volume record_volume_name  record_category_id record_measures
+      &lt;int&gt;         &lt;int&gt; &lt;chr&gt;                            &lt;int&gt; &lt;list&gt;         
+1         5             2 Head-mounted camer…                  1 &lt;named list&gt;   
+2     49801             2 Head-mounted camer…                  1 &lt;named list&gt;   
+3     49948          2006 073025                               1 &lt;named list&gt;   
+4     49949          2006 073025                               1 &lt;named list&gt;   
+5     50195             2 Head-mounted camer…                  1 &lt;named list&gt;   
 # ℹ 10 more variables: record_birthday &lt;chr&gt;, age_years &lt;int&gt;,
 #   age_months &lt;int&gt;, age_days &lt;int&gt;, age_total_days &lt;int&gt;,
 #   age_formatted &lt;chr&gt;, age_is_estimated &lt;lgl&gt;, age_is_blurred &lt;lgl&gt;,
@@ -459,42 +481,41 @@ NULL</code></pre>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Pilot</span></span>
 <span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">vb =</span> <span class="cn">TRUE</span></span>
 <span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>No records found with category_id = 2 for volume 2</code></pre>
-</div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 0 × 15
-# ℹ 15 variables: record_id &lt;int&gt;, record_volume &lt;int&gt;,
-#   record_volume_name &lt;chr&gt;, record_category_id &lt;int&gt;, record_measures &lt;list&gt;,
-#   record_birthday &lt;chr&gt;, age_years &lt;int&gt;, age_months &lt;int&gt;, age_days &lt;int&gt;,
-#   age_total_days &lt;int&gt;, age_formatted &lt;chr&gt;, age_is_estimated &lt;lgl&gt;,
-#   age_is_blurred &lt;lgl&gt;, record_default_sessions &lt;list&gt;,
-#   record_source_kind &lt;chr&gt;</code></pre>
+<pre><code># A tibble: 2 × 15
+  record_id record_volume record_volume_name  record_category_id record_measures
+      &lt;int&gt;         &lt;int&gt; &lt;chr&gt;                            &lt;int&gt; &lt;list&gt;         
+1     49818             2 Head-mounted camer…                  2 &lt;named list&gt;   
+2     49822             2 Head-mounted camer…                  2 &lt;named list&gt;   
+# ℹ 10 more variables: record_birthday &lt;chr&gt;, age_years &lt;int&gt;,
+#   age_months &lt;int&gt;, age_days &lt;int&gt;, age_total_days &lt;int&gt;,
+#   age_formatted &lt;chr&gt;, age_is_estimated &lt;lgl&gt;, age_is_blurred &lt;lgl&gt;,
+#   record_default_sessions &lt;list&gt;, record_source_kind &lt;chr&gt;</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volume_records</span>(</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">vol_id =</span> <span class="dv">2</span>,</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">category_id =</span> <span class="dv">3</span>,</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Exclusion</span></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">vb =</span> <span class="cn">TRUE</span></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>No records found with category_id = 3 for volume 2</code></pre>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volume_records</span>(</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">vol_id =</span> <span class="dv">2</span>,</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">category_id =</span> <span class="dv">3</span>,</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Exclusion</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">vb =</span> <span class="cn">TRUE</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 0 × 15
-# ℹ 15 variables: record_id &lt;int&gt;, record_volume &lt;int&gt;,
-#   record_volume_name &lt;chr&gt;, record_category_id &lt;int&gt;, record_measures &lt;list&gt;,
-#   record_birthday &lt;chr&gt;, age_years &lt;int&gt;, age_months &lt;int&gt;, age_days &lt;int&gt;,
-#   age_total_days &lt;int&gt;, age_formatted &lt;chr&gt;, age_is_estimated &lt;lgl&gt;,
-#   age_is_blurred &lt;lgl&gt;, record_default_sessions &lt;list&gt;,
-#   record_source_kind &lt;chr&gt;</code></pre>
+<pre><code># A tibble: 3 × 15
+  record_id record_volume record_volume_name  record_category_id record_measures
+      &lt;int&gt;         &lt;int&gt; &lt;chr&gt;                            &lt;int&gt; &lt;list&gt;         
+1     49819             2 Head-mounted camer…                  3 &lt;named list&gt;   
+2     49820             2 Head-mounted camer…                  3 &lt;named list&gt;   
+3     50015             2 Head-mounted camer…                  3 &lt;named list&gt;   
+# ℹ 10 more variables: record_birthday &lt;chr&gt;, age_years &lt;int&gt;,
+#   age_months &lt;int&gt;, age_days &lt;int&gt;, age_total_days &lt;int&gt;,
+#   age_formatted &lt;chr&gt;, age_is_estimated &lt;lgl&gt;, age_is_blurred &lt;lgl&gt;,
+#   record_default_sessions &lt;list&gt;, record_source_kind &lt;chr&gt;</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volume_records</span>(</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">vol_id =</span> <span class="dv">2</span>,</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">category_id =</span> <span class="dv">4</span>,</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Condition</span></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">vb =</span> <span class="cn">TRUE</span></span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volume_records</span>(</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">vol_id =</span> <span class="dv">2</span>,</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">category_id =</span> <span class="dv">4</span>,</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Condition</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">vb =</span> <span class="cn">TRUE</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>No records found with category_id = 4 for volume 2</code></pre>
 </div>
@@ -507,12 +528,12 @@ NULL</code></pre>
 #   age_is_blurred &lt;lgl&gt;, record_default_sessions &lt;list&gt;,
 #   record_source_kind &lt;chr&gt;</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volume_records</span>(</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">vol_id =</span> <span class="dv">2</span>,</span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">category_id =</span> <span class="dv">5</span>,</span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Group</span></span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">vb =</span> <span class="cn">TRUE</span></span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volume_records</span>(</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">vol_id =</span> <span class="dv">2</span>,</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">category_id =</span> <span class="dv">5</span>,</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Group</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">vb =</span> <span class="cn">TRUE</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>No records found with category_id = 5 for volume 2</code></pre>
 </div>
@@ -525,12 +546,12 @@ NULL</code></pre>
 #   age_is_blurred &lt;lgl&gt;, record_default_sessions &lt;list&gt;,
 #   record_source_kind &lt;chr&gt;</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volume_records</span>(</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">vol_id =</span> <span class="dv">2</span>,</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">category_id =</span> <span class="dv">6</span>,</span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Task</span></span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">vb =</span> <span class="cn">TRUE</span></span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volume_records</span>(</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">vol_id =</span> <span class="dv">2</span>,</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">category_id =</span> <span class="dv">6</span>,</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Task</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">vb =</span> <span class="cn">TRUE</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>No records found with category_id = 6 for volume 2</code></pre>
 </div>
@@ -543,62 +564,68 @@ NULL</code></pre>
 #   age_is_blurred &lt;lgl&gt;, record_default_sessions &lt;list&gt;,
 #   record_source_kind &lt;chr&gt;</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volume_records</span>(</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">vol_id =</span> <span class="dv">2</span>,</span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">category_id =</span> <span class="dv">7</span>,</span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Context</span></span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">vb =</span> <span class="cn">TRUE</span></span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volume_records</span>(</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">vol_id =</span> <span class="dv">2</span>,</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">category_id =</span> <span class="dv">7</span>,</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Context</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">vb =</span> <span class="cn">TRUE</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 15
-  record_id record_volume record_volume_name record_category_id record_measures 
-      &lt;int&gt;         &lt;int&gt; &lt;chr&gt;                           &lt;int&gt; &lt;list&gt;          
-1       710             2 &lt;NA&gt;                                7 &lt;named list [2]&gt;
+<pre><code># A tibble: 4 × 15
+  record_id record_volume record_volume_name  record_category_id record_measures
+      &lt;int&gt;         &lt;int&gt; &lt;chr&gt;                            &lt;int&gt; &lt;list&gt;         
+1       710             2 Head-mounted camer…                  7 &lt;named list&gt;   
+2     49821             2 Head-mounted camer…                  7 &lt;named list&gt;   
+3     50026             2 Head-mounted camer…                  7 &lt;named list&gt;   
+4     50027             2 Head-mounted camer…                  7 &lt;named list&gt;   
 # ℹ 10 more variables: record_birthday &lt;chr&gt;, age_years &lt;int&gt;,
 #   age_months &lt;int&gt;, age_days &lt;int&gt;, age_total_days &lt;int&gt;,
 #   age_formatted &lt;chr&gt;, age_is_estimated &lt;lgl&gt;, age_is_blurred &lt;lgl&gt;,
 #   record_default_sessions &lt;list&gt;, record_source_kind &lt;chr&gt;</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volume_session_assets</span>(<span class="at">vol_id =</span> <span class="dv">2</span>,</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">session_id =</span> <span class="dv">11</span>,</span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volume_session_assets</span>(<span class="at">vol_id =</span> <span class="dv">2</span>,</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">session_id =</span> <span class="dv">11</span>,</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Found n = 2 assets in vol_id 2 session_id 11</code></pre>
+<pre><code>Found n = 4 assets in vol_id 2 session_id 11</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 15
-  asset_id asset_name asset_permission asset_size asset_mime_type
-     &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;                 &lt;int&gt; &lt;chr&gt;          
-1        3 Rick       public            416913623 video/mp4      
-2        9 Florian    public            470909386 video/mp4      
-# ℹ 10 more variables: asset_format_id &lt;int&gt;, asset_format_name &lt;chr&gt;,
+<pre><code># A tibble: 4 × 18
+  asset_id asset_name           asset_permission   asset_size asset_mime_type
+     &lt;int&gt; &lt;chr&gt;                &lt;chr&gt;                   &lt;int&gt; &lt;chr&gt;          
+1        3 Rick                 learning_audiences  416913623 video/mp4      
+2        9 Florian              public              470909386 video/mp4      
+3   521315 BLURRED_FILE         private               1480958 video/avi      
+4   521522 file_example_MP3_1MG public                1059386 audio/mpeg     
+# ℹ 13 more variables: asset_format_id &lt;int&gt;, asset_format_name &lt;chr&gt;,
 #   asset_duration &lt;dbl&gt;, asset_created_at &lt;chr&gt;, asset_updated_at &lt;chr&gt;,
 #   asset_sha1 &lt;chr&gt;, asset_thumbnail_url &lt;chr&gt;, session_id &lt;int&gt;,
-#   session_name &lt;chr&gt;, session_release &lt;chr&gt;</code></pre>
+#   session_name &lt;chr&gt;, session_release &lt;chr&gt;, asset_uploader_id &lt;int&gt;,
+#   asset_uploader_first_name &lt;chr&gt;, asset_uploader_last_name &lt;chr&gt;</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volume_sessions</span>(<span class="at">vol_id =</span> <span class="dv">1</span>, <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volume_sessions</span>(<span class="at">vol_id =</span> <span class="dv">1</span>, <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Found n = 24 sessions in vol_id 1</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 24 × 7
-   session_id session_name                   session_release session_source_date
-        &lt;int&gt; &lt;chr&gt;                          &lt;chr&gt;           &lt;chr&gt;              
- 1       6256 Advisory Board Meeting         public          2013-10-28         
- 2       6257 Advisory Board Meeting         public          2014-04-07         
- 3       6540 Advisory Board Meeting         public          2014-10-17         
- 4       7821 SRCD Preconference Workshop    public          2015-03-18         
- 5       8460 Advisory Board Meeting         public          2015-05-11         
- 6       9224 Regional Workshop at NYU (Sli… public          2015-09-18         
- 7       9578 CDS Preconference Workshop     public          2015-10-08         
- 8      10068 Regional Workshop in Philadel… public          2015-11-20         
- 9      10991 Regional Workshop at Penn Sta… public          2016-03-25         
-10      11362 Regional Workshop at Universi… public          2016-04-15         
-# ℹ 14 more rows
-# ℹ 3 more variables: session_file_count &lt;int&gt;,
-#   session_accessible_file_count &lt;int&gt;, session_has_full_access &lt;lgl&gt;</code></pre>
+<pre><code># A tibble: 96 × 6
+   session_id session_name           session_release session_source_date
+        &lt;int&gt; &lt;chr&gt;                  &lt;chr&gt;           &lt;chr&gt;              
+ 1       6256 Advisory Board Meeting public          2013-10-28         
+ 2       6256 Advisory Board Meeting public          2013-10-28         
+ 3       6256 Advisory Board Meeting public          2013-10-28         
+ 4       6256 Advisory Board Meeting public          2013-10-28         
+ 5       6257 Advisory Board Meeting public          2014-04-07         
+ 6       6257 Advisory Board Meeting public          2014-04-07         
+ 7       6257 Advisory Board Meeting public          2014-04-07         
+ 8       6257 Advisory Board Meeting public          2014-04-07         
+ 9       6540 Advisory Board Meeting public          2014-10-17         
+10       6540 Advisory Board Meeting public          2014-10-17         
+# ℹ 86 more rows
+# ℹ 2 more variables: session_file_count &lt;named list&gt;,
+#   session_has_full_access &lt;lgl&gt;</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volume_tags</span>(<span class="at">vol_id =</span> <span class="dv">1</span>, <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volume_tags</span>(<span class="at">vol_id =</span> <span class="dv">1</span>, <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Found n = 6 tags in vol_id 1</code></pre>
 </div>
@@ -621,25 +648,22 @@ NULL</code></pre>
 [[6]]
 [1] "workshops"</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volumes</span>(<span class="at">search =</span> <span class="st">"PLAY"</span>, <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volumes</span>(<span class="at">search =</span> <span class="st">"PLAY"</span>, <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Found n = 64 volumes that matched the supplied filters.</code></pre>
+<pre><code>Found n = 8 volumes that matched the supplied filters.</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 64 × 14
-   volume_id volume_title                 volume_short_name volume_sharing_level
-       &lt;int&gt; &lt;chr&gt;                        &lt;chr&gt;             &lt;chr&gt;               
- 1      1049 PLAYProject_TEST             ""                private             
- 2       724 Play &amp; Learning Across a Ye… "PLAY-summit-201… public              
- 3       899 PLAYProject_NYUNI             &lt;NA&gt;             private             
- 4      1657 PLAYProject_PENNS             &lt;NA&gt;             public_overview_only
- 5       897 Learning the Designed Actio… "Hidden Affordan… public              
- 6        73 Motion Coherence Thresholds… "moco-behavior-a… public              
- 7       868 Keen                         "Keen"            public_overview_only
- 8        88 Flexibility in action: How … "BabyOH"          private             
- 9      1118 Infant exuberant object pla…  &lt;NA&gt;             public              
-10      1443 DELETE THIS VOLUME            &lt;NA&gt;             private             
-# ℹ 54 more rows
+<pre><code># A tibble: 8 × 14
+  volume_id volume_title                  volume_short_name volume_sharing_level
+      &lt;int&gt; &lt;chr&gt;                         &lt;chr&gt;             &lt;chr&gt;               
+1       686 Databrary &amp; Datavyu Help Vid… DB-DV Help        public              
+2      1657 PLAYProject_PENNS             &lt;NA&gt;              public_overview_only
+3        73 Motion Coherence Thresholds … moco-behavior-ad… public              
+4       218 Motion Coherence Thresholds … moco-behavior-ch… public              
+5        81 Natural scene statistics of … natural-scene-st… public              
+6        32 Spatio-temporal tuning of co… hou-etal-2009     public              
+7       881 PLAY-collection-test          PLAY-collection-… private             
+8       232 PLAY Project: Webinar discus… &lt;NA&gt;              private             
 # ℹ 10 more variables: volume_access_level &lt;chr&gt;,
 #   volume_owner_connection_id &lt;int&gt;, volume_owner_role &lt;chr&gt;,
 #   volume_owner_expiration_date &lt;chr&gt;, volume_owner_user_id &lt;int&gt;,
@@ -650,13 +674,13 @@ NULL</code></pre>
 </div>
 <p>The following function is <em>very</em> slow, so we do not run it by default.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volume_activity</span>(<span class="at">vol_id =</span> <span class="dv">31</span>) <span class="co"># Very slow</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volume_activity</span>(<span class="at">vol_id =</span> <span class="dv">31</span>) <span class="co"># Very slow</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="clean-up" class="level2">
 <h2 class="anchored" data-anchor-id="clean-up">Clean-up</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">logout_db</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">logout_db</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
