@@ -131,11 +131,60 @@ record_task_A
 2026-05-22: Gilmore needs more guidance about the standard procedure for associating records with sessions and files.
 :::
 
-## 
+## `upload_file`
+
+```{r}
+#| label: upload-png-file
+
+png_path <- "files/upload_01/png_sample.png"
+
+info_png <- upload_file(
+  path =  png_path,
+  destination_type = "session",
+  object_id = new_session$id
+)
+
+info_png
+```
+
+```{r}
+get_upload_status(info_png$status_url)
+```
+
+### `bulk_upload`
+
+```{r}
+#| label: bulk-upload-to-session-folder
+# Upload to session
+upload_01_files <- list.files("files/upload_01", full.names = TRUE)
+upload_02_files <- list.files("files/upload_02", full.names = TRUE)
+
+# Start the clock!
+start_upload <- proc.time()
+result_session <- bulk_upload_files(vol_id = params$test_vol_id, session_id = new_session$id,
+                  file_paths = upload_01_files, preflight = TRUE)
+proc.time() - start_upload
+
+result_session
+```
+
+```{r}
+#| label: bulk-upload-to-folder
+# Upload to folder
+start_upload <- proc.time()
+result_folder <- bulk_upload_files(vol_id = params$test_vol_id, session_id = NULL,
+                  file_paths = c(upload_01_files, upload_02_files),
+                  folder_id = new_folder$id, preflight = TRUE)
+proc.time() - start_upload
+
+result_folder
+```
 
 ## `delete_*` functions
 
 ```{r}
+#| label: delete-functions
+#| eval: false
 databraryr::delete_record_measure(vol_id = params$test_vol_id, record_id = record_control_group$record_id)
 
 databraryr::delete_session_file()
@@ -146,10 +195,11 @@ databraryr::delete_folder()
 databraryr::delete_volume_record()
 ```
 
-
 ## `bulk_assign*` functions
 
 ```{r}
+#| label: bulk-assign
+#| eval: false
 bulk_assign_records()
 bulk_unassign_records()
 ```
@@ -157,6 +207,8 @@ bulk_unassign_records()
 ### `bulk_{create,rename,delete}_*`
 
 ```{r}
+#| label: bulk-create-name-delete
+#| eval: false
 bulk_create_folders()
 
 bulk_create_records()
@@ -181,17 +233,15 @@ bulk_delete_sessions()
 ### `check_duplicate_*` functions
 
 ```{r}
+#| label: check-duplicates
+#| eval: false
 databraryr::check_duplicate_files_in_folder()
-
 databraryr::check_duplicate_files_in_session()
 ```
 
-### `bulk_upload`
+## Logout
 
 ```{r}
-bulk_upload_files()
-
-complete_upload()
+logout_db()
 ```
-
 
