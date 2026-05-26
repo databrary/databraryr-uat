@@ -10,13 +10,13 @@ params:
 
 ## About
 
-This documents the results of testing functions that involve file uploads.
+This documents the results of testing functions that involve session and folder creation, file uploads, record creation and deletion, and session, folder, and file deletions.
 
-::: {.callout-important}
+::: callout-important
 To make use of them, the tester must have write privileges on a Databrary volume.
 :::
 
-::: {.callout-warning}
+::: callout-warning
 These tests presume that the tester is accessing the test environment using a regular, Authorized Investigator, account.
 :::
 
@@ -79,7 +79,9 @@ login_db(email = Sys.getenv("DATABRARY_LOGIN"),
          vb = TRUE)
 ```
 
-## `create_*` functions
+## Single session/file/folder functions
+
+### `create_{folder,session}*` functions
 
 ```{r}
 #| label: create-folder
@@ -100,39 +102,7 @@ new_session <- create_session(vol_id = params$test_vol_id, name = session_name)
 new_session
 ```
 
-```{r}
-#| label: create-volume-record
-#| eval: false
-#| 
-record_P001 <- create_volume_record(
-  vol_id = params$test_vol_id,
-  category_id = 1,
-  name = "P001",
-  participant = list(birthday = list(
-    year = 1776, month = 7, day = 04))
-)
-
-record_control_group <- create_volume_record(vol_id = params$test_vol_id,
-                                             category_id = 6,
-                                             name = "Control group")
-
-record_task_A <- create_volume_record(
-  vol_id = params$test_vol_id,
-  category_id = 6,
-  name = "Task A",
-  measures = list("30" = "Extra value")
-)
-
-record_P001
-record_control_group
-record_task_A
-```
-
-::: {.callout-note}
-2026-05-22: Gilmore needs more guidance about the standard procedure for associating records with sessions and files. So, I'm setting `eval: false` for the above chunk.
-:::
-
-## `upload_file`
+### `upload_file`
 
 ```{r}
 #| label: upload-png-file
@@ -148,106 +118,21 @@ info_png <- upload_file(
 info_png
 ```
 
+Immediate status report.
+
 ```{r}
 get_upload_status(info_png$status_url)
 ```
 
-### `bulk_upload`
+Sleep for 5 seconds and try again.
 
 ```{r}
-#| label: bulk-upload-to-session-folder
-# Upload to session
-upload_01_files <- list.files("files/upload_01", full.names = TRUE)
-upload_02_files <- list.files("files/upload_02", full.names = TRUE)
-
-# Start the clock!
-start_upload <- proc.time()
-result_session <- bulk_upload_files(vol_id = params$test_vol_id, session_id = new_session$id,
-                  file_paths = upload_01_files, preflight = TRUE)
-proc.time() - start_upload
-
-result_session
+#| label: wait-5s-check-again
+Sys.sleep(5)
+get_upload_status(info_png$status_url)
 ```
 
-```{r}
-#| label: bulk-upload-to-folder
-# Upload to folder
-start_upload <- proc.time()
-result_folder <- bulk_upload_files(vol_id = params$test_vol_id, session_id = NULL,
-                  file_paths = c(upload_01_files, upload_02_files),
-                  folder_id = new_folder$id, preflight = TRUE)
-proc.time() - start_upload
-
-result_folder
-```
-
-## `bulk_rename_*` functions
-
-In the code below, I set `n_to_rename` to 3, but confirm that there are at least 3 files or sessions before renaming.
-If there aren't enough files or sessions, the chunk exits with an error message.
-
-```{r}
-#| label: bulk-rename-files
-n_to_rename <- 3
-
-these_files <- list_session_assets(session_id = new_session$id, vol_id = params$test_vol_id)
-
-if(dim(these_files)[1] < n_to_rename) {
-  n_to_rename = dim(these_files)[1]
-}
-
-if (n_to_rename < 1) {
-  stop("No files to rename in volume ", params$test_vol_id, ", session ", new_session$id)
-}
-
-file_asset_ids <- these_files$asset_id[1:n_to_rename]
-new_file_names <- stringr::str_replace(these_files$asset_name[1:n_to_rename], pattern = "_", replacement = "--")
-
-bulk_rename_these <- bulk_rename_files(vol_id = params$test_vol_id,
-                  session_id = new_session$id,
-                  file_ids = file_asset_ids,
-                  new_names = new_file_names)
-
-renamed_files <- list_session_assets(session_id = new_session$id, vol_id = params$test_vol_id)
-
-cbind(old_names = these_files$asset_name[1:n_to_rename], new_names = renamed_files$asset_name[1:n_to_rename])
-```
-
-```{r}
-#| label: bulk-rename-sessions
-#| eval: false
-n_to_rename <- 3
-
-these_sessions <- list_volume_sessions(vol_id = params$test_vol_id) |> 
-  dplyr::arrange(desc(session_id))
-
-if(dim(these_sessions)[1] < n_to_rename) {
-  n_to_rename = dim(these_sessions)[1]
-}
-
-if (n_to_rename < 1) {
-  stop("No sessions to rename in volume ", params$test_vol_id)
-}
-
-selected_session_ids <- these_sessions$session_id[1:n_to_rename]
-new_session_names <- stringr::str_replace(these_sessions$session_name[1:n_to_rename], pattern = "-", replacement = "__")
-
-bulk_rename_these <- bulk_rename_sessions(vol_id = params$test_vol_id, 
-                                          session_ids = selected_session_ids,
-                                          new_names = new_session_names)
-
-renamed_sessions <- list_volume_sessions(vol_id = params$test_vol_id) |> 
-  dplyr::arrange(desc(session_id))
-
-cbind(old_names = these_sessions$session_name[1:n_to_rename], new_names = renamed_sessions$session_name[1:n_to_rename])
-```
-
-::: {.callout-warning}
-2026-05-22: ROG to stop here. Why does the above code generate multiple session records with the same `session_name` and `session_id`?
-I'm setting `eval: false` in the chunk above until we can squash this bug.
-:::
-
-## `delete_*` functions
+### `delete_{folder,file,session}` functions
 
 ```{r}
 #| label: delete-folder
@@ -259,10 +144,8 @@ delete_folder_id <- vol_folders$folder_id[1]
 delete_folder(vol_id = params$test_vol_id, folder_id = delete_folder_id)
 ```
 
-::: {.callout-note}
-2026-05-22: ROG notes that none of the folders he created today show up under `list_volume_folders()`.
-This doesn't block the above code from working, but it means that the procedure for deleting the "latest" folder isn't actually deleting the most recent folder.
-Also, it looks like the create folder scheme is creating multiple folder copies with the same id's and names.
+::: callout-note
+It looks like the create folder scheme is creating multiple folder copies with the same id's and names.
 :::
 
 ```{r}
@@ -294,7 +177,7 @@ if (dim(session_files)[1] > 0) {
 }
 ```
 
-::: {.callout-note}
+::: callout-note
 2026-05-22: ROG notes that the file metadata does not show that the file has been deleted.
 :::
 
@@ -316,20 +199,262 @@ list_volume_sessions(vol_id = params$test_vol_id) |>
   head()
 ```
 
+## Bulk functions
+
+We just deleted a test session so we need to create session(s) to upload to first.
+
+### `bulk_create_sessions`
+
+```{r}
+#| label: bulk-create-sessions
+
+sessions_created <- bulk_create_sessions(vol_id = params$test_vol_id,
+                    session_names = c("bulk-session-01", "bulk-session-02"),
+                    source_date = c("1976-07-04", "2026-05-15"))
+sessions_created
+
+sessions_created_ids <- c(sessions_created$result[[1]]$id, sessions_created$result[[2]]$id)
+```
+
+### `bulk_upload_files` to session
+
+```{r}
+#| label: bulk-upload-to-session-folder
+#| 
+# Upload to session
+upload_01_files <- list.files("files/upload_01", full.names = TRUE)
+upload_02_files <- list.files("files/upload_02", full.names = TRUE)
+
+# Start the clock!
+start_upload <- proc.time()
+result_session <- bulk_upload_files(vol_id = params$test_vol_id, session_id = sessions_created_ids[1],
+                  file_paths = upload_01_files, preflight = TRUE)
+proc.time() - start_upload
+
+result_session
+```
+
+::: callout-note
+2026-05-26: ROG notes that bulk upload takes > 50 s.
+:::
+
+### `bulk_create_folders`
+
+```{r}
+#| label: bulk-create-folders
+
+folders_created <- bulk_create_folders(vol_id = params$test_vol_id,
+                    folder_names = c("bulk-folder-01", "bulk-folder-02"),
+                    source_date = c("1976-07-04", "2026-05-15"))
+folders_created
+
+folders_created_ids <- c(folders_created$result[[1]]$id, folders_created$result[[2]]$id)
+```
+
+### `bulk_upload_files` to folder
+
+Let's upload to a folder with files from two subfolders.
+
+```{r}
+#| label: bulk-upload-to-folder
+
+start_upload <- proc.time()
+result_folder <- bulk_upload_files(vol_id = params$test_vol_id, session_id = NULL,
+                  file_paths = c(upload_01_files, upload_02_files),
+                  folder_id = folders_created_ids[1], preflight = TRUE)
+proc.time() - start_upload
+
+result_folder
+```
+
+### `bulk_rename_{files,sessions,folders}` functions
+
+In the code below, I set `n_to_rename` to 3, but confirm that there are at least 3 files or sessions before renaming. If there aren't enough files or sessions, the chunk exits with an error message.
+
+```{r}
+#| label: bulk-rename-files
+n_to_rename <- 3
+
+these_files <- list_session_assets(session_id = sessions_created_ids[1], 
+                                   vol_id = params$test_vol_id)
+
+if(dim(these_files)[1] < n_to_rename) {
+  n_to_rename = dim(these_files)[1]
+}
+
+if (n_to_rename < 1) {
+  stop("No files to rename in volume ", params$test_vol_id, 
+       ", session ", new_session$id)
+}
+
+file_asset_ids <- these_files$asset_id[1:n_to_rename]
+new_file_names <- stringr::str_replace(these_files$asset_name[1:n_to_rename], 
+                                       pattern = "_", replacement = "--")
+
+bulk_rename_these <- bulk_rename_files(vol_id = params$test_vol_id,
+                  session_id = sessions_created_ids[1],
+                  file_ids = file_asset_ids,
+                  new_names = new_file_names)
+
+renamed_files <- list_session_assets(session_id = sessions_created_ids[1], 
+                                     vol_id = params$test_vol_id)
+
+cbind(old_names = these_files$asset_name[1:n_to_rename], 
+      new_names = renamed_files$asset_name[1:n_to_rename])
+```
+
 ::: {.callout-warning}
-2026-05-22: ROG unless otherwise noted, the chunks below have `eval: false` set to prevent them from running.
-This leaves the document in a state that renders successfully while I add code to handle testing the remaining functions.
+Bulk renaming requires a fix to the duplicate id and name bug.
 :::
 
 ```{r}
-#| label: delete-functions
-#| eval: false
-delete_record_measure(vol_id = params$test_vol_id, record_id = record_control_group$record_id)
+#| label: bulk-rename-sessions
 
-databraryr::delete_volume_record()
+n_to_rename <- 3
+
+these_sessions <- list_volume_sessions(vol_id = params$test_vol_id) |> 
+  dplyr::arrange(desc(session_id)) |>
+  dplyr::distinct()
+
+if (dim(these_sessions)[1] < 1) {
+  stop("No sessions to rename in volume ", params$test_vol_id)
+}
+
+session_ids_unique <- these_sessions$session_id |> 
+  unique()
+
+if(length(session_ids_unique) < n_to_rename) {
+  n_to_rename = length(session_ids_unique)
+}
+
+selected_session_ids <- session_ids_unique[1:n_to_rename]
+
+# these_sessions <- these_sessions |>
+#   dplyr::filter(session_id %in% selected_session_ids)
+
+sessions_to_rename <- these_sessions |>
+  dplyr::filter(session_id %in% selected_session_ids)
+
+unique_session_ids <- unique(sessions_to_rename$session_id)
+new_session_names <- paste0("new_session_", 1:length(unique_session_ids))
+
+bulk_rename_these <- bulk_rename_sessions(vol_id = params$test_vol_id, 
+                                          session_ids = unique_session_ids,
+                                          new_names = new_session_names)
+
+renamed_sessions <- list_volume_sessions(vol_id = params$test_vol_id) |> 
+  dplyr::arrange(desc(session_id)) |>
+  dplyr::distinct()
+
+cbind(old_names = these_sessions$session_name, 
+      new_names = renamed_sessions$session_name)
 ```
 
-## `bulk_assign*` functions
+```{r}
+#| label: bulk-rename-folders
+
+n_to_rename <- 3
+
+these_folders <- list_volume_folders(vol_id = params$test_vol_id) |> 
+  dplyr::arrange(desc(folder_id)) |>
+  dplyr::distinct()
+
+if (dim(these_folders)[1] < 1) {
+  stop("No sessions to rename in volume ", params$test_vol_id)
+}
+
+folder_ids_unique <- these_folders$folder_id |> 
+  unique()
+
+if(length(folder_ids_unique) < n_to_rename) {
+  n_to_rename = length(folder_ids_unique)
+}
+
+selected_folder_ids <- folder_ids_unique[1:n_to_rename]
+
+# these_folders <- these_folders |>
+#   dplyr::filter(folder_id %in% selected_folder_ids)
+
+folders_to_rename <- these_folders |>
+  dplyr::filter(folder_id %in% selected_folder_ids)
+
+unique_folder_ids <- unique(folders_to_rename$folder_id)
+new_folder_names <- paste0("new_folder_", 1:length(unique_folder_ids))
+
+bulk_rename_these <- bulk_rename_folders(vol_id = params$test_vol_id, 
+                                          folder_ids = unique_folder_ids,
+                                          new_names = new_folder_names)
+
+renamed_folders <- list_volume_folders(vol_id = params$test_vol_id) |> 
+  dplyr::arrange(desc(folder_id)) |>
+  dplyr::distinct()
+
+cbind(old_names = these_folders$folder_name, 
+      new_names = renamed_folders$folder_name)
+```
+
+### `check_duplicate_files_in_{folder,session}`
+
+```{r}
+#| label: check-duplicates
+#| eval: false
+check_duplicate_files_in_folder(vol_id = params$test_vol_id, filenames = "new_")
+check_duplicate_files_in_session(vol_id = params$test_vol_id, filenames = "new_")
+```
+
+### `bulk_delete_{sessions,folders}`
+
+```{r}
+#| label: bulk-delete-sessions
+
+bulk_delete_sessions(vol_id = params$test_vol_id,
+                     session_ids <- sessions_created_ids)
+```
+
+```{r}
+#| label: bulk-delete-folders
+
+bulk_delete_folders(vol_id = params$test_vol_id,
+                     session_ids <- folders_created_ids)
+```
+
+## `_record` functions
+
+::: callout-note
+2026-05-22: Gilmore needs more guidance about the standard procedure for associating records with sessions and files. So, I'm setting `eval: false` for the above chunk.
+:::
+
+### `create_volume_record`
+
+```{r}
+#| label: create-volume-record
+#| eval: false
+#| 
+record_P001 <- create_volume_record(
+  vol_id = params$test_vol_id,
+  category_id = 1,
+  name = "P001",
+  participant = list(birthday = list(
+    year = 1776, month = 7, day = 04))
+)
+
+record_control_group <- create_volume_record(vol_id = params$test_vol_id,
+                                             category_id = 6,
+                                             name = "Control group")
+
+record_task_A <- create_volume_record(
+  vol_id = params$test_vol_id,
+  category_id = 6,
+  name = "Task A",
+  measures = list("30" = "Extra value")
+)
+
+record_P001
+record_control_group
+record_task_A
+```
+
+### `bulk_assign*` functions
 
 ```{r}
 #| label: bulk-assign
@@ -338,31 +463,22 @@ bulk_assign_records()
 bulk_unassign_records()
 ```
 
-### `bulk_{create,rename,delete}_*`
+### `delete_{record_measure, volume_record}`
 
 ```{r}
-#| label: bulk-create-name-delete
+#| label: delete-record-measure
 #| eval: false
-bulk_create_folders()
+delete_record_measure(vol_id = params$test_vol_id, record_id = record_control_group$record_id)
 
-bulk_create_records()
-
-bulk_delete_files()
-
-bulk_delete_folders()
-
-bulk_delete_records()
-
-bulk_delete_sessions()
+databraryr::delete_volume_record()
 ```
 
-### `check_duplicate_*` functions
+### `bulk_delete_records` functions
 
 ```{r}
-#| label: check-duplicates
+#| label: bulk-delete-records
 #| eval: false
-databraryr::check_duplicate_files_in_folder()
-databraryr::check_duplicate_files_in_session()
+bulk_delete_records()
 ```
 
 ## Logout
@@ -370,4 +486,3 @@ databraryr::check_duplicate_files_in_session()
 ```{r}
 logout_db()
 ```
-

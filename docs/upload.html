@@ -213,17 +213,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a></li>
   <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
-  <li><a href="#create_-functions" id="toc-create_-functions" class="nav-link" data-scroll-target="#create_-functions"><code>create_*</code> functions</a></li>
-  <li><a href="#upload_file" id="toc-upload_file" class="nav-link" data-scroll-target="#upload_file"><code>upload_file</code></a>
+  <li><a href="#single-sessionfilefolder-functions" id="toc-single-sessionfilefolder-functions" class="nav-link" data-scroll-target="#single-sessionfilefolder-functions">Single session/file/folder functions</a>
   <ul>
-  <li><a href="#bulk_upload" id="toc-bulk_upload" class="nav-link" data-scroll-target="#bulk_upload"><code>bulk_upload</code></a></li>
+  <li><a href="#create_foldersession-functions" id="toc-create_foldersession-functions" class="nav-link" data-scroll-target="#create_foldersession-functions"><code>create_{folder,session}*</code> functions</a></li>
+  <li><a href="#upload_file" id="toc-upload_file" class="nav-link" data-scroll-target="#upload_file"><code>upload_file</code></a></li>
+  <li><a href="#delete_folderfilesession-functions" id="toc-delete_folderfilesession-functions" class="nav-link" data-scroll-target="#delete_folderfilesession-functions"><code>delete_{folder,file,session}</code> functions</a></li>
   </ul></li>
-  <li><a href="#bulk_rename_-functions" id="toc-bulk_rename_-functions" class="nav-link" data-scroll-target="#bulk_rename_-functions"><code>bulk_rename_*</code> functions</a></li>
-  <li><a href="#delete_-functions" id="toc-delete_-functions" class="nav-link" data-scroll-target="#delete_-functions"><code>delete_*</code> functions</a></li>
-  <li><a href="#bulk_assign-functions" id="toc-bulk_assign-functions" class="nav-link" data-scroll-target="#bulk_assign-functions"><code>bulk_assign*</code> functions</a>
+  <li><a href="#bulk-functions" id="toc-bulk-functions" class="nav-link" data-scroll-target="#bulk-functions">Bulk functions</a>
   <ul>
-  <li><a href="#bulk_createrenamedelete_" id="toc-bulk_createrenamedelete_" class="nav-link" data-scroll-target="#bulk_createrenamedelete_"><code>bulk_{create,rename,delete}_*</code></a></li>
-  <li><a href="#check_duplicate_-functions" id="toc-check_duplicate_-functions" class="nav-link" data-scroll-target="#check_duplicate_-functions"><code>check_duplicate_*</code> functions</a></li>
+  <li><a href="#bulk_create_sessions" id="toc-bulk_create_sessions" class="nav-link" data-scroll-target="#bulk_create_sessions"><code>bulk_create_sessions</code></a></li>
+  <li><a href="#bulk_upload_files-to-session" id="toc-bulk_upload_files-to-session" class="nav-link" data-scroll-target="#bulk_upload_files-to-session"><code>bulk_upload_files</code> to session</a></li>
+  <li><a href="#bulk_create_folders" id="toc-bulk_create_folders" class="nav-link" data-scroll-target="#bulk_create_folders"><code>bulk_create_folders</code></a></li>
+  <li><a href="#bulk_upload_files-to-folder" id="toc-bulk_upload_files-to-folder" class="nav-link" data-scroll-target="#bulk_upload_files-to-folder"><code>bulk_upload_files</code> to folder</a></li>
+  <li><a href="#bulk_rename_filessessionsfolders-functions" id="toc-bulk_rename_filessessionsfolders-functions" class="nav-link" data-scroll-target="#bulk_rename_filessessionsfolders-functions"><code>bulk_rename_{files,sessions,folders}</code> functions</a></li>
+  <li><a href="#check_duplicate_files_in_foldersession" id="toc-check_duplicate_files_in_foldersession" class="nav-link" data-scroll-target="#check_duplicate_files_in_foldersession"><code>check_duplicate_files_in_{folder,session}</code></a></li>
+  <li><a href="#bulk_delete_sessionsfolders" id="toc-bulk_delete_sessionsfolders" class="nav-link" data-scroll-target="#bulk_delete_sessionsfolders"><code>bulk_delete_{sessions,folders}</code></a></li>
+  </ul></li>
+  <li><a href="#record-functions" id="toc-record-functions" class="nav-link" data-scroll-target="#record-functions"><code>_record</code> functions</a>
+  <ul>
+  <li><a href="#create_volume_record" id="toc-create_volume_record" class="nav-link" data-scroll-target="#create_volume_record"><code>create_volume_record</code></a></li>
+  <li><a href="#bulk_assign-functions" id="toc-bulk_assign-functions" class="nav-link" data-scroll-target="#bulk_assign-functions"><code>bulk_assign*</code> functions</a></li>
+  <li><a href="#delete_record_measure-volume_record" id="toc-delete_record_measure-volume_record" class="nav-link" data-scroll-target="#delete_record_measure-volume_record"><code>delete_{record_measure, volume_record}</code></a></li>
+  <li><a href="#bulk_delete_records-functions" id="toc-bulk_delete_records-functions" class="nav-link" data-scroll-target="#bulk_delete_records-functions"><code>bulk_delete_records</code> functions</a></li>
   </ul></li>
   <li><a href="#logout" id="toc-logout" class="nav-link" data-scroll-target="#logout">Logout</a></li>
   </ul>
@@ -358,8 +369,10 @@ Warning
 </div>
 </div>
 </section>
-<section id="create_-functions" class="level2">
-<h2 class="anchored" data-anchor-id="create_-functions"><code>create_*</code> functions</h2>
+<section id="single-sessionfilefolder-functions" class="level2">
+<h2 class="anchored" data-anchor-id="single-sessionfilefolder-functions">Single session/file/folder functions</h2>
+<section id="create_foldersession-functions" class="level3">
+<h3 class="anchored" data-anchor-id="create_foldersession-functions"><code>create_{folder,session}*</code> functions</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> assertthat<span class="sc">::</span><span class="fu">is.number</span>(params<span class="sc">$</span>test_vol_id)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> assertthat<span class="sc">::</span><span class="fu">assert_that</span>(params<span class="sc">$</span>test_vol_id <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
@@ -370,10 +383,10 @@ Warning
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>new_folder</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$id
-[1] 76254
+[1] 76275
 
 $name
-[1] "Fri-May-22-14:13:11-2026"
+[1] "Tue-May-26-09:38:04-2026"
 
 $volume
 [1] "1777"
@@ -382,10 +395,10 @@ $release_level
 [1] "private"
 
 $created_at
-[1] "2026-05-22T18:13:13.137455Z"
+[1] "2026-05-26T13:38:06.859365Z"
 
 $updated_at
-[1] "2026-05-22T18:13:13.137467Z"
+[1] "2026-05-26T13:38:06.859374Z"
 
 $file_counts
 $file_counts$native_accessible
@@ -421,10 +434,10 @@ NULL</code></pre>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>new_session</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$id
-[1] 76712
+[1] 76752
 
 $name
-[1] "Fri-May-22-14:13:11-2026"
+[1] "Tue-May-26-09:38:04-2026"
 
 $release_level
 [1] "private"
@@ -433,210 +446,55 @@ $source_date
 NULL</code></pre>
 </div>
 </div>
+</section>
+<section id="upload_file" class="level3">
+<h3 class="anchored" data-anchor-id="upload_file"><code>upload_file</code></h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>record_P001 <span class="ot">&lt;-</span> <span class="fu">create_volume_record</span>(</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id,</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">category_id =</span> <span class="dv">1</span>,</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="st">"P001"</span>,</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">participant =</span> <span class="fu">list</span>(<span class="at">birthday =</span> <span class="fu">list</span>(</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">year =</span> <span class="dv">1776</span>, <span class="at">month =</span> <span class="dv">7</span>, <span class="at">day =</span> <span class="dv">04</span>))</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>png_path <span class="ot">&lt;-</span> <span class="st">"files/upload_01/png_sample.png"</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>info_png <span class="ot">&lt;-</span> <span class="fu">upload_file</span>(</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">path =</span>  png_path,</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">destination_type =</span> <span class="st">"session"</span>,</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">object_id =</span> new_session<span class="sc">$</span>id</span>
 <span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>record_control_group <span class="ot">&lt;-</span> <span class="fu">create_volume_record</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id,</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">category_id =</span> <span class="dv">6</span>,</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">name =</span> <span class="st">"Control group"</span>)</span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>record_task_A <span class="ot">&lt;-</span> <span class="fu">create_volume_record</span>(</span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id,</span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">category_id =</span> <span class="dv">6</span>,</span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="st">"Task A"</span>,</span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">measures =</span> <span class="fu">list</span>(<span class="st">"30"</span> <span class="ot">=</span> <span class="st">"Extra value"</span>)</span>
-<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>record_P001</span>
-<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>record_control_group</span>
-<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>record_task_A</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>2026-05-22: Gilmore needs more guidance about the standard procedure for associating records with sessions and files. So, I’m setting <code>eval: false</code> for the above chunk.</p>
-</div>
-</div>
-</section>
-<section id="upload_file" class="level2">
-<h2 class="anchored" data-anchor-id="upload_file"><code>upload_file</code></h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>png_path <span class="ot">&lt;-</span> <span class="st">"files/upload_01/png_sample.png"</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>info_png <span class="ot">&lt;-</span> <span class="fu">upload_file</span>(</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">path =</span>  png_path,</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">destination_type =</span> <span class="st">"session"</span>,</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">object_id =</span> new_session<span class="sc">$</span>id</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>info_png</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>info_png</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$upload_guid
 NULL
 
 $status_url
-[1] "https://api.stg-databrary.its.nyu.edu/uploads/fc563bfc-e801-410a-a7fd-eb3478aec4d9/status/"
+[1] "https://api.stg-databrary.its.nyu.edu/uploads/45a4d7d2-ec08-4f89-9d83-a6c43bbdab7b/status/"
 
 $upload_type
 [1] "single"</code></pre>
 </div>
 </div>
+<p>Immediate status report.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_upload_status</span>(info_png<span class="sc">$</span>status_url)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_upload_status</span>(info_png<span class="sc">$</span>status_url)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "processing"</code></pre>
 </div>
 </div>
-<section id="bulk_upload" class="level3">
-<h3 class="anchored" data-anchor-id="bulk_upload"><code>bulk_upload</code></h3>
+<p>Sleep for 5 seconds and try again.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Upload to session</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>upload_01_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="st">"files/upload_01"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>upload_02_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="st">"files/upload_02"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Start the clock!</span></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>start_upload <span class="ot">&lt;-</span> <span class="fu">proc.time</span>()</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>result_session <span class="ot">&lt;-</span> <span class="fu">bulk_upload_files</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id, <span class="at">session_id =</span> new_session<span class="sc">$</span>id,</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">file_paths =</span> upload_01_files, <span class="at">preflight =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="fu">proc.time</span>() <span class="sc">-</span> start_upload</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.sleep</span>(<span class="dv">5</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">get_upload_status</span>(info_png<span class="sc">$</span>status_url)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   user  system elapsed 
-  2.380   0.931  55.483 </code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>result_session</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 5
-  input                                         status result       error reason
-  &lt;chr&gt;                                         &lt;chr&gt;  &lt;list&gt;       &lt;chr&gt; &lt;chr&gt; 
-1 files/upload_01/audio_sample.mp3              succe… &lt;named list&gt; &lt;NA&gt;  &lt;NA&gt;  
-2 files/upload_01/big_buck_bunny_480p_surround… succe… &lt;named list&gt; &lt;NA&gt;  &lt;NA&gt;  
-3 files/upload_01/new_volume.csv                succe… &lt;named list&gt; &lt;NA&gt;  &lt;NA&gt;  
-4 files/upload_01/png_sample.png                skipp… &lt;NULL&gt;       &lt;NA&gt;  dupli…</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Upload to folder</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>start_upload <span class="ot">&lt;-</span> <span class="fu">proc.time</span>()</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>result_folder <span class="ot">&lt;-</span> <span class="fu">bulk_upload_files</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id, <span class="at">session_id =</span> <span class="cn">NULL</span>,</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">file_paths =</span> <span class="fu">c</span>(upload_01_files, upload_02_files),</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">folder_id =</span> new_folder<span class="sc">$</span>id, <span class="at">preflight =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="fu">proc.time</span>() <span class="sc">-</span> start_upload</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   user  system elapsed 
-  2.437   0.950  57.466 </code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>result_folder</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 7 × 5
-  input                                         status result       error reason
-  &lt;chr&gt;                                         &lt;chr&gt;  &lt;list&gt;       &lt;chr&gt; &lt;chr&gt; 
-1 files/upload_01/audio_sample.mp3              succe… &lt;named list&gt; &lt;NA&gt;  &lt;NA&gt;  
-2 files/upload_01/big_buck_bunny_480p_surround… succe… &lt;named list&gt; &lt;NA&gt;  &lt;NA&gt;  
-3 files/upload_01/new_volume.csv                succe… &lt;named list&gt; &lt;NA&gt;  &lt;NA&gt;  
-4 files/upload_01/png_sample.png                succe… &lt;named list&gt; &lt;NA&gt;  &lt;NA&gt;  
-5 files/upload_02/mp4_sample_optic_flow.mp4     succe… &lt;named list&gt; &lt;NA&gt;  &lt;NA&gt;  
-6 files/upload_02/new_volume.csv                succe… &lt;named list&gt; &lt;NA&gt;  &lt;NA&gt;  
-7 files/upload_02/pdf_sample.pdf                succe… &lt;named list&gt; &lt;NA&gt;  &lt;NA&gt;  </code></pre>
+<pre><code>[1] "completed"</code></pre>
 </div>
 </div>
 </section>
-</section>
-<section id="bulk_rename_-functions" class="level2">
-<h2 class="anchored" data-anchor-id="bulk_rename_-functions"><code>bulk_rename_*</code> functions</h2>
-<p>In the code below, I set <code>n_to_rename</code> to 3, but confirm that there are at least 3 files or sessions before renaming. If there aren’t enough files or sessions, the chunk exits with an error message.</p>
+<section id="delete_folderfilesession-functions" class="level3">
+<h3 class="anchored" data-anchor-id="delete_folderfilesession-functions"><code>delete_{folder,file,session}</code> functions</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>n_to_rename <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>these_files <span class="ot">&lt;-</span> <span class="fu">list_session_assets</span>(<span class="at">session_id =</span> new_session<span class="sc">$</span>id, <span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id)</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">dim</span>(these_files)[<span class="dv">1</span>] <span class="sc">&lt;</span> n_to_rename) {</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  n_to_rename <span class="ot">=</span> <span class="fu">dim</span>(these_files)[<span class="dv">1</span>]</span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (n_to_rename <span class="sc">&lt;</span> <span class="dv">1</span>) {</span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">"No files to rename in volume "</span>, params<span class="sc">$</span>test_vol_id, <span class="st">", session "</span>, new_session<span class="sc">$</span>id)</span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>file_asset_ids <span class="ot">&lt;-</span> these_files<span class="sc">$</span>asset_id[<span class="dv">1</span><span class="sc">:</span>n_to_rename]</span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>new_file_names <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_replace</span>(these_files<span class="sc">$</span>asset_name[<span class="dv">1</span><span class="sc">:</span>n_to_rename], <span class="at">pattern =</span> <span class="st">"_"</span>, <span class="at">replacement =</span> <span class="st">"--"</span>)</span>
-<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>bulk_rename_these <span class="ot">&lt;-</span> <span class="fu">bulk_rename_files</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id,</span>
-<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>                  <span class="at">session_id =</span> new_session<span class="sc">$</span>id,</span>
-<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>                  <span class="at">file_ids =</span> file_asset_ids,</span>
-<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>                  <span class="at">new_names =</span> new_file_names)</span>
-<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>renamed_files <span class="ot">&lt;-</span> <span class="fu">list_session_assets</span>(<span class="at">session_id =</span> new_session<span class="sc">$</span>id, <span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id)</span>
-<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(<span class="at">old_names =</span> these_files<span class="sc">$</span>asset_name[<span class="dv">1</span><span class="sc">:</span>n_to_rename], <span class="at">new_names =</span> renamed_files<span class="sc">$</span>asset_name[<span class="dv">1</span><span class="sc">:</span>n_to_rename])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     old_names                          new_names                          
-[1,] "png_sample"                       "png--sample"                      
-[2,] "audio_sample"                     "audio--sample"                    
-[3,] "big_buck_bunny_480p_surround-fix" "big--buck_bunny_480p_surround-fix"</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>n_to_rename <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>these_sessions <span class="ot">&lt;-</span> <span class="fu">list_volume_sessions</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id) <span class="sc">|&gt;</span> </span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(session_id))</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">dim</span>(these_sessions)[<span class="dv">1</span>] <span class="sc">&lt;</span> n_to_rename) {</span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>  n_to_rename <span class="ot">=</span> <span class="fu">dim</span>(these_sessions)[<span class="dv">1</span>]</span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (n_to_rename <span class="sc">&lt;</span> <span class="dv">1</span>) {</span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">"No sessions to rename in volume "</span>, params<span class="sc">$</span>test_vol_id)</span>
-<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>selected_session_ids <span class="ot">&lt;-</span> these_sessions<span class="sc">$</span>session_id[<span class="dv">1</span><span class="sc">:</span>n_to_rename]</span>
-<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>new_session_names <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_replace</span>(these_sessions<span class="sc">$</span>session_name[<span class="dv">1</span><span class="sc">:</span>n_to_rename], <span class="at">pattern =</span> <span class="st">"-"</span>, <span class="at">replacement =</span> <span class="st">"__"</span>)</span>
-<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>bulk_rename_these <span class="ot">&lt;-</span> <span class="fu">bulk_rename_sessions</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id, </span>
-<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">session_ids =</span> selected_session_ids,</span>
-<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">new_names =</span> new_session_names)</span>
-<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a>renamed_sessions <span class="ot">&lt;-</span> <span class="fu">list_volume_sessions</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id) <span class="sc">|&gt;</span> </span>
-<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(session_id))</span>
-<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(<span class="at">old_names =</span> these_sessions<span class="sc">$</span>session_name[<span class="dv">1</span><span class="sc">:</span>n_to_rename], <span class="at">new_names =</span> renamed_sessions<span class="sc">$</span>session_name[<span class="dv">1</span><span class="sc">:</span>n_to_rename])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>2026-05-22: ROG to stop here. Why does the above code generate multiple session records with the same <code>session_name</code> and <code>session_id</code>? I’m setting <code>eval: false</code> in the chunk above until we can squash this bug.</p>
-</div>
-</div>
-</section>
-<section id="delete_-functions" class="level2">
-<h2 class="anchored" data-anchor-id="delete_-functions"><code>delete_*</code> functions</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>vol_folders <span class="ot">&lt;-</span> <span class="fu">list_volume_folders</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id) <span class="sc">|&gt;</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(folder_id))</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>delete_folder_id <span class="ot">&lt;-</span> vol_folders<span class="sc">$</span>folder_id[<span class="dv">1</span>]</span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="fu">delete_folder</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id, <span class="at">folder_id =</span> delete_folder_id)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>vol_folders <span class="ot">&lt;-</span> <span class="fu">list_volume_folders</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id) <span class="sc">|&gt;</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(folder_id))</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>delete_folder_id <span class="ot">&lt;-</span> vol_folders<span class="sc">$</span>folder_id[<span class="dv">1</span>]</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="fu">delete_folder</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id, <span class="at">folder_id =</span> delete_folder_id)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
@@ -651,26 +509,23 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>2026-05-22: ROG notes that none of the folders he created today show up under <code>list_volume_folders()</code>. This doesn’t block the above code from working, but it means that the procedure for deleting the “latest” folder isn’t actually deleting the most recent folder. Also, it looks like the create folder scheme is creating multiple folder copies with the same id’s and names.</p>
+<p>It looks like the create folder scheme is creating multiple folder copies with the same id’s and names.</p>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>vol_sessions <span class="ot">&lt;-</span> <span class="fu">list_volume_sessions</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id) <span class="sc">|&gt;</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(session_id))</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>delete_session_id <span class="ot">&lt;-</span> vol_sessions<span class="sc">$</span>session_id[<span class="dv">1</span>]</span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>session_files <span class="ot">&lt;-</span> <span class="fu">list_session_assets</span>(<span class="at">session_id =</span> delete_session_id, <span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id)</span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>session_files</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>vol_sessions <span class="ot">&lt;-</span> <span class="fu">list_volume_sessions</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id) <span class="sc">|&gt;</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(session_id))</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>delete_session_id <span class="ot">&lt;-</span> vol_sessions<span class="sc">$</span>session_id[<span class="dv">1</span>]</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>session_files <span class="ot">&lt;-</span> <span class="fu">list_session_assets</span>(<span class="at">session_id =</span> delete_session_id, <span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id)</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>session_files</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 20
-  asset_id asset_name                asset_permission asset_size asset_mime_type
-     &lt;int&gt; &lt;chr&gt;                     &lt;chr&gt;                 &lt;int&gt; &lt;chr&gt;          
-1   527981 png--sample               private             1823520 image/png      
-2   527982 audio--sample             private              561252 audio/mpeg     
-3   527983 big--buck_bunny_480p_sur… private            81986538 video/mp4      
-4   527984 new_volume                private                 224 text/csv       
+<pre><code># A tibble: 1 × 20
+  asset_id asset_name asset_permission asset_size asset_mime_type
+     &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;                 &lt;int&gt; &lt;chr&gt;          
+1   528108 png_sample private             1823520 image/png      
 # ℹ 15 more variables: asset_format_id &lt;int&gt;, asset_format_name &lt;chr&gt;,
 #   format_extension &lt;list&gt;, asset_duration &lt;dbl&gt;, asset_created_at &lt;chr&gt;,
 #   asset_updated_at &lt;chr&gt;, asset_uploader_id &lt;int&gt;,
@@ -678,30 +533,27 @@ Note
 #   asset_sha1 &lt;chr&gt;, asset_thumbnail_url &lt;chr&gt;, session_id &lt;int&gt;,
 #   vol_id &lt;int&gt;, session_name &lt;chr&gt;, session_release &lt;chr&gt;</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">dim</span>(session_files)[<span class="dv">1</span>] <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  delete_asset_id <span class="ot">&lt;-</span> vol_sessions<span class="sc">$</span>session_id[<span class="dv">1</span>]</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">delete_session_file</span>(</span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id,</span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">session_id =</span> delete_session_id,</span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">file_id =</span> delete_asset_id</span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list_session_assets</span>(<span class="at">session_id =</span> delete_session_id, <span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id)</span>
-<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">"No files to delete in volume "</span>,</span>
-<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>       params<span class="sc">$</span>test_vol_id,</span>
-<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>       <span class="st">", session "</span>,</span>
-<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>       delete_session_id)</span>
-<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">dim</span>(session_files)[<span class="dv">1</span>] <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  delete_asset_id <span class="ot">&lt;-</span> vol_sessions<span class="sc">$</span>session_id[<span class="dv">1</span>]</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">delete_session_file</span>(</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id,</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">session_id =</span> delete_session_id,</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">file_id =</span> delete_asset_id</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list_session_assets</span>(<span class="at">session_id =</span> delete_session_id, <span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id)</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">"No files to delete in volume "</span>,</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>       params<span class="sc">$</span>test_vol_id,</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>       <span class="st">", session "</span>,</span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>       delete_session_id)</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 20
-  asset_id asset_name                asset_permission asset_size asset_mime_type
-     &lt;int&gt; &lt;chr&gt;                     &lt;chr&gt;                 &lt;int&gt; &lt;chr&gt;          
-1   527981 png--sample               private             1823520 image/png      
-2   527982 audio--sample             private              561252 audio/mpeg     
-3   527983 big--buck_bunny_480p_sur… private            81986538 video/mp4      
-4   527984 new_volume                private                 224 text/csv       
+<pre><code># A tibble: 1 × 20
+  asset_id asset_name asset_permission asset_size asset_mime_type
+     &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;                 &lt;int&gt; &lt;chr&gt;          
+1   528108 png_sample private             1823520 image/png      
 # ℹ 15 more variables: asset_format_id &lt;int&gt;, asset_format_name &lt;chr&gt;,
 #   format_extension &lt;list&gt;, asset_duration &lt;dbl&gt;, asset_created_at &lt;chr&gt;,
 #   asset_updated_at &lt;chr&gt;, asset_uploader_id &lt;int&gt;,
@@ -724,44 +576,191 @@ Note
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>vol_sessions <span class="ot">&lt;-</span> <span class="fu">list_volume_sessions</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id) <span class="sc">|&gt;</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(session_id))</span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Before deletion</span></span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(vol_sessions)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>vol_sessions <span class="ot">&lt;-</span> <span class="fu">list_volume_sessions</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id) <span class="sc">|&gt;</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(session_id))</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Before deletion</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(vol_sessions)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 5
+<pre><code># A tibble: 6 × 6
   session_id session_name             session_release session_file_count
        &lt;int&gt; &lt;chr&gt;                    &lt;chr&gt;           &lt;named list&gt;      
-1      76712 Fri-May-22-14:13:11-2026 private         &lt;int [1]&gt;         
-2      76712 Fri-May-22-14:13:11-2026 private         &lt;int [1]&gt;         
-3      76712 Fri-May-22-14:13:11-2026 private         &lt;int [1]&gt;         
-4      76712 Fri-May-22-14:13:11-2026 private         &lt;int [1]&gt;         
-5      76708 Fri-May-22-13:22:37-2026 private         &lt;int [1]&gt;         
-6      76708 Fri-May-22-13:22:37-2026 private         &lt;int [1]&gt;         
-# ℹ 1 more variable: session_has_full_access &lt;lgl&gt;</code></pre>
+1      76752 Tue-May-26-09:38:04-2026 private         &lt;int [1]&gt;         
+2      76752 Tue-May-26-09:38:04-2026 private         &lt;int [1]&gt;         
+3      76752 Tue-May-26-09:38:04-2026 private         &lt;int [1]&gt;         
+4      76752 Tue-May-26-09:38:04-2026 private         &lt;int [1]&gt;         
+5      76747 new_session_3            private         &lt;int [1]&gt;         
+6      76747 new_session_3            private         &lt;int [1]&gt;         
+# ℹ 2 more variables: session_has_full_access &lt;lgl&gt;, session_source_date &lt;chr&gt;</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>delete_session_id <span class="ot">&lt;-</span> vol_sessions<span class="sc">$</span>session_id[<span class="dv">1</span>]</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="fu">delete_session</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id, <span class="at">session_id =</span> delete_session_id)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>delete_session_id <span class="ot">&lt;-</span> vol_sessions<span class="sc">$</span>session_id[<span class="dv">1</span>]</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">delete_session</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id, <span class="at">session_id =</span> delete_session_id)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># After deletion</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volume_sessions</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id) <span class="sc">|&gt;</span></span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(session_id)) <span class="sc">|&gt;</span></span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># After deletion</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volume_sessions</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id) <span class="sc">|&gt;</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(session_id)) <span class="sc">|&gt;</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 5
-  session_id session_name             session_release session_file_count
-       &lt;int&gt; &lt;chr&gt;                    &lt;chr&gt;           &lt;named list&gt;      
-1      76708 Fri-May-22-13:22:37-2026 private         &lt;int [1]&gt;         
-2      76708 Fri-May-22-13:22:37-2026 private         &lt;int [1]&gt;         
-3      76708 Fri-May-22-13:22:37-2026 private         &lt;int [1]&gt;         
-4      76708 Fri-May-22-13:22:37-2026 private         &lt;int [1]&gt;         
-5      76707 Fri-May-22-13:06:13-2026 private         &lt;int [1]&gt;         
-6      76707 Fri-May-22-13:06:13-2026 private         &lt;int [1]&gt;         
-# ℹ 1 more variable: session_has_full_access &lt;lgl&gt;</code></pre>
+<pre><code># A tibble: 6 × 6
+  session_id session_name  session_release session_file_count
+       &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;           &lt;named list&gt;      
+1      76747 new_session_3 private         &lt;int [1]&gt;         
+2      76747 new_session_3 private         &lt;int [1]&gt;         
+3      76747 new_session_3 private         &lt;int [1]&gt;         
+4      76747 new_session_3 private         &lt;int [1]&gt;         
+5      76746 new_session_2 private         &lt;int [1]&gt;         
+6      76746 new_session_2 private         &lt;int [1]&gt;         
+# ℹ 2 more variables: session_has_full_access &lt;lgl&gt;, session_source_date &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="bulk-functions" class="level2">
+<h2 class="anchored" data-anchor-id="bulk-functions">Bulk functions</h2>
+<p>We just deleted a test session so we need to create session(s) to upload to first.</p>
+<section id="bulk_create_sessions" class="level3">
+<h3 class="anchored" data-anchor-id="bulk_create_sessions"><code>bulk_create_sessions</code></h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>sessions_created <span class="ot">&lt;-</span> <span class="fu">bulk_create_sessions</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id,</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">session_names =</span> <span class="fu">c</span>(<span class="st">"bulk-session-01"</span>, <span class="st">"bulk-session-02"</span>),</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">source_date =</span> <span class="fu">c</span>(<span class="st">"1976-07-04"</span>, <span class="st">"2026-05-15"</span>))</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>sessions_created</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 5
+  input           status  result           error reason
+  &lt;chr&gt;           &lt;chr&gt;   &lt;list&gt;           &lt;chr&gt; &lt;chr&gt; 
+1 bulk-session-01 success &lt;named list [4]&gt; &lt;NA&gt;  &lt;NA&gt;  
+2 bulk-session-02 success &lt;named list [4]&gt; &lt;NA&gt;  &lt;NA&gt;  </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>sessions_created_ids <span class="ot">&lt;-</span> <span class="fu">c</span>(sessions_created<span class="sc">$</span>result[[<span class="dv">1</span>]]<span class="sc">$</span>id, sessions_created<span class="sc">$</span>result[[<span class="dv">2</span>]]<span class="sc">$</span>id)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="bulk_upload_files-to-session" class="level3">
+<h3 class="anchored" data-anchor-id="bulk_upload_files-to-session"><code>bulk_upload_files</code> to session</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Upload to session</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>upload_01_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="st">"files/upload_01"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>upload_02_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="st">"files/upload_02"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Start the clock!</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>start_upload <span class="ot">&lt;-</span> <span class="fu">proc.time</span>()</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>result_session <span class="ot">&lt;-</span> <span class="fu">bulk_upload_files</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id, <span class="at">session_id =</span> sessions_created_ids[<span class="dv">1</span>],</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">file_paths =</span> upload_01_files, <span class="at">preflight =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a><span class="fu">proc.time</span>() <span class="sc">-</span> start_upload</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   user  system elapsed 
+  2.262   0.763  58.640 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>result_session</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 5
+  input                                         status result       error reason
+  &lt;chr&gt;                                         &lt;chr&gt;  &lt;list&gt;       &lt;chr&gt; &lt;chr&gt; 
+1 files/upload_01/audio_sample.mp3              succe… &lt;named list&gt; &lt;NA&gt;  &lt;NA&gt;  
+2 files/upload_01/big_buck_bunny_480p_surround… succe… &lt;named list&gt; &lt;NA&gt;  &lt;NA&gt;  
+3 files/upload_01/new_volume.csv                succe… &lt;named list&gt; &lt;NA&gt;  &lt;NA&gt;  
+4 files/upload_01/png_sample.png                succe… &lt;named list&gt; &lt;NA&gt;  &lt;NA&gt;  </code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>2026-05-26: ROG notes that bulk upload takes &gt; 50 s.</p>
+</div>
+</div>
+</section>
+<section id="bulk_create_folders" class="level3">
+<h3 class="anchored" data-anchor-id="bulk_create_folders"><code>bulk_create_folders</code></h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>folders_created <span class="ot">&lt;-</span> <span class="fu">bulk_create_folders</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id,</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">folder_names =</span> <span class="fu">c</span>(<span class="st">"bulk-folder-01"</span>, <span class="st">"bulk-folder-02"</span>),</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">source_date =</span> <span class="fu">c</span>(<span class="st">"1976-07-04"</span>, <span class="st">"2026-05-15"</span>))</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>folders_created</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 5
+  input          status  result            error reason
+  &lt;chr&gt;          &lt;chr&gt;   &lt;list&gt;            &lt;chr&gt; &lt;chr&gt; 
+1 bulk-folder-01 success &lt;named list [11]&gt; &lt;NA&gt;  &lt;NA&gt;  
+2 bulk-folder-02 success &lt;named list [11]&gt; &lt;NA&gt;  &lt;NA&gt;  </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>folders_created_ids <span class="ot">&lt;-</span> <span class="fu">c</span>(folders_created<span class="sc">$</span>result[[<span class="dv">1</span>]]<span class="sc">$</span>id, folders_created<span class="sc">$</span>result[[<span class="dv">2</span>]]<span class="sc">$</span>id)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="bulk_upload_files-to-folder" class="level3">
+<h3 class="anchored" data-anchor-id="bulk_upload_files-to-folder"><code>bulk_upload_files</code> to folder</h3>
+<p>Let’s upload to a folder with files from two subfolders.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>start_upload <span class="ot">&lt;-</span> <span class="fu">proc.time</span>()</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>result_folder <span class="ot">&lt;-</span> <span class="fu">bulk_upload_files</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id, <span class="at">session_id =</span> <span class="cn">NULL</span>,</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">file_paths =</span> <span class="fu">c</span>(upload_01_files, upload_02_files),</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">folder_id =</span> folders_created_ids[<span class="dv">1</span>], <span class="at">preflight =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="fu">proc.time</span>() <span class="sc">-</span> start_upload</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   user  system elapsed 
+  2.018   0.703  59.503 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>result_folder</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 5
+  input                                         status result       error reason
+  &lt;chr&gt;                                         &lt;chr&gt;  &lt;list&gt;       &lt;chr&gt; &lt;chr&gt; 
+1 files/upload_01/audio_sample.mp3              succe… &lt;named list&gt; &lt;NA&gt;  &lt;NA&gt;  
+2 files/upload_01/big_buck_bunny_480p_surround… succe… &lt;named list&gt; &lt;NA&gt;  &lt;NA&gt;  
+3 files/upload_01/new_volume.csv                succe… &lt;named list&gt; &lt;NA&gt;  &lt;NA&gt;  
+4 files/upload_01/png_sample.png                succe… &lt;named list&gt; &lt;NA&gt;  &lt;NA&gt;  
+5 files/upload_02/mp4_sample_optic_flow.mp4     succe… &lt;named list&gt; &lt;NA&gt;  &lt;NA&gt;  
+6 files/upload_02/new_volume.csv                succe… &lt;named list&gt; &lt;NA&gt;  &lt;NA&gt;  
+7 files/upload_02/pdf_sample.pdf                succe… &lt;named list&gt; &lt;NA&gt;  &lt;NA&gt;  </code></pre>
+</div>
+</div>
+</section>
+<section id="bulk_rename_filessessionsfolders-functions" class="level3">
+<h3 class="anchored" data-anchor-id="bulk_rename_filessessionsfolders-functions"><code>bulk_rename_{files,sessions,folders}</code> functions</h3>
+<p>In the code below, I set <code>n_to_rename</code> to 3, but confirm that there are at least 3 files or sessions before renaming. If there aren’t enough files or sessions, the chunk exits with an error message.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>n_to_rename <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>these_files <span class="ot">&lt;-</span> <span class="fu">list_session_assets</span>(<span class="at">session_id =</span> sessions_created_ids[<span class="dv">1</span>], </span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id)</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">dim</span>(these_files)[<span class="dv">1</span>] <span class="sc">&lt;</span> n_to_rename) {</span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>  n_to_rename <span class="ot">=</span> <span class="fu">dim</span>(these_files)[<span class="dv">1</span>]</span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (n_to_rename <span class="sc">&lt;</span> <span class="dv">1</span>) {</span>
+<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">"No files to rename in volume "</span>, params<span class="sc">$</span>test_vol_id, </span>
+<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a>       <span class="st">", session "</span>, new_session<span class="sc">$</span>id)</span>
+<span id="cb51-13"><a href="#cb51-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb51-14"><a href="#cb51-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-15"><a href="#cb51-15" aria-hidden="true" tabindex="-1"></a>file_asset_ids <span class="ot">&lt;-</span> these_files<span class="sc">$</span>asset_id[<span class="dv">1</span><span class="sc">:</span>n_to_rename]</span>
+<span id="cb51-16"><a href="#cb51-16" aria-hidden="true" tabindex="-1"></a>new_file_names <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_replace</span>(these_files<span class="sc">$</span>asset_name[<span class="dv">1</span><span class="sc">:</span>n_to_rename], </span>
+<span id="cb51-17"><a href="#cb51-17" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">pattern =</span> <span class="st">"_"</span>, <span class="at">replacement =</span> <span class="st">"--"</span>)</span>
+<span id="cb51-18"><a href="#cb51-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-19"><a href="#cb51-19" aria-hidden="true" tabindex="-1"></a>bulk_rename_these <span class="ot">&lt;-</span> <span class="fu">bulk_rename_files</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id,</span>
+<span id="cb51-20"><a href="#cb51-20" aria-hidden="true" tabindex="-1"></a>                  <span class="at">session_id =</span> sessions_created_ids[<span class="dv">1</span>],</span>
+<span id="cb51-21"><a href="#cb51-21" aria-hidden="true" tabindex="-1"></a>                  <span class="at">file_ids =</span> file_asset_ids,</span>
+<span id="cb51-22"><a href="#cb51-22" aria-hidden="true" tabindex="-1"></a>                  <span class="at">new_names =</span> new_file_names)</span>
+<span id="cb51-23"><a href="#cb51-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-24"><a href="#cb51-24" aria-hidden="true" tabindex="-1"></a>renamed_files <span class="ot">&lt;-</span> <span class="fu">list_session_assets</span>(<span class="at">session_id =</span> sessions_created_ids[<span class="dv">1</span>], </span>
+<span id="cb51-25"><a href="#cb51-25" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id)</span>
+<span id="cb51-26"><a href="#cb51-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-27"><a href="#cb51-27" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(<span class="at">old_names =</span> these_files<span class="sc">$</span>asset_name[<span class="dv">1</span><span class="sc">:</span>n_to_rename], </span>
+<span id="cb51-28"><a href="#cb51-28" aria-hidden="true" tabindex="-1"></a>      <span class="at">new_names =</span> renamed_files<span class="sc">$</span>asset_name[<span class="dv">1</span><span class="sc">:</span>n_to_rename])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     old_names                          new_names                          
+[1,] "audio_sample"                     "audio--sample"                    
+[2,] "big_buck_bunny_480p_surround-fix" "big--buck_bunny_480p_surround-fix"
+[3,] "new_volume"                       "new--volume"                      </code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -774,49 +773,250 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>2026-05-22: ROG unless otherwise noted, the chunks below have <code>eval: false</code> set to prevent them from running. This leaves the document in a state that renders successfully while I add code to handle testing the remaining functions.</p>
+<p>Bulk renaming requires a fix to the duplicate id and name bug.</p>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">delete_record_measure</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id, <span class="at">record_id =</span> record_control_group<span class="sc">$</span>record_id)</span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>databraryr<span class="sc">::</span><span class="fu">delete_volume_record</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>n_to_rename <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>these_sessions <span class="ot">&lt;-</span> <span class="fu">list_volume_sessions</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id) <span class="sc">|&gt;</span> </span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(session_id)) <span class="sc">|&gt;</span></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">distinct</span>()</span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">dim</span>(these_sessions)[<span class="dv">1</span>] <span class="sc">&lt;</span> <span class="dv">1</span>) {</span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">"No sessions to rename in volume "</span>, params<span class="sc">$</span>test_vol_id)</span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a>session_ids_unique <span class="ot">&lt;-</span> these_sessions<span class="sc">$</span>session_id <span class="sc">|&gt;</span> </span>
+<span id="cb53-12"><a href="#cb53-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>()</span>
+<span id="cb53-13"><a href="#cb53-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-14"><a href="#cb53-14" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">length</span>(session_ids_unique) <span class="sc">&lt;</span> n_to_rename) {</span>
+<span id="cb53-15"><a href="#cb53-15" aria-hidden="true" tabindex="-1"></a>  n_to_rename <span class="ot">=</span> <span class="fu">length</span>(session_ids_unique)</span>
+<span id="cb53-16"><a href="#cb53-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb53-17"><a href="#cb53-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-18"><a href="#cb53-18" aria-hidden="true" tabindex="-1"></a>selected_session_ids <span class="ot">&lt;-</span> session_ids_unique[<span class="dv">1</span><span class="sc">:</span>n_to_rename]</span>
+<span id="cb53-19"><a href="#cb53-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-20"><a href="#cb53-20" aria-hidden="true" tabindex="-1"></a><span class="co"># these_sessions &lt;- these_sessions |&gt;</span></span>
+<span id="cb53-21"><a href="#cb53-21" aria-hidden="true" tabindex="-1"></a><span class="co">#   dplyr::filter(session_id %in% selected_session_ids)</span></span>
+<span id="cb53-22"><a href="#cb53-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-23"><a href="#cb53-23" aria-hidden="true" tabindex="-1"></a>sessions_to_rename <span class="ot">&lt;-</span> these_sessions <span class="sc">|&gt;</span></span>
+<span id="cb53-24"><a href="#cb53-24" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(session_id <span class="sc">%in%</span> selected_session_ids)</span>
+<span id="cb53-25"><a href="#cb53-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-26"><a href="#cb53-26" aria-hidden="true" tabindex="-1"></a>unique_session_ids <span class="ot">&lt;-</span> <span class="fu">unique</span>(sessions_to_rename<span class="sc">$</span>session_id)</span>
+<span id="cb53-27"><a href="#cb53-27" aria-hidden="true" tabindex="-1"></a>new_session_names <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"new_session_"</span>, <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(unique_session_ids))</span>
+<span id="cb53-28"><a href="#cb53-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-29"><a href="#cb53-29" aria-hidden="true" tabindex="-1"></a>bulk_rename_these <span class="ot">&lt;-</span> <span class="fu">bulk_rename_sessions</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id, </span>
+<span id="cb53-30"><a href="#cb53-30" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">session_ids =</span> unique_session_ids,</span>
+<span id="cb53-31"><a href="#cb53-31" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">new_names =</span> new_session_names)</span>
+<span id="cb53-32"><a href="#cb53-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-33"><a href="#cb53-33" aria-hidden="true" tabindex="-1"></a>renamed_sessions <span class="ot">&lt;-</span> <span class="fu">list_volume_sessions</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id) <span class="sc">|&gt;</span> </span>
+<span id="cb53-34"><a href="#cb53-34" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(session_id)) <span class="sc">|&gt;</span></span>
+<span id="cb53-35"><a href="#cb53-35" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">distinct</span>()</span>
+<span id="cb53-36"><a href="#cb53-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-37"><a href="#cb53-37" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(<span class="at">old_names =</span> these_sessions<span class="sc">$</span>session_name, </span>
+<span id="cb53-38"><a href="#cb53-38" aria-hidden="true" tabindex="-1"></a>      <span class="at">new_names =</span> renamed_sessions<span class="sc">$</span>session_name)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      old_names                   new_names                  
+ [1,] "bulk-session-02"           "new_session_1"            
+ [2,] "bulk-session-01"           "new_session_2"            
+ [3,] "bulk-session-01"           "new_session_2"            
+ [4,] "new_session_3"             "new_session_3"            
+ [5,] "new_session_2"             "new_session_2"            
+ [6,] "new_session_2"             "new_session_2"            
+ [7,] "new_session_3"             "new_session_3"            
+ [8,] "new_session_3"             "new_session_3"            
+ [9,] "Tue__May-26-07:49:42-2026" "Tue__May-26-07:49:42-2026"
+[10,] "Tue__May-26-07:49:42-2026" "Tue__May-26-07:49:42-2026"
+[11,] "Tue__May-26-07:49:42-2026" "Tue__May-26-07:49:42-2026"
+[12,] "Tue__May-26-07:49:42-2026" "Tue__May-26-07:49:42-2026"
+[13,] "Fri-May-22-12:54:02-2026"  "Fri-May-22-12:54:02-2026" 
+[14,] "Fri-May-22-12:54:02-2026"  "Fri-May-22-12:54:02-2026" 
+[15,] "Fri-May-22-10:57:56-2026"  "Fri-May-22-10:57:56-2026" 
+[16,] "Fri-May-22-10:57:56-2026"  "Fri-May-22-10:57:56-2026" 
+[17,] "Fri-May-22-10:45:00-2026"  "Fri-May-22-10:45:00-2026" 
+[18,] "Fri-May-22-10:45:00-2026"  "Fri-May-22-10:45:00-2026" 
+[19,] "Fri-May-22-10:29:07-2026"  "Fri-May-22-10:29:07-2026" 
+[20,] "Fri-May-22-10:29:07-2026"  "Fri-May-22-10:29:07-2026" 
+[21,] "Fri-May-22-09:24:40-2026"  "Fri-May-22-09:24:40-2026" 
+[22,] "new"                       "new"                      
+[23,] "new"                       "new"                      
+[24,] "test"                      "test"                     
+[25,] "test"                      "test"                     
+[26,] ""                          ""                         
+[27,] ""                          ""                         
+[28,] ""                          ""                         
+[29,] ""                          ""                         </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>n_to_rename <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>these_folders <span class="ot">&lt;-</span> <span class="fu">list_volume_folders</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id) <span class="sc">|&gt;</span> </span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(folder_id)) <span class="sc">|&gt;</span></span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">distinct</span>()</span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">dim</span>(these_folders)[<span class="dv">1</span>] <span class="sc">&lt;</span> <span class="dv">1</span>) {</span>
+<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">"No sessions to rename in volume "</span>, params<span class="sc">$</span>test_vol_id)</span>
+<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb55-10"><a href="#cb55-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-11"><a href="#cb55-11" aria-hidden="true" tabindex="-1"></a>folder_ids_unique <span class="ot">&lt;-</span> these_folders<span class="sc">$</span>folder_id <span class="sc">|&gt;</span> </span>
+<span id="cb55-12"><a href="#cb55-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>()</span>
+<span id="cb55-13"><a href="#cb55-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-14"><a href="#cb55-14" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">length</span>(folder_ids_unique) <span class="sc">&lt;</span> n_to_rename) {</span>
+<span id="cb55-15"><a href="#cb55-15" aria-hidden="true" tabindex="-1"></a>  n_to_rename <span class="ot">=</span> <span class="fu">length</span>(folder_ids_unique)</span>
+<span id="cb55-16"><a href="#cb55-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb55-17"><a href="#cb55-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-18"><a href="#cb55-18" aria-hidden="true" tabindex="-1"></a>selected_folder_ids <span class="ot">&lt;-</span> folder_ids_unique[<span class="dv">1</span><span class="sc">:</span>n_to_rename]</span>
+<span id="cb55-19"><a href="#cb55-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-20"><a href="#cb55-20" aria-hidden="true" tabindex="-1"></a><span class="co"># these_folders &lt;- these_folders |&gt;</span></span>
+<span id="cb55-21"><a href="#cb55-21" aria-hidden="true" tabindex="-1"></a><span class="co">#   dplyr::filter(folder_id %in% selected_folder_ids)</span></span>
+<span id="cb55-22"><a href="#cb55-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-23"><a href="#cb55-23" aria-hidden="true" tabindex="-1"></a>folders_to_rename <span class="ot">&lt;-</span> these_folders <span class="sc">|&gt;</span></span>
+<span id="cb55-24"><a href="#cb55-24" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(folder_id <span class="sc">%in%</span> selected_folder_ids)</span>
+<span id="cb55-25"><a href="#cb55-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-26"><a href="#cb55-26" aria-hidden="true" tabindex="-1"></a>unique_folder_ids <span class="ot">&lt;-</span> <span class="fu">unique</span>(folders_to_rename<span class="sc">$</span>folder_id)</span>
+<span id="cb55-27"><a href="#cb55-27" aria-hidden="true" tabindex="-1"></a>new_folder_names <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"new_folder_"</span>, <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(unique_folder_ids))</span>
+<span id="cb55-28"><a href="#cb55-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-29"><a href="#cb55-29" aria-hidden="true" tabindex="-1"></a>bulk_rename_these <span class="ot">&lt;-</span> <span class="fu">bulk_rename_folders</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id, </span>
+<span id="cb55-30"><a href="#cb55-30" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">folder_ids =</span> unique_folder_ids,</span>
+<span id="cb55-31"><a href="#cb55-31" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">new_names =</span> new_folder_names)</span>
+<span id="cb55-32"><a href="#cb55-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-33"><a href="#cb55-33" aria-hidden="true" tabindex="-1"></a>renamed_folders <span class="ot">&lt;-</span> <span class="fu">list_volume_folders</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id) <span class="sc">|&gt;</span> </span>
+<span id="cb55-34"><a href="#cb55-34" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(folder_id)) <span class="sc">|&gt;</span></span>
+<span id="cb55-35"><a href="#cb55-35" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">distinct</span>()</span>
+<span id="cb55-36"><a href="#cb55-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-37"><a href="#cb55-37" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(<span class="at">old_names =</span> these_folders<span class="sc">$</span>folder_name, </span>
+<span id="cb55-38"><a href="#cb55-38" aria-hidden="true" tabindex="-1"></a>      <span class="at">new_names =</span> renamed_folders<span class="sc">$</span>folder_name)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      old_names                      new_names                     
+ [1,] "bulk-folder-02"               "new_folder_1"                
+ [2,] "bulk-folder-01"               "new_folder_2"                
+ [3,] "bulk-folder-01"               "new_folder_2"                
+ [4,] "new_folder_3"                 "new_folder_3"                
+ [5,] "new_folder_2"                 "new_folder_2"                
+ [6,] "new_folder_2"                 "new_folder_2"                
+ [7,] "new_folder_3"                 "new_folder_3"                
+ [8,] "new_folder_3"                 "new_folder_3"                
+ [9,] "Tue__May__26__07:49:42__2026" "Tue__May__26__07:49:42__2026"
+[10,] "Tue__May__26__07:49:42__2026" "Tue__May__26__07:49:42__2026"
+[11,] "Tue__May__26__07:49:42__2026" "Tue__May__26__07:49:42__2026"
+[12,] "Tue__May__26__07:49:42__2026" "Tue__May__26__07:49:42__2026"
+[13,] "Fri-May-22-13:06:12-2026"     "Fri-May-22-13:06:12-2026"    
+[14,] "Fri-May-22-13:06:12-2026"     "Fri-May-22-13:06:12-2026"    
+[15,] "Fri-May-22-12:54:02-2026"     "Fri-May-22-12:54:02-2026"    
+[16,] "Fri-May-22-10:57:56-2026"     "Fri-May-22-10:57:56-2026"    
+[17,] "Fri-May-22-10:57:56-2026"     "Fri-May-22-10:57:56-2026"    
+[18,] "Fri-May-22-10:45:00-2026"     "Fri-May-22-10:45:00-2026"    
+[19,] "Fri-May-22-10:45:00-2026"     "Fri-May-22-10:45:00-2026"    
+[20,] "Fri-May-22-10:29:07-2026"     "Fri-May-22-10:29:07-2026"    
+[21,] "Fri-May-22-09:24:29-2026"     "Fri-May-22-09:24:29-2026"    
+[22,] "Fri-May-22-09:22:17-2026"     "Fri-May-22-09:22:17-2026"    
+[23,] "Upload test"                  "Upload test"                 
+[24,] "Upload test"                  "Upload test"                 </code></pre>
+</div>
 </div>
 </section>
-<section id="bulk_assign-functions" class="level2">
-<h2 class="anchored" data-anchor-id="bulk_assign-functions"><code>bulk_assign*</code> functions</h2>
+<section id="check_duplicate_files_in_foldersession" class="level3">
+<h3 class="anchored" data-anchor-id="check_duplicate_files_in_foldersession"><code>check_duplicate_files_in_{folder,session}</code></h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bulk_assign_records</span>()</span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bulk_unassign_records</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<section id="bulk_createrenamedelete_" class="level3">
-<h3 class="anchored" data-anchor-id="bulk_createrenamedelete_"><code>bulk_{create,rename,delete}_*</code></h3>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bulk_create_folders</span>()</span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="fu">bulk_create_records</span>()</span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="fu">bulk_delete_files</span>()</span>
-<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a><span class="fu">bulk_delete_folders</span>()</span>
-<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a><span class="fu">bulk_delete_records</span>()</span>
-<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a><span class="fu">bulk_delete_sessions</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_duplicate_files_in_folder</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id, <span class="at">filenames =</span> <span class="st">"new_"</span>)</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">check_duplicate_files_in_session</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id, <span class="at">filenames =</span> <span class="st">"new_"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="check_duplicate_-functions" class="level3">
-<h3 class="anchored" data-anchor-id="check_duplicate_-functions"><code>check_duplicate_*</code> functions</h3>
+<section id="bulk_delete_sessionsfolders" class="level3">
+<h3 class="anchored" data-anchor-id="bulk_delete_sessionsfolders"><code>bulk_delete_{sessions,folders}</code></h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>databraryr<span class="sc">::</span><span class="fu">check_duplicate_files_in_folder</span>()</span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>databraryr<span class="sc">::</span><span class="fu">check_duplicate_files_in_session</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bulk_delete_sessions</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id,</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>                     session_ids <span class="ot">&lt;-</span> sessions_created_ids)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 5
+  input status  result    error reason
+  &lt;int&gt; &lt;chr&gt;   &lt;list&gt;    &lt;chr&gt; &lt;chr&gt; 
+1 76753 success &lt;lgl [1]&gt; &lt;NA&gt;  &lt;NA&gt;  
+2 76754 success &lt;lgl [1]&gt; &lt;NA&gt;  &lt;NA&gt;  </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bulk_delete_folders</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id,</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>                     session_ids <span class="ot">&lt;-</span> folders_created_ids)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 5
+  input status  result    error reason
+  &lt;int&gt; &lt;chr&gt;   &lt;list&gt;    &lt;chr&gt; &lt;chr&gt; 
+1 76276 success &lt;lgl [1]&gt; &lt;NA&gt;  &lt;NA&gt;  
+2 76277 success &lt;lgl [1]&gt; &lt;NA&gt;  &lt;NA&gt;  </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="record-functions" class="level2">
+<h2 class="anchored" data-anchor-id="record-functions"><code>_record</code> functions</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>2026-05-22: Gilmore needs more guidance about the standard procedure for associating records with sessions and files. So, I’m setting <code>eval: false</code> for the above chunk.</p>
+</div>
+</div>
+<section id="create_volume_record" class="level3">
+<h3 class="anchored" data-anchor-id="create_volume_record"><code>create_volume_record</code></h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>record_P001 <span class="ot">&lt;-</span> <span class="fu">create_volume_record</span>(</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id,</span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">category_id =</span> <span class="dv">1</span>,</span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="st">"P001"</span>,</span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">participant =</span> <span class="fu">list</span>(<span class="at">birthday =</span> <span class="fu">list</span>(</span>
+<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">year =</span> <span class="dv">1776</span>, <span class="at">month =</span> <span class="dv">7</span>, <span class="at">day =</span> <span class="dv">04</span>))</span>
+<span id="cb62-7"><a href="#cb62-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb62-8"><a href="#cb62-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-9"><a href="#cb62-9" aria-hidden="true" tabindex="-1"></a>record_control_group <span class="ot">&lt;-</span> <span class="fu">create_volume_record</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id,</span>
+<span id="cb62-10"><a href="#cb62-10" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">category_id =</span> <span class="dv">6</span>,</span>
+<span id="cb62-11"><a href="#cb62-11" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">name =</span> <span class="st">"Control group"</span>)</span>
+<span id="cb62-12"><a href="#cb62-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-13"><a href="#cb62-13" aria-hidden="true" tabindex="-1"></a>record_task_A <span class="ot">&lt;-</span> <span class="fu">create_volume_record</span>(</span>
+<span id="cb62-14"><a href="#cb62-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id,</span>
+<span id="cb62-15"><a href="#cb62-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">category_id =</span> <span class="dv">6</span>,</span>
+<span id="cb62-16"><a href="#cb62-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="st">"Task A"</span>,</span>
+<span id="cb62-17"><a href="#cb62-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">measures =</span> <span class="fu">list</span>(<span class="st">"30"</span> <span class="ot">=</span> <span class="st">"Extra value"</span>)</span>
+<span id="cb62-18"><a href="#cb62-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb62-19"><a href="#cb62-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-20"><a href="#cb62-20" aria-hidden="true" tabindex="-1"></a>record_P001</span>
+<span id="cb62-21"><a href="#cb62-21" aria-hidden="true" tabindex="-1"></a>record_control_group</span>
+<span id="cb62-22"><a href="#cb62-22" aria-hidden="true" tabindex="-1"></a>record_task_A</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="bulk_assign-functions" class="level3">
+<h3 class="anchored" data-anchor-id="bulk_assign-functions"><code>bulk_assign*</code> functions</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bulk_assign_records</span>()</span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bulk_unassign_records</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="delete_record_measure-volume_record" class="level3">
+<h3 class="anchored" data-anchor-id="delete_record_measure-volume_record"><code>delete_{record_measure, volume_record}</code></h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">delete_record_measure</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id, <span class="at">record_id =</span> record_control_group<span class="sc">$</span>record_id)</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>databraryr<span class="sc">::</span><span class="fu">delete_volume_record</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="bulk_delete_records-functions" class="level3">
+<h3 class="anchored" data-anchor-id="bulk_delete_records-functions"><code>bulk_delete_records</code> functions</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bulk_delete_records</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
 <section id="logout" class="level2">
 <h2 class="anchored" data-anchor-id="logout">Logout</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">logout_db</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">logout_db</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
