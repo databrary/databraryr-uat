@@ -1,0 +1,138 @@
+---
+title: "Quick Start: R"
+format: html
+---
+
+## About
+
+This page provides information about how to get started quickly with the Databrary secure API and the `databraryr` package.
+
+## Set up
+
+Install the latest (development) version of the `databraryr` package:
+
+```r
+install.packages("remotes")
+remotes::install_github(repo = "NYU-Databrary/databraryr", ref = "development")
+```
+
+Configure your user `.Renviron` file with your Databrary credentials and the client ID and secret you generated.
+
+A typical `.Renviron` file should look like this:
+
+```bash
+DATABRARY_LOGIN="youremail@yourinstitution.edu"
+DATABRARY_PASSWORD="yourpassword"
+DATABRARY_BASE_URL="https://api.databrary.org"
+DATABRARY_CLIENT_ID="yourclientid"
+DATABRARY_CLIENT_SECRET="yourclientsecret"
+```
+
+You may open and edit `~/.Renviron` using the `usethis` package:
+
+```r
+install.packages("usethis")
+usethis::edit_r_environ("user")
+```
+
+::: {.callout-important}
+Save the `.Renviron` file, then restart R before you proceed.
+
+In RStudio, the *Session/Restart R* command works.
+:::
+
+## Confirm your API endpoint
+
+It's often useful to confirm that your API endpoint is correct.
+
+```r
+databraryr:::DATABRARY_BASE_URL
+```
+
+Either of these should return "https://api.databrary.org".
+
+## Log in
+
+```r
+databraryr::login_db(email = Sys.getenv("DATABRARY_LOGIN"),
+         password = Sys.getenv("DATABRARY_PASSWORD"),
+         client_id = Sys.getenv("DATABRARY_CLIENT_ID"),
+         client_secret = Sys.getenv("DATABRARY_CLIENT_SECRET"),
+         store = FALSE,
+         overwrite = FALSE)
+```
+
+or 
+
+```r
+library(databrary)
+login_db(email = Sys.getenv("DATABRARY_LOGIN"),
+         password = Sys.getenv("DATABRARY_PASSWORD"),
+         client_id = Sys.getenv("DATABRARY_CLIENT_ID"),
+         client_secret = Sys.getenv("DATABRARY_CLIENT_SECRET"),
+         store = FALSE,
+         overwrite = FALSE)
+```
+
+This should return `TRUE`.
+
+## Confirm via `whoami`
+
+```r
+whoami()
+```
+
+or
+
+```r
+databraryr::whoami()
+```
+
+Both should return something like the following:
+
+```
+$message
+[1] "OAuth2 endpoint is working!"
+
+$user
+[1] "youremail@yourinstitution.edu"
+
+$path
+[1] "/oauth2/test/"
+
+$authMethod
+[1] "OAuth2"
+```
+
+## Have fun
+
+At this point, you are ready to use any secure API functions that are enabled for a user with your access privileges.
+
+This site contains code we use to test the package.
+It may be helpful to you in writing your own code with the provisos that our tests are not comprehensive nor does our code necessarily reflect a recommended or best practice.
+
+::: {.callout-warning}
+## Under construction
+
+The `databraryr` package is under active development.
+Some features are only available under our staging environment.
+When ready, these will be pushed to production.
+:::
+
+::: {.callout-important}
+Please log out when you finish.
+
+```r
+logout_db()
+```
+
+or
+
+```r
+databraryr::logout_db()
+```
+
+Both return `TRUE` when they execute successfully.
+:::
+
+

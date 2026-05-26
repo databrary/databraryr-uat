@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./status.html">Authorized Investigators</a></li><li class="breadcrumb-item"><a href="./sessions-folders.html"><span class="chapter-title">Sessions &amp; Folders</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quick-start.html">Authorized Investigators</a></li><li class="breadcrumb-item"><a href="./sessions-folders.html"><span class="chapter-title">Sessions &amp; Folders</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -159,6 +159,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./quick-start.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quick Start: R</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./status.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Login, status, &amp; logout</span></a>
@@ -223,7 +228,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./status.html">Authorized Investigators</a></li><li class="breadcrumb-item"><a href="./sessions-folders.html"><span class="chapter-title">Sessions &amp; Folders</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quick-start.html">Authorized Investigators</a></li><li class="breadcrumb-item"><a href="./sessions-folders.html"><span class="chapter-title">Sessions &amp; Folders</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-title">Sessions &amp; Folders</span></h1>
 </div>
@@ -313,58 +318,20 @@ $date$is_estimated
 $default_records
 list()
 
-$file_counts
-$file_counts$native_accessible
+$file_count
 [1] 5
 
-$file_counts$native_inaccessible
-[1] 0
-
-$file_counts$linked_accessible
-[1] 0
-
-$file_counts$linked_inaccessible
-[1] 0
-
+$accessible_file_count
+[1] 5
 
 $file_records
-$file_records[[1]]
-$file_records[[1]]$id
-[1] 49800
-
-$file_records[[1]]$volume
-[1] 1
-
-$file_records[[1]]$volume_name
-[1] "Databrary sponsored workshops and events"
-
-$file_records[[1]]$category_id
-[1] 7
-
-$file_records[[1]]$default_sessions
 list()
-
-$file_records[[1]]$record_source_kind
-[1] "native"
-
-$file_records[[1]]$measures
-$file_records[[1]]$measures$`33`
-[1] "Seattle SRCD"
-
-$file_records[[1]]$measures$`35`
-[1] "US"
-
-
-
 
 $has_full_access
 [1] TRUE
 
 $contains_different_release_levels
-[1] FALSE
-
-$source_info
-NULL</code></pre>
+[1] FALSE</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_session_by_name</span>(<span class="at">vb =</span> <span class="cn">TRUE</span>) <span class="co"># Name contains "Advisory Board Meeting"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -407,58 +374,20 @@ NULL</code></pre>
 [[1]]$default_records
 list()
 
-[[1]]$file_counts
-[[1]]$file_counts$native_accessible
+[[1]]$file_count
 [1] 5
 
-[[1]]$file_counts$native_inaccessible
-[1] 0
-
-[[1]]$file_counts$linked_accessible
-[1] 0
-
-[[1]]$file_counts$linked_inaccessible
-[1] 0
-
+[[1]]$accessible_file_count
+[1] 5
 
 [[1]]$file_records
-[[1]]$file_records[[1]]
-[[1]]$file_records[[1]]$id
-[1] 49800
-
-[[1]]$file_records[[1]]$volume
-[1] 1
-
-[[1]]$file_records[[1]]$volume_name
-[1] "Databrary sponsored workshops and events"
-
-[[1]]$file_records[[1]]$category_id
-[1] 7
-
-[[1]]$file_records[[1]]$default_sessions
 list()
-
-[[1]]$file_records[[1]]$record_source_kind
-[1] "native"
-
-[[1]]$file_records[[1]]$measures
-[[1]]$file_records[[1]]$measures$`33`
-[1] "Seattle SRCD"
-
-[[1]]$file_records[[1]]$measures$`35`
-[1] "US"
-
-
-
 
 [[1]]$has_full_access
 [1] TRUE
 
 [[1]]$contains_different_release_levels
 [1] FALSE
-
-[[1]]$source_info
-NULL
 
 
 [[2]]
@@ -500,19 +429,11 @@ NULL
 [[2]]$default_records
 list()
 
-[[2]]$file_counts
-[[2]]$file_counts$native_accessible
+[[2]]$file_count
 [1] 4
 
-[[2]]$file_counts$native_inaccessible
-[1] 0
-
-[[2]]$file_counts$linked_accessible
-[1] 0
-
-[[2]]$file_counts$linked_inaccessible
-[1] 0
-
+[[2]]$accessible_file_count
+[1] 4
 
 [[2]]$file_records
 list()
@@ -522,9 +443,6 @@ list()
 
 [[2]]$contains_different_release_levels
 [1] FALSE
-
-[[2]]$source_info
-NULL
 
 
 [[3]]
@@ -566,19 +484,11 @@ NULL
 [[3]]$default_records
 list()
 
-[[3]]$file_counts
-[[3]]$file_counts$native_accessible
+[[3]]$file_count
 [1] 2
 
-[[3]]$file_counts$native_inaccessible
-[1] 0
-
-[[3]]$file_counts$linked_accessible
-[1] 0
-
-[[3]]$file_counts$linked_inaccessible
-[1] 0
-
+[[3]]$accessible_file_count
+[1] 2
 
 [[3]]$file_records
 list()
@@ -588,9 +498,6 @@ list()
 
 [[3]]$contains_different_release_levels
 [1] FALSE
-
-[[3]]$source_info
-NULL
 
 
 [[4]]
@@ -604,13 +511,13 @@ NULL
 [1] 1
 
 [[4]]$release_level
-[1] "private"
+[1] "public"
 
 [[4]]$created_at
 [1] "2025-03-05T16:37:26.479716Z"
 
 [[4]]$updated_at
-[1] "2025-03-18T11:30:03.056348Z"
+[1] "2025-03-05T16:37:26.479724Z"
 
 [[4]]$source_date
 [1] "2015-05-11"
@@ -632,19 +539,11 @@ NULL
 [[4]]$default_records
 list()
 
-[[4]]$file_counts
-[[4]]$file_counts$native_accessible
+[[4]]$file_count
 [1] 2
 
-[[4]]$file_counts$native_inaccessible
-[1] 0
-
-[[4]]$file_counts$linked_accessible
-[1] 0
-
-[[4]]$file_counts$linked_inaccessible
-[1] 0
-
+[[4]]$accessible_file_count
+[1] 2
 
 [[4]]$file_records
 list()
@@ -653,10 +552,7 @@ list()
 [1] TRUE
 
 [[4]]$contains_different_release_levels
-[1] TRUE
-
-[[4]]$source_info
-NULL
+[1] FALSE
 
 
 [[5]]
@@ -698,19 +594,11 @@ NULL
 [[5]]$default_records
 list()
 
-[[5]]$file_counts
-[[5]]$file_counts$native_accessible
+[[5]]$file_count
 [1] 2
 
-[[5]]$file_counts$native_inaccessible
-[1] 0
-
-[[5]]$file_counts$linked_accessible
-[1] 0
-
-[[5]]$file_counts$linked_inaccessible
-[1] 0
-
+[[5]]$accessible_file_count
+[1] 2
 
 [[5]]$file_records
 list()
@@ -720,9 +608,6 @@ list()
 
 [[5]]$contains_different_release_levels
 [1] FALSE
-
-[[5]]$source_info
-NULL
 
 
 [[6]]
@@ -764,19 +649,11 @@ NULL
 [[6]]$default_records
 list()
 
-[[6]]$file_counts
-[[6]]$file_counts$native_accessible
+[[6]]$file_count
 [1] 15
 
-[[6]]$file_counts$native_inaccessible
-[1] 0
-
-[[6]]$file_counts$linked_accessible
-[1] 0
-
-[[6]]$file_counts$linked_inaccessible
-[1] 0
-
+[[6]]$accessible_file_count
+[1] 15
 
 [[6]]$file_records
 list()
@@ -786,9 +663,6 @@ list()
 
 [[6]]$contains_different_release_levels
 [1] FALSE
-
-[[6]]$source_info
-NULL
 
 
 [[7]]
@@ -830,19 +704,11 @@ NULL
 [[7]]$default_records
 list()
 
-[[7]]$file_counts
-[[7]]$file_counts$native_accessible
+[[7]]$file_count
 [1] 10
 
-[[7]]$file_counts$native_inaccessible
-[1] 0
-
-[[7]]$file_counts$linked_accessible
-[1] 0
-
-[[7]]$file_counts$linked_inaccessible
-[1] 0
-
+[[7]]$accessible_file_count
+[1] 10
 
 [[7]]$file_records
 list()
@@ -851,10 +717,7 @@ list()
 [1] TRUE
 
 [[7]]$contains_different_release_levels
-[1] FALSE
-
-[[7]]$source_info
-NULL</code></pre>
+[1] FALSE</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_session_file</span>(<span class="at">vb =</span> <span class="cn">TRUE</span>, <span class="at">file_id =</span> <span class="dv">27227</span>) <span class="co"># PDF agenda from volume 1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -948,19 +811,7 @@ $has_full_access
 [1] TRUE
 
 $thumbnail_url
-NULL
-
-$source_info
-NULL
-
-$linked_destinations
-list()
-
-$is_added_file
-[1] FALSE
-
-$link_kind
-[1] "native"</code></pre>
+NULL</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_session_assets</span>(<span class="at">session_id =</span> <span class="dv">6256</span>,</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">vol_id =</span> <span class="dv">1</span>,</span>
@@ -1012,21 +863,13 @@ $created_at
 [1] "2025-03-05T16:37:31.548074Z"
 
 $updated_at
-[1] "2025-06-05T15:09:15.411013Z"
+[1] "2025-03-05T16:37:31.548084Z"
 
-$file_counts
-$file_counts$native_accessible
+$file_count
 [1] 7
 
-$file_counts$native_inaccessible
-[1] 0
-
-$file_counts$linked_accessible
-[1] 0
-
-$file_counts$linked_inaccessible
-[1] 0
-
+$accessible_file_count
+[1] 7
 
 $source_date
 NULL
@@ -1035,10 +878,7 @@ $has_full_access
 [1] TRUE
 
 $contains_different_release_levels
-[1] FALSE
-
-$source_info
-NULL</code></pre>
+[1] FALSE</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_folder_file</span>(</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">vol_id =</span> <span class="dv">1</span>,</span>
@@ -1051,7 +891,7 @@ NULL</code></pre>
 [1] 1
 
 $name
-[1] "counting (demo video)"
+[1] "counting_demo_video"
 
 $uploader
 NULL
@@ -1060,7 +900,7 @@ $created_at
 [1] "2025-03-05T16:45:58.099083Z"
 
 $updated_at
-[1] "2025-03-05T16:45:58.099100Z"
+[1] "2025-06-02T09:19:35.192342Z"
 
 $upload
 $upload$guid
@@ -1126,19 +966,7 @@ $has_full_access
 [1] TRUE
 
 $thumbnail_url
-NULL
-
-$source_info
-NULL
-
-$linked_destinations
-list()
-
-$is_added_file
-[1] FALSE
-
-$link_kind
-[1] "native"</code></pre>
+NULL</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_folder_assets</span>(<span class="at">folder_id =</span> <span class="dv">9807</span>,</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">vol_id =</span> <span class="dv">1</span>,</span>
@@ -1147,7 +975,7 @@ $link_kind
 <pre><code># A tibble: 7 × 17
   asset_id asset_name                asset_permission asset_size asset_mime_type
      &lt;int&gt; &lt;chr&gt;                     &lt;chr&gt;                 &lt;int&gt; &lt;chr&gt;          
-1        1 counting (demo video)     public               394499 video/mp4      
+1        1 counting_demo_video       public               394499 video/mp4      
 2      314 NIH Proposal Narrative    public              3826718 application/pdf
 3      315 NSF Proposal Narrative    public              4120930 application/pdf
 4     9200 logo                      public               104419 image/png      

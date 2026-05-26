@@ -16,6 +16,7 @@ book:
     - index.qmd
     - part: "Authorized Investigators"
       chapters:
+      - quick-start.qmd
       - status.qmd
       - institutions.qmd
       - users.qmd

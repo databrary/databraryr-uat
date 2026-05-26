@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Institutions – User Acceptance Testing (UAT) for `databraryr`</title>
+<title>Quick Start: R – User Acceptance Testing (UAT) for `databraryr`</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -68,8 +68,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./users.html" rel="next">
-<link href="./status.html" rel="prev">
+<link href="./status.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quick-start.html">Authorized Investigators</a></li><li class="breadcrumb-item"><a href="./institutions.html"><span class="chapter-title">Institutions</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quick-start.html">Authorized Investigators</a></li><li class="breadcrumb-item"><a href="./quick-start.html"><span class="chapter-title">Quick Start: R</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -161,7 +161,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./quick-start.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quick Start: R</span></a>
+  <a href="./quick-start.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Quick Start: R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -171,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./institutions.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Institutions</span></a>
+  <a href="./institutions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Institutions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -218,18 +218,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a></li>
-  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
-  <li><a href="#testing-_institution-functions" id="toc-testing-_institution-functions" class="nav-link" data-scroll-target="#testing-_institution-functions">Testing <code>_institution*</code> functions</a></li>
-  <li><a href="#clean-up" id="toc-clean-up" class="nav-link" data-scroll-target="#clean-up">Clean-up</a></li>
+  <li><a href="#set-up" id="toc-set-up" class="nav-link" data-scroll-target="#set-up">Set up</a></li>
+  <li><a href="#confirm-your-api-endpoint" id="toc-confirm-your-api-endpoint" class="nav-link" data-scroll-target="#confirm-your-api-endpoint">Confirm your API endpoint</a></li>
+  <li><a href="#log-in" id="toc-log-in" class="nav-link" data-scroll-target="#log-in">Log in</a></li>
+  <li><a href="#confirm-via-whoami" id="toc-confirm-via-whoami" class="nav-link" data-scroll-target="#confirm-via-whoami">Confirm via <code>whoami</code></a></li>
+  <li><a href="#have-fun" id="toc-have-fun" class="nav-link" data-scroll-target="#have-fun">Have fun</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quick-start.html">Authorized Investigators</a></li><li class="breadcrumb-item"><a href="./institutions.html"><span class="chapter-title">Institutions</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quick-start.html">Authorized Investigators</a></li><li class="breadcrumb-item"><a href="./quick-start.html"><span class="chapter-title">Quick Start: R</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Institutions</span></h1>
+<h1 class="title"><span class="chapter-title">Quick Start: R</span></h1>
 </div>
 
 
@@ -248,131 +250,99 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="about" class="level2">
 <h2 class="anchored" data-anchor-id="about">About</h2>
-<p>This page documents testing of functions related to institutions.</p>
+<p>This page provides information about how to get started quickly with the Databrary secure API and the <code>databraryr</code> package.</p>
 </section>
-<section id="setup" class="level2">
-<h2 class="anchored" data-anchor-id="setup">Setup</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(databraryr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Welcome to the databraryr package.</code></pre>
+<section id="set-up" class="level2">
+<h2 class="anchored" data-anchor-id="set-up">Set up</h2>
+<p>Install the latest (development) version of the <code>databraryr</code> package:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"remotes"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="at">repo =</span> <span class="st">"NYU-Databrary/databraryr"</span>, <span class="at">ref =</span> <span class="st">"development"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Configure your user <code>.Renviron</code> file with your Databrary credentials and the client ID and secret you generated.</p>
+<p>A typical <code>.Renviron</code> file should look like this:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="va">DATABRARY_LOGIN</span><span class="op">=</span><span class="st">"youremail@yourinstitution.edu"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="va">DATABRARY_PASSWORD</span><span class="op">=</span><span class="st">"yourpassword"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="va">DATABRARY_BASE_URL</span><span class="op">=</span><span class="st">"https://api.databrary.org"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="va">DATABRARY_CLIENT_ID</span><span class="op">=</span><span class="st">"yourclientid"</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="va">DATABRARY_CLIENT_SECRET</span><span class="op">=</span><span class="st">"yourclientsecret"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You may open and edit <code>~/.Renviron</code> using the <code>usethis</code> package:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"usethis"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">edit_r_environ</span>(<span class="st">"user"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">login_db</span>(<span class="at">email =</span> <span class="fu">Sys.getenv</span>(<span class="st">"DATABRARY_LOGIN"</span>),</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">password =</span> <span class="fu">Sys.getenv</span>(<span class="st">"DATABRARY_PASSWORD"</span>),</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">client_id =</span> <span class="fu">Sys.getenv</span>(<span class="st">"DATABRARY_CLIENT_ID"</span>),</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">client_secret =</span> <span class="fu">Sys.getenv</span>(<span class="st">"DATABRARY_CLIENT_SECRET"</span>),</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">store =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">overwrite =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Login successful.</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
+<div class="callout-title-container flex-fill">
+Important
 </div>
 </div>
-</section>
-<section id="testing-_institution-functions" class="level2">
-<h2 class="anchored" data-anchor-id="testing-_institution-functions">Testing <code>_institution*</code> functions</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_institution_avatar</span>(<span class="at">institution_id =</span> <span class="dv">1</span>, </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">dest_path =</span> <span class="st">"databrary.png"</span>,</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">vb =</span> <span class="cn">TRUE</span>)      </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Requesting avatar for institution 1</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Saved avatar to: databrary.png (4998 bytes)</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "/Users/rog1/rrr/databraryr-uat/databrary.png"</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_institution_by_id</span>(<span class="at">institution_id =</span> <span class="dv">12</span>,</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">vb =</span> <span class="cn">TRUE</span>)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>$id
-[1] 12
-
-$name
-[1] "The Pennsylvania State University, University Park"
-
-$url
-[1] "http://www.psu.edu"
-
-$date_signed
-[1] "2025-03-05"
-
-$source
-[1] "admin"
-
-$created_at
-[1] "2025-03-05T16:04:01.655967Z"
-
-$updated_at
-[1] "2025-06-02T08:19:04.146280Z"
-
-$has_avatar
-[1] TRUE
-
-$has_administrators
-[1] FALSE
-
-$latitude
-[1] "40.798213"
-
-$longitude
-[1] "-77.859908"
-
-$manual_coordinates
-[1] TRUE</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_institution_affiliates</span>(<span class="at">institution_id =</span> <span class="dv">12</span>,</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 22 × 8
-   institution_id role       user_id user_prename user_sortname user_affiliation
-            &lt;dbl&gt; &lt;chr&gt;        &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;         &lt;chr&gt;           
- 1             12 investiga…    4399 Karen        Bierman       The Pennsylvani…
- 2             12 investiga…     249 Kristin A    Buss          The Pennsylvani…
- 3             12 investiga…    7298 Kevin        Clair         The Pennsylvani…
- 4             12 investiga…    7240 Briana Dani… Ezray         The Pennsylvani…
- 5             12 investiga…    1256 Jennifer     Frank         The Pennsylvani…
- 6             12 investiga…       6 Rick O.      Gilmore       The Pennsylvani…
- 7             12 investiga…    3043 Yanxi        Liu           The Pennsylvani…
- 8             12 investiga…    1902 Amy          Marshall      The Pennsylvani…
- 9             12 investiga…    6474 Anna         Mattila       The Pennsylvani…
-10             12 investiga…     847 P. Karen     Murphy        The Pennsylvani…
-# ℹ 12 more rows
-# ℹ 2 more variables: user_affiliation_id &lt;int&gt;, expiration_date &lt;chr&gt;</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_institutions</span>(<span class="at">search_string =</span> <span class="st">"The Pennsylvania"</span>,</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 8 × 12
-  institution_id institution_name         institution_url institution_date_sig…¹
-           &lt;int&gt; &lt;chr&gt;                    &lt;chr&gt;           &lt;chr&gt;                 
-1           5708 The Pennsylvania State … https://abingt… 2025-03-05            
-2           5707 The Pennsylvania State … https://arl.ps… 2025-03-05            
-3           5706 The Pennsylvania State … https://brandy… 2025-03-05            
-4           8631 The Pennsylvania State … https://harris… 2025-03-05            
-5          10508 The Pennsylvania State … https://shenan… 2025-03-05            
-6             12 The Pennsylvania State … http://www.psu… 2025-03-05            
-7           5705 The Pennsylvania State … https://scrant… 2025-03-05            
-8            977 The University of Penns… https://www.up… 2025-03-05            
-# ℹ abbreviated name: ¹​institution_date_signed
-# ℹ 8 more variables: institution_source &lt;chr&gt;, institution_created_at &lt;chr&gt;,
-#   institution_updated_at &lt;chr&gt;, institution_has_avatar &lt;lgl&gt;,
-#   institution_has_administrators &lt;lgl&gt;, institution_latitude &lt;dbl&gt;,
-#   institution_longitude &lt;dbl&gt;, institution_manual_coordinates &lt;lgl&gt;</code></pre>
+<div class="callout-body-container callout-body">
+<p>Save the <code>.Renviron</code> file, then restart R before you proceed.</p>
+<p>In RStudio, the <em>Session/Restart R</em> command works.</p>
 </div>
 </div>
 </section>
-<section id="clean-up" class="level2">
-<h2 class="anchored" data-anchor-id="clean-up">Clean-up</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">logout_db</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
+<section id="confirm-your-api-endpoint" class="level2">
+<h2 class="anchored" data-anchor-id="confirm-your-api-endpoint">Confirm your API endpoint</h2>
+<p>It’s often useful to confirm that your API endpoint is correct.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>databraryr<span class="sc">:::</span>DATABRARY_BASE_URL</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Either of these should return “https://api.databrary.org”.</p>
+</section>
+<section id="log-in" class="level2">
+<h2 class="anchored" data-anchor-id="log-in">Log in</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>databraryr<span class="sc">::</span><span class="fu">login_db</span>(<span class="at">email =</span> <span class="fu">Sys.getenv</span>(<span class="st">"DATABRARY_LOGIN"</span>),</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">password =</span> <span class="fu">Sys.getenv</span>(<span class="st">"DATABRARY_PASSWORD"</span>),</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">client_id =</span> <span class="fu">Sys.getenv</span>(<span class="st">"DATABRARY_CLIENT_ID"</span>),</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">client_secret =</span> <span class="fu">Sys.getenv</span>(<span class="st">"DATABRARY_CLIENT_SECRET"</span>),</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">store =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">overwrite =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>or</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(databrary)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">login_db</span>(<span class="at">email =</span> <span class="fu">Sys.getenv</span>(<span class="st">"DATABRARY_LOGIN"</span>),</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">password =</span> <span class="fu">Sys.getenv</span>(<span class="st">"DATABRARY_PASSWORD"</span>),</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">client_id =</span> <span class="fu">Sys.getenv</span>(<span class="st">"DATABRARY_CLIENT_ID"</span>),</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">client_secret =</span> <span class="fu">Sys.getenv</span>(<span class="st">"DATABRARY_CLIENT_SECRET"</span>),</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">store =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">overwrite =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This should return <code>TRUE</code>.</p>
+</section>
+<section id="confirm-via-whoami" class="level2">
+<h2 class="anchored" data-anchor-id="confirm-via-whoami">Confirm via <code>whoami</code></h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">whoami</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>or</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>databraryr<span class="sc">::</span><span class="fu">whoami</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Both should return something like the following:</p>
+<pre><code>$message
+[1] "OAuth2 endpoint is working!"
+
+$user
+[1] "youremail@yourinstitution.edu"
+
+$path
+[1] "/oauth2/test/"
+
+$authMethod
+[1] "OAuth2"</code></pre>
+</section>
+<section id="have-fun" class="level2">
+<h2 class="anchored" data-anchor-id="have-fun">Have fun</h2>
+<p>At this point, you are ready to use any secure API functions that are enabled for a user with your access privileges.</p>
+<p>This site contains code we use to test the package. It may be helpful to you in writing your own code with the provisos that our tests are not comprehensive nor does our code necessarily reflect a recommended or best practice.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Please log out when you finish.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">logout_db</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>or</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>databraryr<span class="sc">::</span><span class="fu">logout_db</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Both return <code>TRUE</code> when they execute successfully.</p>
 </div>
 </div>
 
@@ -782,13 +752,13 @@ $manual_coordinates
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./status.html" class="pagination-link" aria-label="Login, status, &amp; logout">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Login, status, &amp; logout</span></span>
+      <a href="./index.html" class="pagination-link" aria-label="Home">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Home</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./users.html" class="pagination-link" aria-label="Users">
-        <span class="nav-page-text"><span class="chapter-title">Users</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./status.html" class="pagination-link" aria-label="Login, status, &amp; logout">
+        <span class="nav-page-text"><span class="chapter-title">Login, status, &amp; logout</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

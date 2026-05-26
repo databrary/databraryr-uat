@@ -2,7 +2,7 @@
 title: "Login, status, & logout"
 format: html
 params:
-  test_endpoint: "staging"
+  test_endpoint: "production"
   prod_api: "https://api.databrary.org"
   staging_api: "https://api.stg-databrary.its.nyu.edu"
 ---

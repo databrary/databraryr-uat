@@ -69,7 +69,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./institutions.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./quick-start.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./status.html">Authorized Investigators</a></li><li class="breadcrumb-item"><a href="./status.html"><span class="chapter-title">Login, status, &amp; logout</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quick-start.html">Authorized Investigators</a></li><li class="breadcrumb-item"><a href="./status.html"><span class="chapter-title">Login, status, &amp; logout</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -159,6 +159,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./quick-start.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quick Start: R</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./status.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Login, status, &amp; logout</span></a>
@@ -225,7 +230,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./status.html">Authorized Investigators</a></li><li class="breadcrumb-item"><a href="./status.html"><span class="chapter-title">Login, status, &amp; logout</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quick-start.html">Authorized Investigators</a></li><li class="breadcrumb-item"><a href="./status.html"><span class="chapter-title">Login, status, &amp; logout</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-title">Login, status, &amp; logout</span></h1>
 </div>
@@ -308,7 +313,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">"API endpoint not specified properly"</span>)</span>
 <span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Test target: Staging API.</code></pre>
+<pre><code>Test target: Production API.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Databraryr API target endpoint is correct.</code></pre>
@@ -355,7 +360,7 @@ Great news, user: rogilmore@psu.edu</code></pre>
 <pre><code># A tibble: 1 × 11
   date                institutions affiliates investigators hours_of_recordings
   &lt;dttm&gt;                     &lt;int&gt;      &lt;int&gt;         &lt;int&gt;               &lt;int&gt;
-1 2026-05-22 14:11:58          851        672          1886                 143
+1 2026-05-26 18:46:40          911        912          2085              101994
 # ℹ 6 more variables: authorized_users &lt;int&gt;, total_volumes &lt;int&gt;,
 #   public_volumes &lt;int&gt;, total_files &lt;int&gt;, total_duration_hours &lt;dbl&gt;,
 #   total_storage_tb &lt;dbl&gt;</code></pre>
@@ -777,8 +782,8 @@ Great news, user: rogilmore@psu.edu</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Home">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Home</span></span>
+      <a href="./quick-start.html" class="pagination-link" aria-label="Quick Start: R">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Quick Start: R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
