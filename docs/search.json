@@ -1,0 +1,385 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "User Acceptance Testing (UAT) for databraryr",
+    "section": "",
+    "text": "About\nThis repository documents the procedures used to test the databraryr R package.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Home</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#set-up",
+    "href": "index.html#set-up",
+    "title": "User Acceptance Testing (UAT) for databraryr",
+    "section": "Set-up",
+    "text": "Set-up\n\nAPI credentials\nDatabrary permits secure API access only to specifically authorized users.\nDetailed information about the application process may be found here.\n\n\nInstall package\nInstall the databraryr package from GitHub.\nremotes::install_github(repo = \"NYU-Databrary/databraryr\", ref = \"development\")\n\n\n\n\n\n\nImportant\n\n\n\nNote that this tests the development branch.\n\n\n\n\nAdd credentials to .Renviron\nRun usethis::edit_r_environ('user')",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Home</span>"
+    ]
+  },
+  {
+    "objectID": "quick-start.html",
+    "href": "quick-start.html",
+    "title": "Quick Start: R",
+    "section": "",
+    "text": "About\nThis page provides information about how to get started quickly with the Databrary secure API and the databraryr package.",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Quick Start: R</span>"
+    ]
+  },
+  {
+    "objectID": "quick-start.html#set-up",
+    "href": "quick-start.html#set-up",
+    "title": "Quick Start: R",
+    "section": "Set up",
+    "text": "Set up\nInstall the latest (development) version of the databraryr package:\ninstall.packages(\"remotes\")\nremotes::install_github(repo = \"NYU-Databrary/databraryr\", ref = \"development\")\nConfigure your user .Renviron file with your Databrary credentials and the client ID and secret you generated.\nA typical .Renviron file should look like this:\nDATABRARY_LOGIN=\"youremail@yourinstitution.edu\"\nDATABRARY_PASSWORD=\"yourpassword\"\nDATABRARY_BASE_URL=\"https://api.databrary.org\"\nDATABRARY_CLIENT_ID=\"yourclientid\"\nDATABRARY_CLIENT_SECRET=\"yourclientsecret\"\nYou may open and edit ~/.Renviron using the usethis package:\ninstall.packages(\"usethis\")\nusethis::edit_r_environ(\"user\")\n\n\n\n\n\n\nImportant\n\n\n\nSave the .Renviron file, then restart R before you proceed.\nIn RStudio, the Session/Restart R command works.",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Quick Start: R</span>"
+    ]
+  },
+  {
+    "objectID": "quick-start.html#confirm-your-api-endpoint",
+    "href": "quick-start.html#confirm-your-api-endpoint",
+    "title": "Quick Start: R",
+    "section": "Confirm your API endpoint",
+    "text": "Confirm your API endpoint\nIt’s often useful to confirm that your API endpoint is correct.\ndatabraryr:::DATABRARY_BASE_URL\nEither of these should return “https://api.databrary.org”.",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Quick Start: R</span>"
+    ]
+  },
+  {
+    "objectID": "quick-start.html#log-in",
+    "href": "quick-start.html#log-in",
+    "title": "Quick Start: R",
+    "section": "Log in",
+    "text": "Log in\ndatabraryr::login_db(email = Sys.getenv(\"DATABRARY_LOGIN\"),\n         password = Sys.getenv(\"DATABRARY_PASSWORD\"),\n         client_id = Sys.getenv(\"DATABRARY_CLIENT_ID\"),\n         client_secret = Sys.getenv(\"DATABRARY_CLIENT_SECRET\"),\n         store = FALSE,\n         overwrite = FALSE)\nor\nlibrary(databrary)\nlogin_db(email = Sys.getenv(\"DATABRARY_LOGIN\"),\n         password = Sys.getenv(\"DATABRARY_PASSWORD\"),\n         client_id = Sys.getenv(\"DATABRARY_CLIENT_ID\"),\n         client_secret = Sys.getenv(\"DATABRARY_CLIENT_SECRET\"),\n         store = FALSE,\n         overwrite = FALSE)\nThis should return TRUE.",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Quick Start: R</span>"
+    ]
+  },
+  {
+    "objectID": "quick-start.html#confirm-via-whoami",
+    "href": "quick-start.html#confirm-via-whoami",
+    "title": "Quick Start: R",
+    "section": "Confirm via whoami",
+    "text": "Confirm via whoami\nwhoami()\nor\ndatabraryr::whoami()\nBoth should return something like the following:\n$message\n[1] \"OAuth2 endpoint is working!\"\n\n$user\n[1] \"youremail@yourinstitution.edu\"\n\n$path\n[1] \"/oauth2/test/\"\n\n$authMethod\n[1] \"OAuth2\"",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Quick Start: R</span>"
+    ]
+  },
+  {
+    "objectID": "quick-start.html#have-fun",
+    "href": "quick-start.html#have-fun",
+    "title": "Quick Start: R",
+    "section": "Have fun",
+    "text": "Have fun\nAt this point, you are ready to use any secure API functions that are enabled for a user with your access privileges.\nThis site contains code we use to test the package. It may be helpful to you in writing your own code with the provisos that our tests are not comprehensive nor does our code necessarily reflect a recommended or best practice.\n\n\n\n\n\n\nWarningUnder construction\n\n\n\nThe databraryr package is under active development. Some features are only available under our staging environment. When ready, these will be pushed to production.\n\n\n\n\n\n\n\n\nImportant\n\n\n\nPlease log out when you finish.\nlogout_db()\nor\ndatabraryr::logout_db()\nBoth return TRUE when they execute successfully.",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Quick Start: R</span>"
+    ]
+  },
+  {
+    "objectID": "status.html",
+    "href": "status.html",
+    "title": "Login, status, & logout",
+    "section": "",
+    "text": "About\nThis document describes the testing procedures for functions related to access of Databrary 2.0 via the API using the databraryr package.",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Login, status, & logout</span>"
+    ]
+  },
+  {
+    "objectID": "status.html#setup",
+    "href": "status.html#setup",
+    "title": "Login, status, & logout",
+    "section": "Setup",
+    "text": "Setup\n\nlibrary(databraryr)\n\nWelcome to the databraryr package.",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Login, status, & logout</span>"
+    ]
+  },
+  {
+    "objectID": "status.html#check-endpoint",
+    "href": "status.html#check-endpoint",
+    "title": "Login, status, & logout",
+    "section": "Check endpoint",
+    "text": "Check endpoint\n\nassertthat::is.string(params$test_endpoint)\n\n[1] TRUE\n\nassertthat::is.string(params$prod_api)\n\n[1] TRUE\n\nassertthat::is.string(params$staging_api)\n\n[1] TRUE\n\nthis_endpoint &lt;- databraryr:::DATABRARY_BASE_URL\n\nif (params$test_endpoint == \"production\") {\n  message(\"Test target: Production API.\")\n  if (this_endpoint == params$prod_api) {\n    message(\"Databraryr API target endpoint is correct.\")\n  } else {\n    message(paste0(\n      \"Target: \",\n      params$test_endpoint,\n      \" | databraryr base: \",\n      this_endpoint\n    ))\n    stop(\n      \"`databraryr` API target endpoint does not match testing target endpoint. Check ~/.Renviron.\"\n    )\n  }\n} else if (params$test_endpoint == \"staging\") {\n  message(\"Test target: Staging API.\")\n  if (this_endpoint == params$staging_api) {\n    message(\"Databraryr API target endpoint is correct.\")\n  } else {\n    message(paste0(\n      \"Target: \",\n      params$test_endpoint,\n      \" | databraryr base: \",\n      this_endpoint\n    ))\n    stop(\n      \"`databraryr` API target endpoint does not match testing target endpoint. Check ~/.Renviron.\"\n    )\n  }\n} else {\n  stop(\"API endpoint not specified properly\")\n}\n\nTest target: Production API.\n\n\nDatabraryr API target endpoint is correct.",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Login, status, & logout</span>"
+    ]
+  },
+  {
+    "objectID": "status.html#login",
+    "href": "status.html#login",
+    "title": "Login, status, & logout",
+    "section": "Login",
+    "text": "Login\n\nlogin_db(\n  email = Sys.getenv(\"DATABRARY_LOGIN\"),\n  password = Sys.getenv(\"DATABRARY_PASSWORD\"),\n  client_id = Sys.getenv(\"DATABRARY_CLIENT_ID\"),\n  client_secret = Sys.getenv(\"DATABRARY_CLIENT_SECRET\"),\n  store = FALSE,\n  overwrite = FALSE,\n  vb = TRUE\n)\n\nLogin successful.\n\n\n[1] TRUE",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Login, status, & logout</span>"
+    ]
+  },
+  {
+    "objectID": "status.html#whoami",
+    "href": "status.html#whoami",
+    "title": "Login, status, & logout",
+    "section": "whoami()",
+    "text": "whoami()\n\nwho &lt;- whoami()\n\nmessage(who$message, \"\\nGreat news, user: \", who$user)\n\nOAuth2 endpoint is working!\nGreat news, user: rogilmore@psu.edu",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Login, status, & logout</span>"
+    ]
+  },
+  {
+    "objectID": "status.html#get_db_stats",
+    "href": "status.html#get_db_stats",
+    "title": "Login, status, & logout",
+    "section": "get_db_stats()",
+    "text": "get_db_stats()\n\nget_db_stats()\n\n# A tibble: 1 × 11\n  date                institutions affiliates investigators hours_of_recordings\n  &lt;dttm&gt;                     &lt;int&gt;      &lt;int&gt;         &lt;int&gt;               &lt;int&gt;\n1 2026-05-26 18:51:38          911        912          2085              101994\n# ℹ 6 more variables: authorized_users &lt;int&gt;, total_volumes &lt;int&gt;,\n#   public_volumes &lt;int&gt;, total_files &lt;int&gt;, total_duration_hours &lt;dbl&gt;,\n#   total_storage_tb &lt;dbl&gt;",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Login, status, & logout</span>"
+    ]
+  },
+  {
+    "objectID": "status.html#logout",
+    "href": "status.html#logout",
+    "title": "Login, status, & logout",
+    "section": "Logout",
+    "text": "Logout\n\nlogout_db()\n\n[1] TRUE",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Login, status, & logout</span>"
+    ]
+  },
+  {
+    "objectID": "institutions.html",
+    "href": "institutions.html",
+    "title": "Institutions",
+    "section": "",
+    "text": "About\nThis page documents testing of functions related to institutions.",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Institutions</span>"
+    ]
+  },
+  {
+    "objectID": "institutions.html#setup",
+    "href": "institutions.html#setup",
+    "title": "Institutions",
+    "section": "Setup",
+    "text": "Setup\n\nlibrary(databraryr)\n\nWelcome to the databraryr package.\n\nlogin_db(email = Sys.getenv(\"DATABRARY_LOGIN\"),\n         password = Sys.getenv(\"DATABRARY_PASSWORD\"),\n         client_id = Sys.getenv(\"DATABRARY_CLIENT_ID\"),\n         client_secret = Sys.getenv(\"DATABRARY_CLIENT_SECRET\"),\n         store = FALSE,\n         overwrite = FALSE,\n         vb = TRUE)\n\nLogin successful.\n\n\n[1] TRUE",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Institutions</span>"
+    ]
+  },
+  {
+    "objectID": "institutions.html#testing-_institution-functions",
+    "href": "institutions.html#testing-_institution-functions",
+    "title": "Institutions",
+    "section": "Testing _institution* functions",
+    "text": "Testing _institution* functions\n\nget_institution_avatar(institution_id = 1, \n                       dest_path = \"databrary.png\",\n                       vb = TRUE)      \n\nRequesting avatar for institution 1\n\n\nSaved avatar to: databrary.png (4998 bytes)\n\n\n[1] \"/Users/rog1/rrr/databraryr-uat/databrary.png\"\n\nget_institution_by_id(institution_id = 12,\n                      vb = TRUE)  \n\n$id\n[1] 12\n\n$name\n[1] \"The Pennsylvania State University, University Park\"\n\n$url\n[1] \"http://www.psu.edu\"\n\n$date_signed\n[1] \"2025-03-05\"\n\n$source\n[1] \"admin\"\n\n$created_at\n[1] \"2025-03-05T16:04:01.655967Z\"\n\n$updated_at\n[1] \"2025-06-02T08:19:04.146280Z\"\n\n$has_avatar\n[1] TRUE\n\n$has_administrators\n[1] FALSE\n\n$latitude\n[1] \"40.798213\"\n\n$longitude\n[1] \"-77.859908\"\n\n$manual_coordinates\n[1] TRUE\n\nlist_institution_affiliates(institution_id = 12,\n                            vb = TRUE)\n\n# A tibble: 22 × 8\n   institution_id role       user_id user_prename user_sortname user_affiliation\n            &lt;dbl&gt; &lt;chr&gt;        &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;         &lt;chr&gt;           \n 1             12 investiga…    4399 Karen        Bierman       The Pennsylvani…\n 2             12 investiga…     249 Kristin A    Buss          The Pennsylvani…\n 3             12 investiga…    7298 Kevin        Clair         The Pennsylvani…\n 4             12 investiga…    7240 Briana Dani… Ezray         The Pennsylvani…\n 5             12 investiga…    1256 Jennifer     Frank         The Pennsylvani…\n 6             12 investiga…       6 Rick O.      Gilmore       The Pennsylvani…\n 7             12 investiga…    3043 Yanxi        Liu           The Pennsylvani…\n 8             12 investiga…    1902 Amy          Marshall      The Pennsylvani…\n 9             12 investiga…    6474 Anna         Mattila       The Pennsylvani…\n10             12 investiga…     847 P. Karen     Murphy        The Pennsylvani…\n# ℹ 12 more rows\n# ℹ 2 more variables: user_affiliation_id &lt;int&gt;, expiration_date &lt;chr&gt;\n\nlist_institutions(search_string = \"The Pennsylvania\",\n                  vb = TRUE)\n\n# A tibble: 8 × 12\n  institution_id institution_name         institution_url institution_date_sig…¹\n           &lt;int&gt; &lt;chr&gt;                    &lt;chr&gt;           &lt;chr&gt;                 \n1           5708 The Pennsylvania State … https://abingt… 2025-03-05            \n2           5707 The Pennsylvania State … https://arl.ps… 2025-03-05            \n3           5706 The Pennsylvania State … https://brandy… 2025-03-05            \n4           8631 The Pennsylvania State … https://harris… 2025-03-05            \n5          10508 The Pennsylvania State … https://shenan… 2025-03-05            \n6             12 The Pennsylvania State … http://www.psu… 2025-03-05            \n7           5705 The Pennsylvania State … https://scrant… 2025-03-05            \n8            977 The University of Penns… https://www.up… 2025-03-05            \n# ℹ abbreviated name: ¹​institution_date_signed\n# ℹ 8 more variables: institution_source &lt;chr&gt;, institution_created_at &lt;chr&gt;,\n#   institution_updated_at &lt;chr&gt;, institution_has_avatar &lt;lgl&gt;,\n#   institution_has_administrators &lt;lgl&gt;, institution_latitude &lt;dbl&gt;,\n#   institution_longitude &lt;dbl&gt;, institution_manual_coordinates &lt;lgl&gt;",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Institutions</span>"
+    ]
+  },
+  {
+    "objectID": "institutions.html#clean-up",
+    "href": "institutions.html#clean-up",
+    "title": "Institutions",
+    "section": "Clean-up",
+    "text": "Clean-up\n\nlogout_db()\n\n[1] TRUE",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Institutions</span>"
+    ]
+  },
+  {
+    "objectID": "users.html",
+    "href": "users.html",
+    "title": "Users",
+    "section": "",
+    "text": "About\nThis page documents the results of testing functions that involve users.",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Users</span>"
+    ]
+  },
+  {
+    "objectID": "users.html#about",
+    "href": "users.html#about",
+    "title": "Users",
+    "section": "",
+    "text": "Important\n\n\n\nThese functions are intended to access only public data.",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Users</span>"
+    ]
+  },
+  {
+    "objectID": "users.html#setup",
+    "href": "users.html#setup",
+    "title": "Users",
+    "section": "Setup",
+    "text": "Setup\n\nlibrary(databraryr)\n\nWelcome to the databraryr package.\n\nlogin_db(email = Sys.getenv(\"DATABRARY_LOGIN\"),\n         password = Sys.getenv(\"DATABRARY_PASSWORD\"),\n         client_id = Sys.getenv(\"DATABRARY_CLIENT_ID\"),\n         client_secret = Sys.getenv(\"DATABRARY_CLIENT_SECRET\"),\n         store = FALSE,\n         overwrite = FALSE,\n         vb = TRUE)\n\nLogin successful.\n\n\n[1] TRUE",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Users</span>"
+    ]
+  },
+  {
+    "objectID": "users.html#user-functions",
+    "href": "users.html#user-functions",
+    "title": "Users",
+    "section": "_user* functions",
+    "text": "_user* functions\n\nget_user_avatar(user_id = 6,\n                dest_path = \"rog.png\",\n                vb = TRUE)\n\nGetting user avatar for user ID: 6\n\n\nAvatar saved to: rog.png\n\n\n[1] \"/Users/rog1/rrr/databraryr-uat/rog.png\"\n\nget_user_by_id(user_id = 6,\n               vb = TRUE)\n\n$id\n[1] 6\n\n$prename\n[1] \"Rick O.\"\n\n$sortname\n[1] \"Gilmore\"\n\n$email\n[1] \"rogilmore@psu.edu\"\n\n$affiliation\n[1] \"The Pennsylvania State University\"\n\n$affiliation_id\n[1] 23370\n\n$is_authorized_investigator\n[1] TRUE\n\n$has_avatar\n[1] TRUE\n\nlist_user_affiliates(user_id = 6,\n                     vb = TRUE)\n\n# A tibble: 72 × 3\n   affiliate_user    access_level expiration_date\n   &lt;named list&gt;      &lt;chr&gt;        &lt;chr&gt;          \n 1 &lt;int [1]&gt;         read only    2026-07-03     \n 2 &lt;chr [1]&gt;         read only    2026-07-03     \n 3 &lt;chr [1]&gt;         read only    2026-07-03     \n 4 &lt;chr [1]&gt;         read only    2026-07-03     \n 5 &lt;named list [12]&gt; read only    2026-07-03     \n 6 &lt;lgl [1]&gt;         read only    2026-07-03     \n 7 &lt;chr [1]&gt;         read only    2026-07-03     \n 8 &lt;NULL&gt;            read only    2026-07-03     \n 9 &lt;lgl [1]&gt;         read only    2026-07-03     \n10 &lt;int [1]&gt;         read only    2026-07-03     \n# ℹ 62 more rows\n\nlist_user_sponsors(user_id = 6,\n                   vb = TRUE)\n\n# A tibble: 2 × 11\n  user_id user_prename user_sortname user_affiliation sponsor_id sponsor_prename\n    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;         &lt;chr&gt;                 &lt;int&gt; &lt;chr&gt;          \n1       6 Rick O.      Gilmore       The Pennsylvani…          6 Rick O.        \n2       6 Rick O.      Gilmore       The Pennsylvani…          6 Rick O.        \n# ℹ 5 more variables: sponsor_sortname &lt;chr&gt;, sponsor_affiliation &lt;chr&gt;,\n#   sponsor_affiliation_id &lt;int&gt;, access_level &lt;chr&gt;, expiration_date &lt;chr&gt;\n\nlist_user_volumes(user_id = 6,\n                  vb = TRUE)\n\nFound n = 50 volumes for user_id 6.\n\n\n# A tibble: 50 × 11\n   vol_id vol_name                 vol_description vol_created_at vol_updated_at\n    &lt;int&gt; &lt;chr&gt;                    &lt;chr&gt;           &lt;chr&gt;          &lt;chr&gt;         \n 1      1 Databrary sponsored wor… \"Our mission i… 2025-03-05T16… 2026-03-05T08…\n 2      2 Head-mounted camera vie… \"Two adult obs… 2013-10-02T11… 2025-03-05T16…\n 3     23 An analysis of optic fl… \"Global patter… 2014-07-07T15… 2025-03-05T16…\n 4     31 Four-month-olds' discri… \"One of the mo… 2014-07-23T16… 2025-03-05T16…\n 5     32 Spatio-temporal tuning … \"Motion cues p… 2014-07-23T16… 2025-03-05T16…\n 6     49 Cortical responses to o… \"Motion provid… 2014-09-01T23… 2025-03-05T16…\n 7     68 Visual Motion Priors Di… \"Visual motion… 2014-10-14T18… 2025-03-05T16…\n 8     73 Motion Coherence Thresh… \"In adults, ra… 2014-10-20T15… 2026-03-05T08…\n 9     75 Children's Brain Respon… \"Structured pa… 2014-10-20T16… 2025-03-05T16…\n10     77 The Salience of Lower-O… \"There exists … 2014-10-22T19… 2026-03-05T08…\n# ℹ 40 more rows\n# ℹ 6 more variables: vol_sharing_level &lt;chr&gt;, vol_short_name &lt;chr&gt;,\n#   user_id &lt;int&gt;, user_prename &lt;chr&gt;, user_sortname &lt;chr&gt;,\n#   user_affiliation &lt;chr&gt;\n\nlist_users(search = \"Gilmore\",\n           vb = TRUE)\n\n# A tibble: 4 × 16\n  user_id user_first_name user_last_name user_email          user_orcid user_url\n    &lt;int&gt; &lt;chr&gt;           &lt;chr&gt;          &lt;chr&gt;               &lt;chr&gt;      &lt;chr&gt;   \n1    6989 Camilla         Gilmore        c.gilmore@lboro.ac… &lt;NA&gt;       &lt;NA&gt;    \n2   23363 Rick            Gilmore        rick.gilmore@datab… &lt;NA&gt;       https:/…\n3    8524 Rick (Admin)    Gilmore        rick.o.gilmore@gma… &lt;NA&gt;       https:/…\n4       6 Rick O.         Gilmore        rogilmore@psu.edu   0000-0002… http://…\n# ℹ 10 more variables: user_affiliation_id &lt;int&gt;, user_affiliation_name &lt;chr&gt;,\n#   user_is_authorized_investigator &lt;lgl&gt;, user_has_avatar &lt;lgl&gt;,\n#   user_is_suspended &lt;lgl&gt;, user_suspended_by_id &lt;int&gt;,\n#   user_suspended_by_email &lt;chr&gt;, user_institution_sponsorships &lt;list&gt;,\n#   user_current_affiliates &lt;list&gt;, user_current_sponsors &lt;list&gt;\n\nsearch_users(search_string = \"Gilmore\", vb = TRUE)\n\n# A tibble: 7 × 10\n  user_id user_first_name user_last_name user_full_name    user_email user_orcid\n    &lt;int&gt; &lt;chr&gt;           &lt;chr&gt;          &lt;chr&gt;             &lt;chr&gt;      &lt;chr&gt;     \n1    6989 Camilla         Gilmore        Camilla Gilmore   c.gilmore… &lt;NA&gt;      \n2   23363 Rick            Gilmore        Rick Gilmore      rick.gilm… &lt;NA&gt;      \n3       6 Rick O.         Gilmore        Rick O. Gilmore   rogilmore… 0000-0002…\n4    8524 Rick (Admin)    Gilmore        Rick (Admin) Gil… rick.o.gi… &lt;NA&gt;      \n5    6659 Neeraj          Kilhore        Neeraj Kilhore    neeraj.ci… &lt;NA&gt;      \n6    7284 Morgan          Gilmer         Morgan Gilmer     mvg5950@p… &lt;NA&gt;      \n7     745 Lori            Elmore-Staton  Lori Elmore-Stat… les456@ms… &lt;NA&gt;      \n# ℹ 4 more variables: user_url &lt;chr&gt;, user_is_authorized &lt;lgl&gt;,\n#   user_has_avatar &lt;lgl&gt;, score &lt;dbl&gt;\n\n\nThis is very slow, so we do not run it by default.\n\nlist_user_history(user_id = 6,\n                  vb = TRUE)",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Users</span>"
+    ]
+  },
+  {
+    "objectID": "users.html#clean-up",
+    "href": "users.html#clean-up",
+    "title": "Users",
+    "section": "Clean-up",
+    "text": "Clean-up\n\nlogout_db()\n\n[1] TRUE",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Users</span>"
+    ]
+  },
+  {
+    "objectID": "volumes.html",
+    "href": "volumes.html",
+    "title": "Volumes",
+    "section": "",
+    "text": "About\nThis page documents the results of testing functions that involve volumes.",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Volumes</span>"
+    ]
+  },
+  {
+    "objectID": "volumes.html#about",
+    "href": "volumes.html#about",
+    "title": "Volumes",
+    "section": "",
+    "text": "Important\n\n\n\nMost functions are intended to access only public data.\nThe create_volume_record function accesses a public or private volume that the person testing has write privileges on.",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Volumes</span>"
+    ]
+  },
+  {
+    "objectID": "volumes.html#setup",
+    "href": "volumes.html#setup",
+    "title": "Volumes",
+    "section": "Setup",
+    "text": "Setup\n\nlibrary(databraryr)\n\nWelcome to the databraryr package.\n\nlogin_db(email = Sys.getenv(\"DATABRARY_LOGIN\"),\n         password = Sys.getenv(\"DATABRARY_PASSWORD\"),\n         client_id = Sys.getenv(\"DATABRARY_CLIENT_ID\"),\n         client_secret = Sys.getenv(\"DATABRARY_CLIENT_SECRET\"),\n         store = FALSE,\n         overwrite = FALSE,\n         vb = TRUE)\n\nLogin successful.\n\n\n[1] TRUE",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Volumes</span>"
+    ]
+  },
+  {
+    "objectID": "volumes.html#get_-functions",
+    "href": "volumes.html#get_-functions",
+    "title": "Volumes",
+    "section": "get_* functions",
+    "text": "get_* functions\n\nget_volume_by_id()\n\n# A tibble: 1 × 23\n     id updated_at      created_at title description short_name owner_connection\n  &lt;int&gt; &lt;chr&gt;           &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;      &lt;list&gt;          \n1     1 2026-03-05T08:… 2025-03-0… Data… \"Our missi… &lt;NA&gt;       &lt;named list [8]&gt;\n# ℹ 16 more variables: owner_institution &lt;list&gt;, sharing_level &lt;chr&gt;,\n#   access_level &lt;chr&gt;, has_admin_access &lt;lgl&gt;, fundings &lt;list&gt;,\n#   coauthors &lt;list&gt;, links &lt;list&gt;, enabled_categories &lt;list&gt;,\n#   enabled_metrics &lt;list&gt;, citation &lt;list&gt;, session_count &lt;int&gt;,\n#   session_count_shared &lt;int&gt;, participant_count &lt;int&gt;,\n#   participant_gender_counts &lt;list&gt;, file_counts &lt;list&gt;, thumbnail &lt;list&gt;\n\nget_volume_collaborator_by_id(vol_id = 1, collaborator_id = 1) # Karen\n\n$collaborator_id\n[1] 1\n\n$volume\n[1] 1\n\n$user\n$user$user_id\n[1] 5\n\n$user$first_name\n[1] \"Karen\"\n\n$user$last_name\n[1] \"Adolph\"\n\n$user$email\n[1] \"karen.adolph@nyu.edu\"\n\n$user$is_authorized_investigator\n[1] TRUE\n\n$user$has_avatar\n[1] TRUE\n\n\n$sponsor\n$sponsor$sponsor_id\n[1] 6\n\n$sponsor$first_name\n[1] \"Rick O.\"\n\n$sponsor$last_name\n[1] \"Gilmore\"\n\n$sponsor$email\n[1] \"rogilmore@psu.edu\"\n\n\n$sponsorship\nNULL\n\n$is_publicly_visible\n[1] TRUE\n\n$access_level\n[1] \"investigator\"\n\n$expiration_date\n[1] \"2026-03-05\"\n\n$sponsored_users\nNULL",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Volumes</span>"
+    ]
+  },
+  {
+    "objectID": "volumes.html#list_-functions",
+    "href": "volumes.html#list_-functions",
+    "title": "Volumes",
+    "section": "list_* functions",
+    "text": "list_* functions\n\nlist_volume_assets(vol_id = 1, vb = TRUE)\n\n# A tibble: 121 × 19\n   asset_id asset_name               asset_permission asset_size asset_mime_type\n      &lt;int&gt; &lt;chr&gt;                    &lt;chr&gt;                 &lt;dbl&gt; &lt;chr&gt;          \n 1     9826 Introduction             public             88610655 video/mp4      \n 2     9828 Databrary demo           public            917124852 video/mp4      \n 3     9830 Databrary 1              public            899912341 video/mp4      \n 4     9832 Datavyu                  public            764340542 video/mp4      \n 5    22412 Slides                   public              4573426 application/pdf\n 6     9834 Overview and Policy Upd… public           1301079971 video/mp4      \n 7     9836 Private Beta demo        public           1419151887 video/mp4      \n 8     9838 Positioning Databrary f… public            882417129 video/mp4      \n 9     9839 04-07-Slides             public              3013342 application/pdf\n10    12039 slides                   public             10192940 application/pdf\n# ℹ 111 more rows\n# ℹ 14 more variables: asset_format_id &lt;int&gt;, asset_format_name &lt;chr&gt;,\n#   asset_duration &lt;dbl&gt;, asset_created_at &lt;chr&gt;, asset_updated_at &lt;chr&gt;,\n#   asset_sha1 &lt;chr&gt;, asset_thumbnail_url &lt;chr&gt;, session_id &lt;int&gt;,\n#   session_name &lt;chr&gt;, session_date &lt;chr&gt;, session_release &lt;chr&gt;,\n#   asset_uploader_id &lt;int&gt;, asset_uploader_first_name &lt;chr&gt;,\n#   asset_uploader_last_name &lt;chr&gt;\n\nlist_volume_collaborators(vol_id = 1, vb = TRUE)\n\n# A tibble: 8 × 15\n  collaborator_id volume_id collaborator_user_id collaborator_first_name\n            &lt;int&gt;     &lt;dbl&gt;                &lt;int&gt; &lt;chr&gt;                  \n1           -2785         1                  437 Andrea                 \n2           -1162         1                22582 Paweł                  \n3            3181         1                22594 Beniamin               \n4           -2388         1                23334 Iwona                  \n5           -2683         1                24900 Anika                  \n6           -2754         1                25150 Seunghee               \n7           -2755         1                25155 Isabella               \n8           -2756         1                25163 Brianna                \n# ℹ 11 more variables: collaborator_last_name &lt;chr&gt;, collaborator_email &lt;chr&gt;,\n#   collaborator_is_authorized_investigator &lt;lgl&gt;,\n#   collaborator_has_avatar &lt;lgl&gt;, sponsor_user_id &lt;int&gt;,\n#   sponsor_first_name &lt;chr&gt;, sponsor_last_name &lt;chr&gt;, sponsor_email &lt;chr&gt;,\n#   access_level &lt;chr&gt;, is_publicly_visible &lt;lgl&gt;, expiration_date &lt;chr&gt;\n\nlist_volume_folders(vol_id = 1, vb = TRUE)\n\n# A tibble: 1 × 10\n  folder_id folder_name  folder_release folder_file_count folder_accessible_fi…¹\n      &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;                      &lt;int&gt;                  &lt;int&gt;\n1      9807 Top-level m… public                         7                      7\n# ℹ abbreviated name: ¹​folder_accessible_file_count\n# ℹ 5 more variables: folder_has_full_access &lt;lgl&gt;,\n#   folder_contains_different_release_levels &lt;lgl&gt;, folder_created_at &lt;chr&gt;,\n#   folder_updated_at &lt;chr&gt;, vol_id &lt;int&gt;\n\nlist_volume_funding(vol_id = 1, vb = TRUE)\n\nSummarizing funding for n=1 volumes.\n\n\n# A tibble: 2 × 5\n  funder_id funder_name                  funder_is_approved funder_awards vol_id\n      &lt;int&gt; &lt;chr&gt;                        &lt;lgl&gt;              &lt;chr&gt;          &lt;dbl&gt;\n1         1 National Science Foundation… TRUE               BCS-1238599        1\n2         3 National Institute of Child… TRUE               U01-HD-076595      1\n\nlist_volume_info(vol_id = 1, vb = TRUE)\n\nRetrieving data for vol_id 1.\n\n\nSummarising volume detail...\n\n\n# A tibble: 1 × 20\n  vol_id vol_name          vol_short_name vol_desc vol_created_at vol_updated_at\n   &lt;int&gt; &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt;    &lt;chr&gt;          &lt;chr&gt;         \n1      1 Databrary sponso… &lt;NA&gt;           \"Our mi… 2025-03-05T16… 2026-03-05T08…\n# ℹ 14 more variables: vol_sharing_level &lt;chr&gt;, vol_access_level &lt;chr&gt;,\n#   vol_owner_connection &lt;list&gt;, vol_owner_institution &lt;list&gt;,\n#   vol_n_sessions &lt;int&gt;, vol_n_sessions_shared &lt;int&gt;, vol_file_counts &lt;list&gt;,\n#   vol_n_assets &lt;int&gt;, vol_tot_size_mb &lt;dbl&gt;, vol_tot_dur_hrs &lt;dbl&gt;,\n#   vol_n_funders &lt;int&gt;, vol_enabled_categories &lt;list&gt;,\n#   vol_enabled_metrics &lt;list&gt;, vol_citation &lt;list&gt;\n\nlist_volume_links(vol_id = 1 , vb = TRUE)\n\n# A tibble: 3 × 3\n  link_id link_label                                      link_url              \n    &lt;int&gt; &lt;chr&gt;                                           &lt;chr&gt;                 \n1      51 Video as data (Invited article in APS Observer) http://www.psychologi…\n2      52 2016-12-16 NIH PLAY workshop videocast          https://videocast.nih…\n3     245 Databrary sponsored workshops and events        doi:10.17910/B7159Q   \n\nlist_volume_records(\n  vol_id = 2,\n  category_id = 1,\n  # Participant\n  vb = TRUE\n)\n\n# A tibble: 2 × 15\n  record_id record_volume record_volume_name record_category_id record_measures \n      &lt;int&gt;         &lt;int&gt; &lt;chr&gt;                           &lt;int&gt; &lt;list&gt;          \n1         5             2 &lt;NA&gt;                                1 &lt;named list [5]&gt;\n2         6             2 &lt;NA&gt;                                1 &lt;named list [5]&gt;\n# ℹ 10 more variables: record_birthday &lt;chr&gt;, age_years &lt;int&gt;,\n#   age_months &lt;int&gt;, age_days &lt;int&gt;, age_total_days &lt;int&gt;,\n#   age_formatted &lt;chr&gt;, age_is_estimated &lt;lgl&gt;, age_is_blurred &lt;lgl&gt;,\n#   record_default_sessions &lt;list&gt;, record_source_kind &lt;chr&gt;\n\nlist_volume_records(\n  vol_id = 2,\n  category_id = 2,\n  # Pilot\n  vb = TRUE\n)\n\nNo records found with category_id = 2 for volume 2\n\n\n# A tibble: 0 × 15\n# ℹ 15 variables: record_id &lt;int&gt;, record_volume &lt;int&gt;,\n#   record_volume_name &lt;chr&gt;, record_category_id &lt;int&gt;, record_measures &lt;list&gt;,\n#   record_birthday &lt;chr&gt;, age_years &lt;int&gt;, age_months &lt;int&gt;, age_days &lt;int&gt;,\n#   age_total_days &lt;int&gt;, age_formatted &lt;chr&gt;, age_is_estimated &lt;lgl&gt;,\n#   age_is_blurred &lt;lgl&gt;, record_default_sessions &lt;list&gt;,\n#   record_source_kind &lt;chr&gt;\n\nlist_volume_records(\n  vol_id = 2,\n  category_id = 3,\n  # Exclusion\n  vb = TRUE\n)\n\nNo records found with category_id = 3 for volume 2\n\n\n# A tibble: 0 × 15\n# ℹ 15 variables: record_id &lt;int&gt;, record_volume &lt;int&gt;,\n#   record_volume_name &lt;chr&gt;, record_category_id &lt;int&gt;, record_measures &lt;list&gt;,\n#   record_birthday &lt;chr&gt;, age_years &lt;int&gt;, age_months &lt;int&gt;, age_days &lt;int&gt;,\n#   age_total_days &lt;int&gt;, age_formatted &lt;chr&gt;, age_is_estimated &lt;lgl&gt;,\n#   age_is_blurred &lt;lgl&gt;, record_default_sessions &lt;list&gt;,\n#   record_source_kind &lt;chr&gt;\n\nlist_volume_records(\n  vol_id = 2,\n  category_id = 4,\n  # Condition\n  vb = TRUE\n)\n\nNo records found with category_id = 4 for volume 2\n\n\n# A tibble: 0 × 15\n# ℹ 15 variables: record_id &lt;int&gt;, record_volume &lt;int&gt;,\n#   record_volume_name &lt;chr&gt;, record_category_id &lt;int&gt;, record_measures &lt;list&gt;,\n#   record_birthday &lt;chr&gt;, age_years &lt;int&gt;, age_months &lt;int&gt;, age_days &lt;int&gt;,\n#   age_total_days &lt;int&gt;, age_formatted &lt;chr&gt;, age_is_estimated &lt;lgl&gt;,\n#   age_is_blurred &lt;lgl&gt;, record_default_sessions &lt;list&gt;,\n#   record_source_kind &lt;chr&gt;\n\nlist_volume_records(\n  vol_id = 2,\n  category_id = 5,\n  # Group\n  vb = TRUE\n)\n\nNo records found with category_id = 5 for volume 2\n\n\n# A tibble: 0 × 15\n# ℹ 15 variables: record_id &lt;int&gt;, record_volume &lt;int&gt;,\n#   record_volume_name &lt;chr&gt;, record_category_id &lt;int&gt;, record_measures &lt;list&gt;,\n#   record_birthday &lt;chr&gt;, age_years &lt;int&gt;, age_months &lt;int&gt;, age_days &lt;int&gt;,\n#   age_total_days &lt;int&gt;, age_formatted &lt;chr&gt;, age_is_estimated &lt;lgl&gt;,\n#   age_is_blurred &lt;lgl&gt;, record_default_sessions &lt;list&gt;,\n#   record_source_kind &lt;chr&gt;\n\nlist_volume_records(\n  vol_id = 2,\n  category_id = 6,\n  # Task\n  vb = TRUE\n)\n\nNo records found with category_id = 6 for volume 2\n\n\n# A tibble: 0 × 15\n# ℹ 15 variables: record_id &lt;int&gt;, record_volume &lt;int&gt;,\n#   record_volume_name &lt;chr&gt;, record_category_id &lt;int&gt;, record_measures &lt;list&gt;,\n#   record_birthday &lt;chr&gt;, age_years &lt;int&gt;, age_months &lt;int&gt;, age_days &lt;int&gt;,\n#   age_total_days &lt;int&gt;, age_formatted &lt;chr&gt;, age_is_estimated &lt;lgl&gt;,\n#   age_is_blurred &lt;lgl&gt;, record_default_sessions &lt;list&gt;,\n#   record_source_kind &lt;chr&gt;\n\nlist_volume_records(\n  vol_id = 2,\n  category_id = 7,\n  # Context\n  vb = TRUE\n)\n\n# A tibble: 1 × 15\n  record_id record_volume record_volume_name record_category_id record_measures \n      &lt;int&gt;         &lt;int&gt; &lt;chr&gt;                           &lt;int&gt; &lt;list&gt;          \n1       710             2 &lt;NA&gt;                                7 &lt;named list [2]&gt;\n# ℹ 10 more variables: record_birthday &lt;chr&gt;, age_years &lt;int&gt;,\n#   age_months &lt;int&gt;, age_days &lt;int&gt;, age_total_days &lt;int&gt;,\n#   age_formatted &lt;chr&gt;, age_is_estimated &lt;lgl&gt;, age_is_blurred &lt;lgl&gt;,\n#   record_default_sessions &lt;list&gt;, record_source_kind &lt;chr&gt;\n\nlist_volume_session_assets(vol_id = 2,\n                           session_id = 11,\n                           vb = TRUE)\n\nFound n = 2 assets in vol_id 2 session_id 11\n\n\n# A tibble: 2 × 15\n  asset_id asset_name asset_permission asset_size asset_mime_type\n     &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;                 &lt;int&gt; &lt;chr&gt;          \n1        3 Rick       public            416913623 video/mp4      \n2        9 Florian    public            470909386 video/mp4      \n# ℹ 10 more variables: asset_format_id &lt;int&gt;, asset_format_name &lt;chr&gt;,\n#   asset_duration &lt;dbl&gt;, asset_created_at &lt;chr&gt;, asset_updated_at &lt;chr&gt;,\n#   asset_sha1 &lt;chr&gt;, asset_thumbnail_url &lt;chr&gt;, session_id &lt;int&gt;,\n#   session_name &lt;chr&gt;, session_release &lt;chr&gt;\n\nlist_volume_sessions(vol_id = 1, vb = TRUE)\n\nFound n = 24 sessions in vol_id 1\n\n\n# A tibble: 24 × 7\n   session_id session_name                   session_release session_source_date\n        &lt;int&gt; &lt;chr&gt;                          &lt;chr&gt;           &lt;chr&gt;              \n 1       6256 Advisory Board Meeting         public          2013-10-28         \n 2       6257 Advisory Board Meeting         public          2014-04-07         \n 3       6540 Advisory Board Meeting         public          2014-10-17         \n 4       7821 SRCD Preconference Workshop    public          2015-03-18         \n 5       8460 Advisory Board Meeting         public          2015-05-11         \n 6       9224 Regional Workshop at NYU (Sli… public          2015-09-18         \n 7       9578 CDS Preconference Workshop     public          2015-10-08         \n 8      10068 Regional Workshop in Philadel… public          2015-11-20         \n 9      10991 Regional Workshop at Penn Sta… public          2016-03-25         \n10      11362 Regional Workshop at Universi… public          2016-04-15         \n# ℹ 14 more rows\n# ℹ 3 more variables: session_file_count &lt;int&gt;,\n#   session_accessible_file_count &lt;int&gt;, session_has_full_access &lt;lgl&gt;\n\nlist_volume_tags(vol_id = 1, vb = TRUE)\n\nFound n = 6 tags in vol_id 1\n\n\n[[1]]\n[1] \"icis\"\n\n[[2]]\n[1] \"icis nola\"\n\n[[3]]\n[1] \"meetings\"\n\n[[4]]\n[1] \"presentations\"\n\n[[5]]\n[1] \"talk\"\n\n[[6]]\n[1] \"workshops\"\n\nlist_volumes(search = \"PLAY\", vb = TRUE)\n\nFound n = 64 volumes that matched the supplied filters.\n\n\n# A tibble: 64 × 14\n   volume_id volume_title                 volume_short_name volume_sharing_level\n       &lt;int&gt; &lt;chr&gt;                        &lt;chr&gt;             &lt;chr&gt;               \n 1      1073 PLAYproject_TESTY            \"PLAYproject_TES… private             \n 2      1049 PLAYProject_TEST             \"\"                private             \n 3       724 Play & Learning Across a Ye… \"PLAY-summit-201… public              \n 4       899 PLAYProject_NYUNI             &lt;NA&gt;             private             \n 5      1657 PLAYProject_PENNS             &lt;NA&gt;             public_overview_only\n 6       897 Learning the Designed Actio… \"Hidden Affordan… public              \n 7        73 Motion Coherence Thresholds… \"moco-behavior-a… public              \n 8       868 Keen                         \"Keen\"            public_overview_only\n 9        88 Flexibility in action: How … \"BabyOH\"          private             \n10      1118 Infant exuberant object pla…  &lt;NA&gt;             public              \n# ℹ 54 more rows\n# ℹ 10 more variables: volume_access_level &lt;chr&gt;,\n#   volume_owner_connection_id &lt;int&gt;, volume_owner_role &lt;chr&gt;,\n#   volume_owner_expiration_date &lt;chr&gt;, volume_owner_user_id &lt;int&gt;,\n#   volume_owner_user_first_name &lt;chr&gt;, volume_owner_user_last_name &lt;chr&gt;,\n#   volume_owner_user_email &lt;chr&gt;, volume_owner_institution_id &lt;int&gt;,\n#   volume_owner_institution_name &lt;chr&gt;\n\n\nThe following function is very slow, so we do not run it by default.\n\nlist_volume_activity(vol_id = 31) # Very slow",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Volumes</span>"
+    ]
+  },
+  {
+    "objectID": "volumes.html#clean-up",
+    "href": "volumes.html#clean-up",
+    "title": "Volumes",
+    "section": "Clean-up",
+    "text": "Clean-up\n\nlogout_db()\n\n[1] TRUE",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Volumes</span>"
+    ]
+  },
+  {
+    "objectID": "sessions-folders.html",
+    "href": "sessions-folders.html",
+    "title": "Sessions & Folders",
+    "section": "",
+    "text": "About\nThis page documents testing of functions related to sessions and folders.",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Sessions & Folders</span>"
+    ]
+  },
+  {
+    "objectID": "sessions-folders.html#setup",
+    "href": "sessions-folders.html#setup",
+    "title": "Sessions & Folders",
+    "section": "Setup",
+    "text": "Setup\n\nlibrary(databraryr)\n\nWelcome to the databraryr package.\n\nlogin_db(email = Sys.getenv(\"DATABRARY_LOGIN\"),\n         password = Sys.getenv(\"DATABRARY_PASSWORD\"),\n         client_id = Sys.getenv(\"DATABRARY_CLIENT_ID\"),\n         client_secret = Sys.getenv(\"DATABRARY_CLIENT_SECRET\"),\n         store = FALSE,\n         overwrite = FALSE,\n         vb = TRUE)\n\nLogin successful.\n\n\n[1] TRUE",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Sessions & Folders</span>"
+    ]
+  },
+  {
+    "objectID": "sessions-folders.html#sessions-functions",
+    "href": "sessions-folders.html#sessions-functions",
+    "title": "Sessions & Folders",
+    "section": "_sessions* functions",
+    "text": "_sessions* functions\n\nget_session_by_id(session_id = 6256,\n                  vol_id = 1,\n                  vb = TRUE)\n\n$id\n[1] 6256\n\n$name\n[1] \"Advisory Board Meeting\"\n\n$volume\n[1] 1\n\n$release_level\n[1] \"public\"\n\n$created_at\n[1] \"2025-03-05T16:37:17.746654Z\"\n\n$updated_at\n[1] \"2025-03-05T16:37:17.746664Z\"\n\n$source_date\n[1] \"2013-10-28\"\n\n$date\n$date$year\n[1] 2013\n\n$date$month\n[1] 10\n\n$date$day\n[1] 28\n\n$date$is_estimated\n[1] FALSE\n\n\n$default_records\nlist()\n\n$file_count\n[1] 5\n\n$accessible_file_count\n[1] 5\n\n$file_records\nlist()\n\n$has_full_access\n[1] TRUE\n\n$contains_different_release_levels\n[1] FALSE\n\nget_session_by_name(vb = TRUE) # Name contains \"Advisory Board Meeting\"\n\n[[1]]\n[[1]]$id\n[1] 6256\n\n[[1]]$name\n[1] \"Advisory Board Meeting\"\n\n[[1]]$volume\n[1] 1\n\n[[1]]$release_level\n[1] \"public\"\n\n[[1]]$created_at\n[1] \"2025-03-05T16:37:17.746654Z\"\n\n[[1]]$updated_at\n[1] \"2025-03-05T16:37:17.746664Z\"\n\n[[1]]$source_date\n[1] \"2013-10-28\"\n\n[[1]]$date\n[[1]]$date$year\n[1] 2013\n\n[[1]]$date$month\n[1] 10\n\n[[1]]$date$day\n[1] 28\n\n[[1]]$date$is_estimated\n[1] FALSE\n\n\n[[1]]$default_records\nlist()\n\n[[1]]$file_count\n[1] 5\n\n[[1]]$accessible_file_count\n[1] 5\n\n[[1]]$file_records\nlist()\n\n[[1]]$has_full_access\n[1] TRUE\n\n[[1]]$contains_different_release_levels\n[1] FALSE\n\n\n[[2]]\n[[2]]$id\n[1] 6257\n\n[[2]]$name\n[1] \"Advisory Board Meeting\"\n\n[[2]]$volume\n[1] 1\n\n[[2]]$release_level\n[1] \"public\"\n\n[[2]]$created_at\n[1] \"2025-03-05T16:37:17.750645Z\"\n\n[[2]]$updated_at\n[1] \"2025-03-05T16:37:17.750658Z\"\n\n[[2]]$source_date\n[1] \"2014-04-07\"\n\n[[2]]$date\n[[2]]$date$year\n[1] 2014\n\n[[2]]$date$month\n[1] 4\n\n[[2]]$date$day\n[1] 7\n\n[[2]]$date$is_estimated\n[1] FALSE\n\n\n[[2]]$default_records\nlist()\n\n[[2]]$file_count\n[1] 4\n\n[[2]]$accessible_file_count\n[1] 4\n\n[[2]]$file_records\nlist()\n\n[[2]]$has_full_access\n[1] TRUE\n\n[[2]]$contains_different_release_levels\n[1] FALSE\n\n\n[[3]]\n[[3]]$id\n[1] 6540\n\n[[3]]$name\n[1] \"Advisory Board Meeting\"\n\n[[3]]$volume\n[1] 1\n\n[[3]]$release_level\n[1] \"public\"\n\n[[3]]$created_at\n[1] \"2025-03-05T16:37:18.681513Z\"\n\n[[3]]$updated_at\n[1] \"2025-03-05T16:37:18.681526Z\"\n\n[[3]]$source_date\n[1] \"2014-10-17\"\n\n[[3]]$date\n[[3]]$date$year\n[1] 2014\n\n[[3]]$date$month\n[1] 10\n\n[[3]]$date$day\n[1] 17\n\n[[3]]$date$is_estimated\n[1] FALSE\n\n\n[[3]]$default_records\nlist()\n\n[[3]]$file_count\n[1] 2\n\n[[3]]$accessible_file_count\n[1] 2\n\n[[3]]$file_records\nlist()\n\n[[3]]$has_full_access\n[1] TRUE\n\n[[3]]$contains_different_release_levels\n[1] FALSE\n\n\n[[4]]\n[[4]]$id\n[1] 8460\n\n[[4]]$name\n[1] \"Advisory Board Meeting\"\n\n[[4]]$volume\n[1] 1\n\n[[4]]$release_level\n[1] \"public\"\n\n[[4]]$created_at\n[1] \"2025-03-05T16:37:26.479716Z\"\n\n[[4]]$updated_at\n[1] \"2025-03-05T16:37:26.479724Z\"\n\n[[4]]$source_date\n[1] \"2015-05-11\"\n\n[[4]]$date\n[[4]]$date$year\n[1] 2015\n\n[[4]]$date$month\n[1] 5\n\n[[4]]$date$day\n[1] 11\n\n[[4]]$date$is_estimated\n[1] FALSE\n\n\n[[4]]$default_records\nlist()\n\n[[4]]$file_count\n[1] 2\n\n[[4]]$accessible_file_count\n[1] 2\n\n[[4]]$file_records\nlist()\n\n[[4]]$has_full_access\n[1] TRUE\n\n[[4]]$contains_different_release_levels\n[1] FALSE\n\n\n[[5]]\n[[5]]$id\n[1] 11886\n\n[[5]]$name\n[1] \"Advisory Board Meeting\"\n\n[[5]]$volume\n[1] 1\n\n[[5]]$release_level\n[1] \"public\"\n\n[[5]]$created_at\n[1] \"2025-03-05T16:37:39.215053Z\"\n\n[[5]]$updated_at\n[1] \"2025-03-05T16:37:39.215061Z\"\n\n[[5]]$source_date\n[1] \"2016-06-13\"\n\n[[5]]$date\n[[5]]$date$year\n[1] 2016\n\n[[5]]$date$month\n[1] 6\n\n[[5]]$date$day\n[1] 13\n\n[[5]]$date$is_estimated\n[1] FALSE\n\n\n[[5]]$default_records\nlist()\n\n[[5]]$file_count\n[1] 2\n\n[[5]]$accessible_file_count\n[1] 2\n\n[[5]]$file_records\nlist()\n\n[[5]]$has_full_access\n[1] TRUE\n\n[[5]]$contains_different_release_levels\n[1] FALSE\n\n\n[[6]]\n[[6]]$id\n[1] 17886\n\n[[6]]$name\n[1] \"Advisory Board Meeting 2017\"\n\n[[6]]$volume\n[1] 1\n\n[[6]]$release_level\n[1] \"public\"\n\n[[6]]$created_at\n[1] \"2025-03-05T16:38:01.746992Z\"\n\n[[6]]$updated_at\n[1] \"2025-03-05T16:38:01.747003Z\"\n\n[[6]]$source_date\n[1] \"2017-06-09\"\n\n[[6]]$date\n[[6]]$date$year\n[1] 2017\n\n[[6]]$date$month\n[1] 6\n\n[[6]]$date$day\n[1] 9\n\n[[6]]$date$is_estimated\n[1] FALSE\n\n\n[[6]]$default_records\nlist()\n\n[[6]]$file_count\n[1] 15\n\n[[6]]$accessible_file_count\n[1] 15\n\n[[6]]$file_records\nlist()\n\n[[6]]$has_full_access\n[1] TRUE\n\n[[6]]$contains_different_release_levels\n[1] FALSE\n\n\n[[7]]\n[[7]]$id\n[1] 25952\n\n[[7]]$name\n[1] \"Advisory Board Meeting 2018\"\n\n[[7]]$volume\n[1] 1\n\n[[7]]$release_level\n[1] \"public\"\n\n[[7]]$created_at\n[1] \"2025-03-05T16:38:31.815376Z\"\n\n[[7]]$updated_at\n[1] \"2025-03-05T16:38:31.815388Z\"\n\n[[7]]$source_date\n[1] \"2018-03-26\"\n\n[[7]]$date\n[[7]]$date$year\n[1] 2018\n\n[[7]]$date$month\n[1] 3\n\n[[7]]$date$day\n[1] 26\n\n[[7]]$date$is_estimated\n[1] FALSE\n\n\n[[7]]$default_records\nlist()\n\n[[7]]$file_count\n[1] 10\n\n[[7]]$accessible_file_count\n[1] 10\n\n[[7]]$file_records\nlist()\n\n[[7]]$has_full_access\n[1] TRUE\n\n[[7]]$contains_different_release_levels\n[1] FALSE\n\nget_session_file(vb = TRUE, file_id = 27227) # PDF agenda from volume 1\n\n$id\n[1] 27227\n\n$name\n[1] \"Agenda\"\n\n$uploader\nNULL\n\n$created_at\n[1] \"2025-03-05T16:48:16.101640Z\"\n\n$updated_at\n[1] \"2025-03-05T16:48:16.101656Z\"\n\n$upload\n$upload$guid\n[1] \"c97a6bda-9a3c-450d-96bb-3d02c79c324c\"\n\n$upload$filename\n[1] \"Agenda\"\n\n$upload$completed_at\n[1] \"2025-03-05T16:48:16.101640Z\"\n\n\n$records\nlist()\n\n$release_level\n[1] \"public\"\n\n$format\n$format$id\n[1] 6\n\n$format$mimetype\n[1] \"application/pdf\"\n\n$format$extensions\n$format$extensions[[1]]\n[1] \"pdf\"\n\n\n$format$name\n[1] \"Portable document\"\n\n\n$source_date\n[1] \"2015-10-08\"\n\n$date\n$date$year\n[1] 2015\n\n$date$month\n[1] 10\n\n$date$day\n[1] 8\n\n$date$is_estimated\n[1] FALSE\n\n\n$sha1\n[1] \"7aeacc3ce8e9a7eafd2230a2f96386e8aa5a0aa3\"\n\n$size\n[1] 55248\n\n$volume\n[1] 1\n\n$folder\nNULL\n\n$session\n[1] 9578\n\n$mime_type\n[1] \"application/pdf\"\n\n$transcoded_file\nNULL\n\n$has_full_access\n[1] TRUE\n\n$thumbnail_url\nNULL\n\nlist_session_assets(session_id = 6256,\n                    vol_id = 1,\n                    vb = TRUE)\n\n# A tibble: 5 × 18\n  asset_id asset_name     asset_permission asset_size asset_mime_type\n     &lt;int&gt; &lt;chr&gt;          &lt;chr&gt;                 &lt;int&gt; &lt;chr&gt;          \n1     9826 Introduction   public             88610655 video/mp4      \n2     9828 Databrary demo public            917124852 video/mp4      \n3     9830 Databrary 1    public            899912341 video/mp4      \n4     9832 Datavyu        public            764340542 video/mp4      \n5    22412 Slides         public              4573426 application/pdf\n# ℹ 13 more variables: asset_format_id &lt;int&gt;, asset_format_name &lt;chr&gt;,\n#   format_extension &lt;list&gt;, asset_duration &lt;dbl&gt;, asset_created_at &lt;chr&gt;,\n#   asset_updated_at &lt;chr&gt;, asset_sha1 &lt;chr&gt;, asset_thumbnail_url &lt;chr&gt;,\n#   session_id &lt;dbl&gt;, vol_id &lt;dbl&gt;, session_name &lt;chr&gt;, session_release &lt;chr&gt;,\n#   session_date &lt;chr&gt;\n\n\nThe following is very slow, so we do not run it by default.\n\n# The following is very slow, and there are only 22 rows.\nlist_session_activity(vol_id = 1,\n                      session_id = 6256,\n                      vb = TRUE)",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Sessions & Folders</span>"
+    ]
+  },
+  {
+    "objectID": "sessions-folders.html#folders-functions",
+    "href": "sessions-folders.html#folders-functions",
+    "title": "Sessions & Folders",
+    "section": "_folders* functions",
+    "text": "_folders* functions\n\nget_folder_by_id(folder_id = 9807,\n                 vol_id = 1,\n                 vb = TRUE)\n\n$id\n[1] 9807\n\n$name\n[1] \"Top-level materials\"\n\n$volume\n[1] 1\n\n$release_level\n[1] \"public\"\n\n$created_at\n[1] \"2025-03-05T16:37:31.548074Z\"\n\n$updated_at\n[1] \"2025-03-05T16:37:31.548084Z\"\n\n$file_count\n[1] 7\n\n$accessible_file_count\n[1] 7\n\n$source_date\nNULL\n\n$has_full_access\n[1] TRUE\n\n$contains_different_release_levels\n[1] FALSE\n\nget_folder_file(\n  vol_id = 1,\n  folder_id = 9807,\n  file_id = 1,\n  vb = TRUE\n)\n\n$id\n[1] 1\n\n$name\n[1] \"counting_demo_video\"\n\n$uploader\nNULL\n\n$created_at\n[1] \"2025-03-05T16:45:58.099083Z\"\n\n$updated_at\n[1] \"2025-06-02T09:19:35.192342Z\"\n\n$upload\n$upload$guid\n[1] \"e99adf66-a0f5-44e6-aab0-a10432c9bf75\"\n\n$upload$filename\n[1] \"counting (demo video)\"\n\n$upload$completed_at\n[1] \"2025-03-05T16:45:58.099083Z\"\n\n\n$records\nlist()\n\n$release_level\n[1] \"public\"\n\n$format\n$format$id\n[1] -800\n\n$format$mimetype\n[1] \"video/mp4\"\n\n$format$extensions\n$format$extensions[[1]]\n[1] \"mp4\"\n\n\n$format$name\n[1] \"MPEG-4 video\"\n\n\n$source_date\nNULL\n\n$date\nNULL\n\n$sha1\n[1] \"3dda3931202cbe06a9e4bbb5f0873c879121ef0a\"\n\n$size\n[1] 394499\n\n$volume\n[1] 1\n\n$folder\n[1] 9807\n\n$session\nNULL\n\n$mime_type\n[1] \"video/mp4\"\n\n$transcoded_file\nNULL\n\n$has_full_access\n[1] TRUE\n\n$thumbnail_url\nNULL\n\nlist_folder_assets(folder_id = 9807,\n                   vol_id = 1,\n                   vb = TRUE)\n\n# A tibble: 7 × 17\n  asset_id asset_name                asset_permission asset_size asset_mime_type\n     &lt;int&gt; &lt;chr&gt;                     &lt;chr&gt;                 &lt;int&gt; &lt;chr&gt;          \n1        1 counting_demo_video       public               394499 video/mp4      \n2      314 NIH Proposal Narrative    public              3826718 application/pdf\n3      315 NSF Proposal Narrative    public              4120930 application/pdf\n4     9200 logo                      public               104419 image/png      \n5   117035 counting (demo Datavyu f… public                 1030 application/vn…\n6   153108 databrary-institutions-i… public                 1826 text/csv       \n7   153109 volumes-citations-monthly public                  417 text/csv       \n# ℹ 12 more variables: asset_format_id &lt;int&gt;, asset_format_name &lt;chr&gt;,\n#   format_extension &lt;list&gt;, asset_duration &lt;dbl&gt;, asset_created_at &lt;chr&gt;,\n#   asset_updated_at &lt;chr&gt;, asset_sha1 &lt;chr&gt;, asset_thumbnail_url &lt;chr&gt;,\n#   folder_id &lt;dbl&gt;, vol_id &lt;dbl&gt;, folder_name &lt;chr&gt;, folder_release &lt;chr&gt;",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Sessions & Folders</span>"
+    ]
+  },
+  {
+    "objectID": "sessions-folders.html#clean-up",
+    "href": "sessions-folders.html#clean-up",
+    "title": "Sessions & Folders",
+    "section": "Clean-up",
+    "text": "Clean-up\n\nlogout_db()\n\n[1] TRUE",
+    "crumbs": [
+      "Authorized Investigators",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Sessions & Folders</span>"
+    ]
+  }
+]
