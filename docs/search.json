@@ -22,67 +22,67 @@
   {
     "objectID": "quick-start.html",
     "href": "quick-start.html",
-    "title": "Quick Start: R",
+    "title": "Quick Start",
     "section": "",
     "text": "About\nThis page provides information about how to get started quickly with the Databrary secure API and the databraryr package.",
     "crumbs": [
       "Authorized Investigators",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Quick Start: R</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Quick Start</span>"
     ]
   },
   {
     "objectID": "quick-start.html#set-up",
     "href": "quick-start.html#set-up",
-    "title": "Quick Start: R",
+    "title": "Quick Start",
     "section": "Set up",
     "text": "Set up\nInstall the latest (development) version of the databraryr package:\ninstall.packages(\"remotes\")\nremotes::install_github(repo = \"NYU-Databrary/databraryr\", ref = \"development\")\nConfigure your user .Renviron file with your Databrary credentials and the client ID and secret you generated.\nA typical .Renviron file should look like this:\nDATABRARY_LOGIN=\"youremail@yourinstitution.edu\"\nDATABRARY_PASSWORD=\"yourpassword\"\nDATABRARY_BASE_URL=\"https://api.databrary.org\"\nDATABRARY_CLIENT_ID=\"yourclientid\"\nDATABRARY_CLIENT_SECRET=\"yourclientsecret\"\nYou may open and edit ~/.Renviron using the usethis package:\ninstall.packages(\"usethis\")\nusethis::edit_r_environ(\"user\")\n\n\n\n\n\n\nImportant\n\n\n\nSave the .Renviron file, then restart R before you proceed.\nIn RStudio, the Session/Restart R command works.",
     "crumbs": [
       "Authorized Investigators",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Quick Start: R</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Quick Start</span>"
     ]
   },
   {
     "objectID": "quick-start.html#confirm-your-api-endpoint",
     "href": "quick-start.html#confirm-your-api-endpoint",
-    "title": "Quick Start: R",
+    "title": "Quick Start",
     "section": "Confirm your API endpoint",
     "text": "Confirm your API endpoint\nIt’s often useful to confirm that your API endpoint is correct.\ndatabraryr:::DATABRARY_BASE_URL\nEither of these should return “https://api.databrary.org”.",
     "crumbs": [
       "Authorized Investigators",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Quick Start: R</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Quick Start</span>"
     ]
   },
   {
     "objectID": "quick-start.html#log-in",
     "href": "quick-start.html#log-in",
-    "title": "Quick Start: R",
+    "title": "Quick Start",
     "section": "Log in",
-    "text": "Log in\ndatabraryr::login_db(email = Sys.getenv(\"DATABRARY_LOGIN\"),\n         password = Sys.getenv(\"DATABRARY_PASSWORD\"),\n         client_id = Sys.getenv(\"DATABRARY_CLIENT_ID\"),\n         client_secret = Sys.getenv(\"DATABRARY_CLIENT_SECRET\"),\n         store = FALSE,\n         overwrite = FALSE)\nor\nlibrary(databrary)\nlogin_db(email = Sys.getenv(\"DATABRARY_LOGIN\"),\n         password = Sys.getenv(\"DATABRARY_PASSWORD\"),\n         client_id = Sys.getenv(\"DATABRARY_CLIENT_ID\"),\n         client_secret = Sys.getenv(\"DATABRARY_CLIENT_SECRET\"),\n         store = FALSE,\n         overwrite = FALSE)\nThis should return TRUE.",
+    "text": "Log in\ndatabraryr::login_db(email = Sys.getenv(\"DATABRARY_LOGIN\"),\n         password = Sys.getenv(\"DATABRARY_PASSWORD\"),\n         client_id = Sys.getenv(\"DATABRARY_CLIENT_ID\"),\n         client_secret = Sys.getenv(\"DATABRARY_CLIENT_SECRET\"),\n         store = FALSE,\n         overwrite = FALSE)\nor\nlibrary(databraryr)\nlogin_db(email = Sys.getenv(\"DATABRARY_LOGIN\"),\n         password = Sys.getenv(\"DATABRARY_PASSWORD\"),\n         client_id = Sys.getenv(\"DATABRARY_CLIENT_ID\"),\n         client_secret = Sys.getenv(\"DATABRARY_CLIENT_SECRET\"),\n         store = FALSE,\n         overwrite = FALSE)\nThis should return TRUE.",
     "crumbs": [
       "Authorized Investigators",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Quick Start: R</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Quick Start</span>"
     ]
   },
   {
     "objectID": "quick-start.html#confirm-via-whoami",
     "href": "quick-start.html#confirm-via-whoami",
-    "title": "Quick Start: R",
+    "title": "Quick Start",
     "section": "Confirm via whoami",
     "text": "Confirm via whoami\nwhoami()\nor\ndatabraryr::whoami()\nBoth should return something like the following:\n$message\n[1] \"OAuth2 endpoint is working!\"\n\n$user\n[1] \"youremail@yourinstitution.edu\"\n\n$path\n[1] \"/oauth2/test/\"\n\n$authMethod\n[1] \"OAuth2\"",
     "crumbs": [
       "Authorized Investigators",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Quick Start: R</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Quick Start</span>"
     ]
   },
   {
     "objectID": "quick-start.html#have-fun",
     "href": "quick-start.html#have-fun",
-    "title": "Quick Start: R",
+    "title": "Quick Start",
     "section": "Have fun",
     "text": "Have fun\nAt this point, you are ready to use any secure API functions that are enabled for a user with your access privileges.\nThis site contains code we use to test the package. It may be helpful to you in writing your own code with the provisos that our tests are not comprehensive nor does our code necessarily reflect a recommended or best practice.\n\n\n\n\n\n\nWarningUnder construction\n\n\n\nThe databraryr package is under active development. Some features are only available under our staging environment. When ready, these will be pushed to production.\n\n\n\n\n\n\n\n\nImportant\n\n\n\nPlease log out when you finish.\nlogout_db()\nor\ndatabraryr::logout_db()\nBoth return TRUE when they execute successfully.",
     "crumbs": [
       "Authorized Investigators",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Quick Start: R</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Quick Start</span>"
     ]
   },
   {

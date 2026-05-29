@@ -1,5 +1,5 @@
 ---
-title: "Quick Start: R"
+title: "Quick Start"
 format: html
 ---
 
@@ -65,7 +65,7 @@ databraryr::login_db(email = Sys.getenv("DATABRARY_LOGIN"),
 or 
 
 ```r
-library(databrary)
+library(databraryr)
 login_db(email = Sys.getenv("DATABRARY_LOGIN"),
          password = Sys.getenv("DATABRARY_PASSWORD"),
          client_id = Sys.getenv("DATABRARY_CLIENT_ID"),
