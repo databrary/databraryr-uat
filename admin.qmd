@@ -16,6 +16,7 @@ The credentials are stored in `~/.Renviron`.
 ## Setup
 
 ```{r}
+#| label: pull-new-databraryr
 if (params$pull_databraryr) {
   message("Pulling latest version of `databraryr` from GitHub.")
   remotes::install_github(repo = "NYU-Databrary/databraryr", ref = "development")

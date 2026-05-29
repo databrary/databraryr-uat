@@ -1,0 +1,97 @@
+---
+title: "For Montrose"
+format: html
+params:
+  test_vol_id: 1777
+  databrary_home: "https://stg-databrary.its.nyu.edu"
+---
+
+## About
+
+This page documents a bug Rick Gilmore found in testing the latest version of `databraryr` on staging.
+
+## Setup
+
+Create helper function to generate link to session folder.
+
+```{r}
+make_folder_url <- function(folder_id = 76283) {
+  assertthat::is.number(folder_id)
+  assertthat::assert_that(folder_id > 0)
+  
+  paste0("<a href='", params$databrary_home, "/volume/", params$test_vol_id, "/folder/", folder_id, "'>", folder_id, "<\a>")
+}
+```
+
+
+## Log in
+
+```{r}
+#| label: "login to Databrary"
+library(databraryr)
+
+login_db(email = Sys.getenv("DATABRARY_LOGIN"),
+         password = Sys.getenv("DATABRARY_PASSWORD"),
+         client_id = Sys.getenv("DATABRARY_CLIENT_ID"),
+         client_secret = Sys.getenv("DATABRARY_CLIENT_SECRET"),
+         store = FALSE,
+         overwrite = FALSE,
+         vb = TRUE)
+```
+
+## List folders prior to creation
+
+```{r}
+#| label: list-folder-before
+vol_folders_before <- list_volume_folders(vol_id = params$test_vol_id) |>
+  dplyr::arrange(desc(folder_id))
+
+vol_folders_before
+```
+
+## `create_folder()`
+
+Creates a new time/date-stamped folder.
+
+```{r}
+#| label: create-folder
+x <- assertthat::is.number(params$test_vol_id)
+x <- assertthat::assert_that(params$test_vol_id > 0)
+
+folder_name <- date() |> stringr::str_replace_all(pattern = " ", "-")
+new_folder <- create_folder(vol_id = params$test_vol_id, name = folder_name)
+
+new_folder
+```
+
+## List folders *after* creation
+
+```{r}
+#| label: list-folder-after
+vol_folders_after <- list_volume_folders(vol_id = params$test_vol_id) |>
+  dplyr::arrange(desc(folder_id))
+
+vol_folders_after
+```
+
+## Show before/after
+
+::: {.panel-tabset}
+
+### Before
+
+```{r}
+vol_folders_before |>
+  dplyr::arrange(desc(folder_id)) |>
+  kableExtra::kbl(format = 'html', escape = FALSE)
+```
+
+### After
+
+```{r}
+vol_folders_after |>
+  dplyr::arrange(desc(folder_id)) |>
+  kableExtra::kbl(format = 'html', escape = FALSE)
+```
+
+:::

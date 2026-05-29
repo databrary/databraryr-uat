@@ -203,7 +203,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a></li>
   <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
-  <li><a href="#testing-_institution-functions" id="toc-testing-_institution-functions" class="nav-link" data-scroll-target="#testing-_institution-functions">Testing <code>_institution*</code> functions</a></li>
+  <li><a href="#testing-_institution_-functions" id="toc-testing-_institution_-functions" class="nav-link" data-scroll-target="#testing-_institution_-functions">Testing <code>*_institution_*</code> functions</a></li>
   <li><a href="#clean-up" id="toc-clean-up" class="nav-link" data-scroll-target="#clean-up">Clean-up</a></li>
   </ul>
 </nav>
@@ -256,8 +256,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="testing-_institution-functions" class="level2">
-<h2 class="anchored" data-anchor-id="testing-_institution-functions">Testing <code>_institution*</code> functions</h2>
+<section id="testing-_institution_-functions" class="level2">
+<h2 class="anchored" data-anchor-id="testing-_institution_-functions">Testing <code>*_institution_*</code> functions</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_institution_avatar</span>(<span class="at">institution_id =</span> <span class="dv">1</span>, </span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">dest_path =</span> <span class="st">"databrary.png"</span>,</span>
@@ -293,40 +293,40 @@ $created_at
 [1] "2025-03-05T16:04:01.655967Z"
 
 $updated_at
-[1] "2025-06-02T08:19:04.146280Z"
+[1] "2026-02-13T14:54:48.708636Z"
 
 $has_avatar
-[1] TRUE
+[1] FALSE
 
 $has_administrators
 [1] FALSE
 
 $latitude
-[1] "40.798213"
+[1] "40.641886"
 
 $longitude
-[1] "-77.859908"
+[1] "-76.164981"
 
 $manual_coordinates
-[1] TRUE</code></pre>
+[1] FALSE</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_institution_affiliates</span>(<span class="at">institution_id =</span> <span class="dv">12</span>,</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 22 × 8
+<pre><code># A tibble: 26 × 8
    institution_id role       user_id user_prename user_sortname user_affiliation
             &lt;dbl&gt; &lt;chr&gt;        &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;         &lt;chr&gt;           
- 1             12 investiga…    4399 Karen        Bierman       The Pennsylvani…
- 2             12 investiga…     249 Kristin A    Buss          The Pennsylvani…
- 3             12 investiga…    7298 Kevin        Clair         The Pennsylvani…
- 4             12 investiga…    7240 Briana Dani… Ezray         The Pennsylvani…
- 5             12 investiga…    1256 Jennifer     Frank         The Pennsylvani…
- 6             12 investiga…       6 Rick O.      Gilmore       The Pennsylvani…
- 7             12 investiga…    3043 Yanxi        Liu           The Pennsylvani…
- 8             12 investiga…    1902 Amy          Marshall      The Pennsylvani…
- 9             12 investiga…    6474 Anna         Mattila       The Pennsylvani…
-10             12 investiga…     847 P. Karen     Murphy        The Pennsylvani…
-# ℹ 12 more rows
+ 1             12 investiga…   23570 Weronika     Affiliate     The Pennsylvani…
+ 2             12 investiga…    1807 Sheri        Berenbaum     The Pennsylvani…
+ 3             12 investiga…    4399 Karen        Bierman       The Pennsylvani…
+ 4             12 investiga…     249 Kristin A    Buss          The Pennsylvani…
+ 5             12 investiga…    7298 Kevin        Clair         The Pennsylvani…
+ 6             12 investiga…    7240 Briana Dani… Ezray         The Pennsylvani…
+ 7             12 investiga…    9348 Roger        Finke         Penn State Univ…
+ 8             12 investiga…    1256 Jennifer     Frank         The Pennsylvani…
+ 9             12 investiga…    5415 Kermit       Frog          Muppets Univers…
+10             12 investiga…       6 Rick O.      Gilmore       The Pennsylvani…
+# ℹ 16 more rows
 # ℹ 2 more variables: user_affiliation_id &lt;int&gt;, expiration_date &lt;chr&gt;</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_institutions</span>(<span class="at">search_string =</span> <span class="st">"The Pennsylvania"</span>,</span>

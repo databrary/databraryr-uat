@@ -203,7 +203,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a></li>
   <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
-  <li><a href="#user-functions" id="toc-user-functions" class="nav-link" data-scroll-target="#user-functions"><code>_user*</code> functions</a></li>
+  <li><a href="#user_-functions" id="toc-user_-functions" class="nav-link" data-scroll-target="#user_-functions"><code>*_user_*</code> functions</a></li>
   <li><a href="#clean-up" id="toc-clean-up" class="nav-link" data-scroll-target="#clean-up">Clean-up</a></li>
   </ul>
 </nav>
@@ -269,8 +269,8 @@ Important
 </div>
 </div>
 </section>
-<section id="user-functions" class="level2">
-<h2 class="anchored" data-anchor-id="user-functions"><code>_user*</code> functions</h2>
+<section id="user_-functions" class="level2">
+<h2 class="anchored" data-anchor-id="user_-functions"><code>*_user_*</code> functions</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_user_avatar</span>(<span class="at">user_id =</span> <span class="dv">6</span>,</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">dest_path =</span> <span class="st">"rog.png"</span>,</span>
@@ -314,52 +314,49 @@ $has_avatar
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_user_affiliates</span>(<span class="at">user_id =</span> <span class="dv">6</span>,</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 72 × 3
-   affiliate_user    access_level expiration_date
-   &lt;named list&gt;      &lt;chr&gt;        &lt;chr&gt;          
- 1 &lt;int [1]&gt;         read only    2026-07-03     
- 2 &lt;chr [1]&gt;         read only    2026-07-03     
- 3 &lt;chr [1]&gt;         read only    2026-07-03     
- 4 &lt;chr [1]&gt;         read only    2026-07-03     
- 5 &lt;named list [12]&gt; read only    2026-07-03     
- 6 &lt;lgl [1]&gt;         read only    2026-07-03     
- 7 &lt;chr [1]&gt;         read only    2026-07-03     
- 8 &lt;NULL&gt;            read only    2026-07-03     
- 9 &lt;lgl [1]&gt;         read only    2026-07-03     
-10 &lt;int [1]&gt;         read only    2026-07-03     
-# ℹ 62 more rows</code></pre>
+<pre><code># A tibble: 9 × 3
+  affiliate_user    access_level expiration_date
+  &lt;named list&gt;      &lt;chr&gt;        &lt;chr&gt;          
+1 &lt;int [1]&gt;         read only    2026-07-03     
+2 &lt;chr [1]&gt;         read only    2026-07-03     
+3 &lt;chr [1]&gt;         read only    2026-07-03     
+4 &lt;chr [1]&gt;         read only    2026-07-03     
+5 &lt;named list [12]&gt; read only    2026-07-03     
+6 &lt;lgl [1]&gt;         read only    2026-07-03     
+7 &lt;chr [1]&gt;         read only    2026-07-03     
+8 &lt;chr [1]&gt;         read only    2026-07-03     
+9 &lt;lgl [1]&gt;         read only    2026-07-03     </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_user_sponsors</span>(<span class="at">user_id =</span> <span class="dv">6</span>,</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 11
+<pre><code># A tibble: 1 × 11
   user_id user_prename user_sortname user_affiliation sponsor_id sponsor_prename
     &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;         &lt;chr&gt;                 &lt;int&gt; &lt;chr&gt;          
 1       6 Rick O.      Gilmore       The Pennsylvani…          6 Rick O.        
-2       6 Rick O.      Gilmore       The Pennsylvani…          6 Rick O.        
 # ℹ 5 more variables: sponsor_sortname &lt;chr&gt;, sponsor_affiliation &lt;chr&gt;,
 #   sponsor_affiliation_id &lt;int&gt;, access_level &lt;chr&gt;, expiration_date &lt;chr&gt;</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_user_volumes</span>(<span class="at">user_id =</span> <span class="dv">6</span>,</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Found n = 50 volumes for user_id 6.</code></pre>
+<pre><code>Found n = 22 volumes for user_id 6.</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 50 × 11
+<pre><code># A tibble: 22 × 11
    vol_id vol_name                 vol_description vol_created_at vol_updated_at
     &lt;int&gt; &lt;chr&gt;                    &lt;chr&gt;           &lt;chr&gt;          &lt;chr&gt;         
- 1      1 Databrary sponsored wor… "Our mission i… 2025-03-05T16… 2026-03-05T08…
- 2      2 Head-mounted camera vie… "Two adult obs… 2013-10-02T11… 2025-03-05T16…
- 3     23 An analysis of optic fl… "Global patter… 2014-07-07T15… 2025-03-05T16…
- 4     31 Four-month-olds' discri… "One of the mo… 2014-07-23T16… 2025-03-05T16…
- 5     32 Spatio-temporal tuning … "Motion cues p… 2014-07-23T16… 2025-03-05T16…
- 6     49 Cortical responses to o… "Motion provid… 2014-09-01T23… 2025-03-05T16…
- 7     68 Visual Motion Priors Di… "Visual motion… 2014-10-14T18… 2025-03-05T16…
- 8     73 Motion Coherence Thresh… "In adults, ra… 2014-10-20T15… 2026-03-05T08…
- 9     75 Children's Brain Respon… "Structured pa… 2014-10-20T16… 2025-03-05T16…
-10     77 The Salience of Lower-O… "There exists … 2014-10-22T19… 2026-03-05T08…
-# ℹ 40 more rows
+ 1      1 Databrary sponsored wor… "Our mission i… 2025-03-05T16… 2026-03-04T14…
+ 2     31 Four-month-olds' discri… "One of the mo… 2014-07-23T16… 2025-03-05T16…
+ 3     32 Spatio-temporal tuning … "Motion cues p… 2014-07-23T16… 2025-03-05T16…
+ 4     49 Cortical responses to o… "Motion provid… 2014-09-01T23… 2025-03-05T16…
+ 5     68 Visual Motion Priors Di… "Visual motion… 2014-10-14T18… 2025-03-05T16…
+ 6     73 Motion Coherence Thresh… "In adults, ra… 2014-10-20T15… 2026-03-04T14…
+ 7     75 Children's Brain Respon… "Structured pa… 2014-10-20T16… 2025-03-05T16…
+ 8     77 The Salience of Lower-O… "There exists … 2014-10-22T19… 2026-03-04T14…
+ 9     81 Natural scene statistic… "Human infants… 2014-10-27T17… 2025-03-05T16…
+10    116 Understanding the devel… "Understanding… 2015-03-16T20… 2026-03-04T14…
+# ℹ 12 more rows
 # ℹ 6 more variables: vol_sharing_level &lt;chr&gt;, vol_short_name &lt;chr&gt;,
 #   user_id &lt;int&gt;, user_prename &lt;chr&gt;, user_sortname &lt;chr&gt;,
 #   user_affiliation &lt;chr&gt;</code></pre>
@@ -367,13 +364,20 @@ $has_avatar
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_users</span>(<span class="at">search =</span> <span class="st">"Gilmore"</span>,</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 16
-  user_id user_first_name user_last_name user_email          user_orcid user_url
-    &lt;int&gt; &lt;chr&gt;           &lt;chr&gt;          &lt;chr&gt;               &lt;chr&gt;      &lt;chr&gt;   
-1    6989 Camilla         Gilmore        c.gilmore@lboro.ac… &lt;NA&gt;       &lt;NA&gt;    
-2   23363 Rick            Gilmore        rick.gilmore@datab… &lt;NA&gt;       https:/…
-3    8524 Rick (Admin)    Gilmore        rick.o.gilmore@gma… &lt;NA&gt;       https:/…
-4       6 Rick O.         Gilmore        rogilmore@psu.edu   0000-0002… http://…
+<pre><code># A tibble: 11 × 16
+   user_id user_first_name user_last_name user_email         user_orcid user_url
+     &lt;int&gt; &lt;chr&gt;           &lt;chr&gt;          &lt;chr&gt;              &lt;chr&gt;      &lt;chr&gt;   
+ 1   23409 Bad-Rick        Gilmore        rog214+bad@nyu.edu &lt;NA&gt;       https:/…
+ 2   23408 Bad-Rick        Gilmore        rog214-bad@nyu.edu &lt;NA&gt;       &lt;NA&gt;    
+ 3    6989 Camilla         Gilmore        fe753914101640fa6… &lt;NA&gt;       &lt;NA&gt;    
+ 4   23354 Rick            Gilmore        rog214+2@nyu.edu   &lt;NA&gt;       &lt;NA&gt;    
+ 5   23353 Rick            Gilmore        RICK+2@w3tm.org    &lt;NA&gt;       &lt;NA&gt;    
+ 6   23357 Rick            Gilmore        rog214+4@nyu.edu   &lt;NA&gt;       &lt;NA&gt;    
+ 7   23355 Rick            Gilmore        ROG214+3@nyu.edu   &lt;NA&gt;       https:/…
+ 8    8524 Rick (Admin)    Gilmore        rick.o.gilmore@gm… &lt;NA&gt;       &lt;NA&gt;    
+ 9       6 Rick O.         Gilmore        rogilmore@psu.edu  0000-0002… http://…
+10   23658 Rick (SU)       Gilmore        rick.gilmore@data… &lt;NA&gt;       https:/…
+11   22556 Testy           Testerson      rogilmore@mac.com  &lt;NA&gt;       &lt;NA&gt;    
 # ℹ 10 more variables: user_affiliation_id &lt;int&gt;, user_affiliation_name &lt;chr&gt;,
 #   user_is_authorized_investigator &lt;lgl&gt;, user_has_avatar &lt;lgl&gt;,
 #   user_is_suspended &lt;lgl&gt;, user_suspended_by_id &lt;int&gt;,
@@ -382,16 +386,22 @@ $has_avatar
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">search_users</span>(<span class="at">search_string =</span> <span class="st">"Gilmore"</span>, <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 7 × 10
-  user_id user_first_name user_last_name user_full_name    user_email user_orcid
-    &lt;int&gt; &lt;chr&gt;           &lt;chr&gt;          &lt;chr&gt;             &lt;chr&gt;      &lt;chr&gt;     
-1    6989 Camilla         Gilmore        Camilla Gilmore   c.gilmore… &lt;NA&gt;      
-2   23363 Rick            Gilmore        Rick Gilmore      rick.gilm… &lt;NA&gt;      
-3       6 Rick O.         Gilmore        Rick O. Gilmore   rogilmore… 0000-0002…
-4    8524 Rick (Admin)    Gilmore        Rick (Admin) Gil… rick.o.gi… &lt;NA&gt;      
-5    6659 Neeraj          Kilhore        Neeraj Kilhore    neeraj.ci… &lt;NA&gt;      
-6    7284 Morgan          Gilmer         Morgan Gilmer     mvg5950@p… &lt;NA&gt;      
-7     745 Lori            Elmore-Staton  Lori Elmore-Stat… les456@ms… &lt;NA&gt;      
+<pre><code># A tibble: 13 × 10
+   user_id user_first_name user_last_name user_full_name   user_email user_orcid
+     &lt;int&gt; &lt;chr&gt;           &lt;chr&gt;          &lt;chr&gt;            &lt;chr&gt;      &lt;chr&gt;     
+ 1   23353 Rick            Gilmore        Rick Gilmore     RICK+2@w3… &lt;NA&gt;      
+ 2   23354 Rick            Gilmore        Rick Gilmore     rog214+2@… &lt;NA&gt;      
+ 3   23355 Rick            Gilmore        Rick Gilmore     ROG214+3@… &lt;NA&gt;      
+ 4   23357 Rick            Gilmore        Rick Gilmore     rog214+4@… &lt;NA&gt;      
+ 5    6989 Camilla         Gilmore        Camilla Gilmore  fe7539141… &lt;NA&gt;      
+ 6   23408 Bad-Rick        Gilmore        Bad-Rick Gilmore rog214-ba… &lt;NA&gt;      
+ 7   23409 Bad-Rick        Gilmore        Bad-Rick Gilmore rog214+ba… &lt;NA&gt;      
+ 8   23658 Rick (SU)       Gilmore        Rick (SU) Gilmo… rick.gilm… &lt;NA&gt;      
+ 9       6 Rick O.         Gilmore        Rick O. Gilmore  rogilmore… 0000-0002…
+10    8524 Rick (Admin)    Gilmore        Rick (Admin) Gi… rick.o.gi… &lt;NA&gt;      
+11    6659 Neeraj          Kilhore        Neeraj Kilhore   37a307e64… &lt;NA&gt;      
+12    7284 Morgan          Gilmer         Morgan Gilmer    437ae421c… &lt;NA&gt;      
+13     745 Lori            Elmore-Staton  Lori Elmore-Sta… d0ab84251… &lt;NA&gt;      
 # ℹ 4 more variables: user_url &lt;chr&gt;, user_is_authorized &lt;lgl&gt;,
 #   user_has_avatar &lt;lgl&gt;, score &lt;dbl&gt;</code></pre>
 </div>

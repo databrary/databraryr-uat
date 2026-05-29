@@ -26,7 +26,7 @@ login_db(email = Sys.getenv("DATABRARY_LOGIN"),
          vb = TRUE)
 ```
 
-## `_user*` functions
+## `*_user_*` functions
 
 ```{r}
 #| label: "test _user* functions"

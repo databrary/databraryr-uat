@@ -1,0 +1,2 @@
+datetime,user_t,system_t,elapsed_t,operation
+2026-05-29T13:27:59Z,1.3399999999999999,0.6429999999999999,57.714,bulk_upload_files_to_folder
