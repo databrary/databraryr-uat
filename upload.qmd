@@ -3,7 +3,7 @@ title: "Create/Update/Delete"
 format: html
 params:
   test_vol_id: 1777
-  test_endpoint: "staging"
+  test_endpoint: "production"
   prod_api: "https://api.databrary.org"
   staging_api: "https://api.stg-databrary.its.nyu.edu"
 ---
@@ -425,69 +425,6 @@ bulk_delete_sessions(vol_id = params$test_vol_id,
 
 bulk_delete_folders(vol_id = params$test_vol_id,
                      session_ids <- folders_created_ids)
-```
-
-## `_record` functions
-
-::: callout-note
-2026-05-22: Gilmore needs more guidance about the standard procedure for associating records with sessions and files. So, I'm setting `eval: false` for the above chunk.
-:::
-
-### `create_volume_record`
-
-```{r}
-#| label: create-volume-record
-#| eval: false
-#| 
-record_P001 <- create_volume_record(
-  vol_id = params$test_vol_id,
-  category_id = 1,
-  name = "P001",
-  participant = list(birthday = list(
-    year = 1776, month = 7, day = 04))
-)
-
-record_control_group <- create_volume_record(vol_id = params$test_vol_id,
-                                             category_id = 6,
-                                             name = "Control group")
-
-record_task_A <- create_volume_record(
-  vol_id = params$test_vol_id,
-  category_id = 6,
-  name = "Task A",
-  measures = list("30" = "Extra value")
-)
-
-record_P001
-record_control_group
-record_task_A
-```
-
-### `bulk_assign*` functions
-
-```{r}
-#| label: bulk-assign
-#| eval: false
-bulk_assign_records()
-bulk_unassign_records()
-```
-
-### `delete_{record_measure, volume_record}`
-
-```{r}
-#| label: delete-record-measure
-#| eval: false
-delete_record_measure(vol_id = params$test_vol_id, record_id = record_control_group$record_id)
-
-databraryr::delete_volume_record()
-```
-
-### `bulk_delete_records` functions
-
-```{r}
-#| label: bulk-delete-records
-#| eval: false
-bulk_delete_records()
 ```
 
 ## Save timing file

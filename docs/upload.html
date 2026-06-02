@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Create/Update/Delete</title>
+<title>Create/Update/Delete – User Acceptance Testing (UAT) for `databraryr`</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -61,30 +61,196 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="upload_files/libs/clipboard/clipboard.min.js"></script>
-<script src="upload_files/libs/quarto-html/quarto.js" type="module"></script>
-<script src="upload_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="upload_files/libs/quarto-html/popper.min.js"></script>
-<script src="upload_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="upload_files/libs/quarto-html/anchor.min.js"></script>
-<link href="upload_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="upload_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="upload_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="upload_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="upload_files/libs/bootstrap/bootstrap-138a6193a3bd40baf1e627da441a4734.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./records-measures.html" rel="next">
+<link href="./sessions-folders.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
 
 
 </head>
 
-<body class="fullcontent quarto-light">
+<body class="nav-sidebar floating quarto-light">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./upload.html">Upload and Edit</a></li><li class="breadcrumb-item"><a href="./upload.html"><span class="chapter-title">Create/Update/Delete</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">User Acceptance Testing (UAT) for <code>databraryr</code></a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Read Only</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./quick-start.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quick Start</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./status.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Login, status, &amp; logout</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./institutions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Institutions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./users.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Users</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./volumes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Volumes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sessions-folders.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sessions &amp; Folders</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Upload and Edit</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./upload.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Create/Update/Delete</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./records-measures.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Records and Measures</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#single-sessionfilefolder-functions" id="toc-single-sessionfilefolder-functions" class="nav-link" data-scroll-target="#single-sessionfilefolder-functions">Single session/file/folder functions</a>
+  <ul>
+  <li><a href="#create_foldersession-functions" id="toc-create_foldersession-functions" class="nav-link" data-scroll-target="#create_foldersession-functions"><code>create_{folder,session}*</code> functions</a></li>
+  <li><a href="#upload_file" id="toc-upload_file" class="nav-link" data-scroll-target="#upload_file"><code>upload_file</code></a></li>
+  <li><a href="#delete_folderfilesession-functions" id="toc-delete_folderfilesession-functions" class="nav-link" data-scroll-target="#delete_folderfilesession-functions"><code>delete_{folder,file,session}</code> functions</a></li>
+  </ul></li>
+  <li><a href="#bulk-functions" id="toc-bulk-functions" class="nav-link" data-scroll-target="#bulk-functions">Bulk functions</a>
+  <ul>
+  <li><a href="#bulk_create_sessions" id="toc-bulk_create_sessions" class="nav-link" data-scroll-target="#bulk_create_sessions"><code>bulk_create_sessions</code></a></li>
+  <li><a href="#bulk_upload_files-to-session" id="toc-bulk_upload_files-to-session" class="nav-link" data-scroll-target="#bulk_upload_files-to-session"><code>bulk_upload_files</code> to session</a></li>
+  <li><a href="#bulk_create_folders" id="toc-bulk_create_folders" class="nav-link" data-scroll-target="#bulk_create_folders"><code>bulk_create_folders</code></a></li>
+  <li><a href="#bulk_upload_files-to-folder" id="toc-bulk_upload_files-to-folder" class="nav-link" data-scroll-target="#bulk_upload_files-to-folder"><code>bulk_upload_files</code> to folder</a></li>
+  <li><a href="#bulk_rename_filessessionsfolders-functions" id="toc-bulk_rename_filessessionsfolders-functions" class="nav-link" data-scroll-target="#bulk_rename_filessessionsfolders-functions"><code>bulk_rename_{files,sessions,folders}</code> functions</a></li>
+  <li><a href="#check_duplicate_files_in_foldersession" id="toc-check_duplicate_files_in_foldersession" class="nav-link" data-scroll-target="#check_duplicate_files_in_foldersession"><code>check_duplicate_files_in_{folder,session}</code></a></li>
+  <li><a href="#bulk_delete_sessionsfolders" id="toc-bulk_delete_sessionsfolders" class="nav-link" data-scroll-target="#bulk_delete_sessionsfolders"><code>bulk_delete_{sessions,folders}</code></a></li>
+  </ul></li>
+  <li><a href="#save-timing-file" id="toc-save-timing-file" class="nav-link" data-scroll-target="#save-timing-file">Save timing file</a></li>
+  <li><a href="#logout" id="toc-logout" class="nav-link" data-scroll-target="#logout">Logout</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./upload.html">Upload and Edit</a></li><li class="breadcrumb-item"><a href="./upload.html"><span class="chapter-title">Create/Update/Delete</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Create/Update/Delete</h1>
+<h1 class="title"><span class="chapter-title">Create/Update/Delete</span></h1>
 </div>
 
 
@@ -182,7 +348,7 @@ Warning
 <span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">"API endpoint not specified properly"</span>)</span>
 <span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Test target: Staging API.</code></pre>
+<pre><code>Test target: Production API.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Databraryr API target endpoint is correct.</code></pre>
@@ -222,10 +388,10 @@ Warning
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>new_folder</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$id
-[1] 76300
+[1] 77702
 
 $name
-[1] "Fri-May-29-09:34:08-2026"
+[1] "Tue-Jun--2-09:21:44-2026"
 
 $volume
 [1] "1777"
@@ -234,24 +400,16 @@ $release_level
 [1] "private"
 
 $created_at
-[1] "2026-05-29T13:34:08.737246Z"
+[1] "2026-06-02T13:21:44.807310Z"
 
 $updated_at
-[1] "2026-05-29T13:34:08.737256Z"
+[1] "2026-06-02T13:21:44.807321Z"
 
-$file_counts
-$file_counts$native_accessible
+$file_count
 [1] 0
 
-$file_counts$native_inaccessible
+$accessible_file_count
 [1] 0
-
-$file_counts$linked_accessible
-[1] 0
-
-$file_counts$linked_inaccessible
-[1] 0
-
 
 $source_date
 NULL
@@ -260,10 +418,7 @@ $has_full_access
 [1] TRUE
 
 $contains_different_release_levels
-[1] FALSE
-
-$source_info
-NULL</code></pre>
+[1] FALSE</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -273,10 +428,10 @@ NULL</code></pre>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>new_session</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$id
-[1] 76777
+[1] 80630
 
 $name
-[1] "Fri-May-29-09:34:08-2026"
+[1] "Tue-Jun--2-09:21:44-2026"
 
 $release_level
 [1] "private"
@@ -303,7 +458,7 @@ NULL</code></pre>
 NULL
 
 $status_url
-[1] "https://api.stg-databrary.its.nyu.edu/uploads/315b9f18-bd45-4f7b-a9fc-fe33ab40c86c/status/"
+[1] "https://api.databrary.org/uploads/651ce1cb-fe2a-4648-90f6-ec48d84418c5/status/"
 
 $upload_type
 [1] "single"</code></pre>
@@ -351,7 +506,7 @@ $upload_type
 <pre><code># A tibble: 1 × 20
   asset_id asset_name asset_permission asset_size asset_mime_type
      &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;                 &lt;int&gt; &lt;chr&gt;          
-1   528186 png_sample private             1823520 image/png      
+1   687253 png_sample private             1823520 image/png      
 # ℹ 15 more variables: asset_format_id &lt;int&gt;, asset_format_name &lt;chr&gt;,
 #   format_extension &lt;list&gt;, asset_duration &lt;dbl&gt;, asset_created_at &lt;chr&gt;,
 #   asset_updated_at &lt;chr&gt;, asset_uploader_id &lt;int&gt;,
@@ -379,7 +534,7 @@ $upload_type
 <pre><code># A tibble: 1 × 20
   asset_id asset_name asset_permission asset_size asset_mime_type
      &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;                 &lt;int&gt; &lt;chr&gt;          
-1   528186 png_sample private             1823520 image/png      
+1   687253 png_sample private             1823520 image/png      
 # ℹ 15 more variables: asset_format_id &lt;int&gt;, asset_format_name &lt;chr&gt;,
 #   format_extension &lt;list&gt;, asset_duration &lt;dbl&gt;, asset_created_at &lt;chr&gt;,
 #   asset_updated_at &lt;chr&gt;, asset_uploader_id &lt;int&gt;,
@@ -411,12 +566,12 @@ Note
 <pre><code># A tibble: 6 × 9
   session_id session_name             session_release session_native_accessible
        &lt;int&gt; &lt;chr&gt;                    &lt;chr&gt;                               &lt;int&gt;
-1      76777 Fri-May-29-09:34:08-2026 private                                 1
-2      76773 new_session_3            private                                 0
-3      76772 bulk-session-01          private                                 4
-4      76747 new_session_3            private                                 0
-5      76746 new_session_2            private                                 4
-6      76741 new_session_3            private                                 5
+1      80630 Tue-Jun--2-09:21:44-2026 private                                 0
+2      80629 Sub-P001 Wave 1          private                                 0
+3      80628 Sub-P001 Wave 1          private                                 0
+4      80627 Sub-P001 Wave 1          private                                 0
+5      80626 Sub-P001 Wave 1          private                                 0
+6      80376 smoke 0506               private                                 0
 # ℹ 5 more variables: session_native_inaccessible &lt;int&gt;,
 #   session_linked_accessible &lt;int&gt;, session_linked_inaccessible &lt;int&gt;,
 #   session_has_full_access &lt;lgl&gt;, session_source_date &lt;chr&gt;</code></pre>
@@ -433,14 +588,14 @@ Note
 <span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 9
-  session_id session_name              session_release session_native_accessible
-       &lt;int&gt; &lt;chr&gt;                     &lt;chr&gt;                               &lt;int&gt;
-1      76773 new_session_3             private                                 0
-2      76772 bulk-session-01           private                                 4
-3      76747 new_session_3             private                                 0
-4      76746 new_session_2             private                                 4
-5      76741 new_session_3             private                                 5
-6      76708 Tue__May-26-07:49:42-2026 private                                 4
+  session_id session_name    session_release session_native_accessible
+       &lt;int&gt; &lt;chr&gt;           &lt;chr&gt;                               &lt;int&gt;
+1      80629 Sub-P001 Wave 1 private                                 0
+2      80628 Sub-P001 Wave 1 private                                 0
+3      80627 Sub-P001 Wave 1 private                                 0
+4      80626 Sub-P001 Wave 1 private                                 0
+5      80376 smoke 0506      private                                 0
+6      79654 030526          private                                 0
 # ℹ 5 more variables: session_native_inaccessible &lt;int&gt;,
 #   session_linked_accessible &lt;int&gt;, session_linked_inaccessible &lt;int&gt;,
 #   session_has_full_access &lt;lgl&gt;, session_source_date &lt;chr&gt;</code></pre>
@@ -653,25 +808,41 @@ Warning
 <span id="cb49-37"><a href="#cb49-37" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(<span class="at">old_names =</span> these_sessions<span class="sc">$</span>session_name, </span>
 <span id="cb49-38"><a href="#cb49-38" aria-hidden="true" tabindex="-1"></a>      <span class="at">new_names =</span> renamed_sessions<span class="sc">$</span>session_name)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>      old_names                   new_names                  
- [1,] "bulk-session-02"           "new_session_1"            
- [2,] "bulk-session-01"           "new_session_2"            
- [3,] "new_session_3"             "new_session_3"            
- [4,] "bulk-session-01"           "bulk-session-01"          
- [5,] "new_session_3"             "new_session_3"            
- [6,] "new_session_2"             "new_session_2"            
- [7,] "new_session_3"             "new_session_3"            
- [8,] "Tue__May-26-07:49:42-2026" "Tue__May-26-07:49:42-2026"
- [9,] "Tue__May-26-07:49:42-2026" "Tue__May-26-07:49:42-2026"
-[10,] "Fri-May-22-12:54:02-2026"  "Fri-May-22-12:54:02-2026" 
-[11,] "Fri-May-22-10:57:56-2026"  "Fri-May-22-10:57:56-2026" 
-[12,] "Fri-May-22-10:45:00-2026"  "Fri-May-22-10:45:00-2026" 
-[13,] "Fri-May-22-10:29:07-2026"  "Fri-May-22-10:29:07-2026" 
-[14,] "Fri-May-22-09:24:40-2026"  "Fri-May-22-09:24:40-2026" 
-[15,] "new"                       "new"                      
-[16,] "test"                      "test"                     
-[17,] ""                          ""                         
-[18,] ""                          ""                         </code></pre>
+<pre><code>      old_names            new_names           
+ [1,] "bulk-session-02"    "new_session_1"     
+ [2,] "bulk-session-01"    "new_session_2"     
+ [3,] "Sub-P001 Wave 1"    "new_session_3"     
+ [4,] "Sub-P001 Wave 1"    "Sub-P001 Wave 1"   
+ [5,] "Sub-P001 Wave 1"    "Sub-P001 Wave 1"   
+ [6,] "Sub-P001 Wave 1"    "Sub-P001 Wave 1"   
+ [7,] "smoke 0506"         "smoke 0506"        
+ [8,] "030526"             "030526"            
+ [9,] "smoke tests Feb 23" "smoke tests Feb 23"
+[10,] "smoke tests 0217"   "smoke tests 0217"  
+[11,] "040226"             "040226"            
+[12,] "Nov24"              "Nov24"             
+[13,] "20thNov"            "20thNov"           
+[14,] "smoke 03 11"        "smoke 03 11"       
+[15,] "API_created_1"      "API_created_1"     
+[16,] "2.6 deploy"         "2.6 deploy"        
+[17,] "September 1st"      "September 1st"     
+[18,] "1"                  "1"                 
+[19,] "AUG5TEST"           "AUG5TEST"          
+[20,] "signed 7"           "signed 7"          
+[21,] "signed 6"           "signed 6"          
+[22,] "signed 5"           "signed 5"          
+[23,] "signed 4"           "signed 4"          
+[24,] "signed 3"           "signed 3"          
+[25,] "signed 2"           "signed 2"          
+[26,] "sgned 1"            "sgned 1"           
+[27,] "3"                  "3"                 
+[28,] "3"                  "3"                 
+[29,] "2"                  "2"                 
+[30,] "1"                  "1"                 
+[31,] "new"                "new"               
+[32,] "test"               "test"              
+[33,] ""                   ""                  
+[34,] ""                   ""                  </code></pre>
 </div>
 </div>
 <div class="cell">
@@ -714,29 +885,12 @@ Warning
 <span id="cb51-37"><a href="#cb51-37" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(<span class="at">old_names =</span> these_folders<span class="sc">$</span>folder_name, </span>
 <span id="cb51-38"><a href="#cb51-38" aria-hidden="true" tabindex="-1"></a>      <span class="at">new_names =</span> renamed_folders<span class="sc">$</span>folder_name)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>      old_names                      new_names                     
- [1,] "bulk-folder-02"               "new_folder_1"                
- [2,] "bulk-folder-01"               "new_folder_2"                
- [3,] "new_folder_3"                 "new_folder_3"                
- [4,] "Wed-May-27-08:03:39-2026"     "Wed-May-27-08:03:39-2026"    
- [5,] "Wed-May-27-08:02:59-2026"     "Wed-May-27-08:02:59-2026"    
- [6,] "Wed-May-27-08:02:06-2026"     "Wed-May-27-08:02:06-2026"    
- [7,] "Wed-May-27-08:01:02-2026"     "Wed-May-27-08:01:02-2026"    
- [8,] "Wed-May-27-07:49:03-2026"     "Wed-May-27-07:49:03-2026"    
- [9,] "Wed-May-27-07:46:02-2026"     "Wed-May-27-07:46:02-2026"    
-[10,] "new_folder_3"                 "new_folder_3"                
-[11,] "new_folder_2"                 "new_folder_2"                
-[12,] "new_folder_3"                 "new_folder_3"                
-[13,] "Tue__May__26__07:49:42__2026" "Tue__May__26__07:49:42__2026"
-[14,] "Tue__May__26__07:49:42__2026" "Tue__May__26__07:49:42__2026"
-[15,] "Fri-May-22-13:06:12-2026"     "Fri-May-22-13:06:12-2026"    
-[16,] "Fri-May-22-12:54:02-2026"     "Fri-May-22-12:54:02-2026"    
-[17,] "Fri-May-22-10:57:56-2026"     "Fri-May-22-10:57:56-2026"    
-[18,] "Fri-May-22-10:45:00-2026"     "Fri-May-22-10:45:00-2026"    
-[19,] "Fri-May-22-10:29:07-2026"     "Fri-May-22-10:29:07-2026"    
-[20,] "Fri-May-22-09:24:29-2026"     "Fri-May-22-09:24:29-2026"    
-[21,] "Fri-May-22-09:22:17-2026"     "Fri-May-22-09:22:17-2026"    
-[22,] "Upload test"                  "Upload test"                 </code></pre>
+<pre><code>     old_names        new_names      
+[1,] "bulk-folder-02" "new_folder_1" 
+[2,] "bulk-folder-01" "new_folder_2" 
+[3,] "smoke tests1"   "new_folder_3" 
+[4,] "API_created_1"  "API_created_1"
+[5,] "Prod test"      "Prod test"    </code></pre>
 </div>
 </div>
 </section>
@@ -756,8 +910,8 @@ Warning
 <pre><code># A tibble: 2 × 5
   input status  result    error reason
   &lt;int&gt; &lt;chr&gt;   &lt;list&gt;    &lt;chr&gt; &lt;chr&gt; 
-1 76778 success &lt;lgl [1]&gt; &lt;NA&gt;  &lt;NA&gt;  
-2 76779 success &lt;lgl [1]&gt; &lt;NA&gt;  &lt;NA&gt;  </code></pre>
+1 80631 success &lt;lgl [1]&gt; &lt;NA&gt;  &lt;NA&gt;  
+2 80632 success &lt;lgl [1]&gt; &lt;NA&gt;  &lt;NA&gt;  </code></pre>
 </div>
 </div>
 <div class="cell">
@@ -767,95 +921,32 @@ Warning
 <pre><code># A tibble: 2 × 5
   input status  result    error reason
   &lt;int&gt; &lt;chr&gt;   &lt;list&gt;    &lt;chr&gt; &lt;chr&gt; 
-1 76301 success &lt;lgl [1]&gt; &lt;NA&gt;  &lt;NA&gt;  
-2 76302 success &lt;lgl [1]&gt; &lt;NA&gt;  &lt;NA&gt;  </code></pre>
+1 77703 success &lt;lgl [1]&gt; &lt;NA&gt;  &lt;NA&gt;  
+2 77704 success &lt;lgl [1]&gt; &lt;NA&gt;  &lt;NA&gt;  </code></pre>
 </div>
-</div>
-</section>
-</section>
-<section id="record-functions" class="level2">
-<h2 class="anchored" data-anchor-id="record-functions"><code>_record</code> functions</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>2026-05-22: Gilmore needs more guidance about the standard procedure for associating records with sessions and files. So, I’m setting <code>eval: false</code> for the above chunk.</p>
-</div>
-</div>
-<section id="create_volume_record" class="level3">
-<h3 class="anchored" data-anchor-id="create_volume_record"><code>create_volume_record</code></h3>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>record_P001 <span class="ot">&lt;-</span> <span class="fu">create_volume_record</span>(</span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id,</span>
-<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">category_id =</span> <span class="dv">1</span>,</span>
-<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="st">"P001"</span>,</span>
-<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">participant =</span> <span class="fu">list</span>(<span class="at">birthday =</span> <span class="fu">list</span>(</span>
-<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">year =</span> <span class="dv">1776</span>, <span class="at">month =</span> <span class="dv">7</span>, <span class="at">day =</span> <span class="dv">04</span>))</span>
-<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb58-9"><a href="#cb58-9" aria-hidden="true" tabindex="-1"></a>record_control_group <span class="ot">&lt;-</span> <span class="fu">create_volume_record</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id,</span>
-<span id="cb58-10"><a href="#cb58-10" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">category_id =</span> <span class="dv">6</span>,</span>
-<span id="cb58-11"><a href="#cb58-11" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">name =</span> <span class="st">"Control group"</span>)</span>
-<span id="cb58-12"><a href="#cb58-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb58-13"><a href="#cb58-13" aria-hidden="true" tabindex="-1"></a>record_task_A <span class="ot">&lt;-</span> <span class="fu">create_volume_record</span>(</span>
-<span id="cb58-14"><a href="#cb58-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id,</span>
-<span id="cb58-15"><a href="#cb58-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">category_id =</span> <span class="dv">6</span>,</span>
-<span id="cb58-16"><a href="#cb58-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="st">"Task A"</span>,</span>
-<span id="cb58-17"><a href="#cb58-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">measures =</span> <span class="fu">list</span>(<span class="st">"30"</span> <span class="ot">=</span> <span class="st">"Extra value"</span>)</span>
-<span id="cb58-18"><a href="#cb58-18" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb58-19"><a href="#cb58-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb58-20"><a href="#cb58-20" aria-hidden="true" tabindex="-1"></a>record_P001</span>
-<span id="cb58-21"><a href="#cb58-21" aria-hidden="true" tabindex="-1"></a>record_control_group</span>
-<span id="cb58-22"><a href="#cb58-22" aria-hidden="true" tabindex="-1"></a>record_task_A</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="bulk_assign-functions" class="level3">
-<h3 class="anchored" data-anchor-id="bulk_assign-functions"><code>bulk_assign*</code> functions</h3>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bulk_assign_records</span>()</span>
-<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bulk_unassign_records</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="delete_record_measure-volume_record" class="level3">
-<h3 class="anchored" data-anchor-id="delete_record_measure-volume_record"><code>delete_{record_measure, volume_record}</code></h3>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">delete_record_measure</span>(<span class="at">vol_id =</span> params<span class="sc">$</span>test_vol_id, <span class="at">record_id =</span> record_control_group<span class="sc">$</span>record_id)</span>
-<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>databraryr<span class="sc">::</span><span class="fu">delete_volume_record</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="bulk_delete_records-functions" class="level3">
-<h3 class="anchored" data-anchor-id="bulk_delete_records-functions"><code>bulk_delete_records</code> functions</h3>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bulk_delete_records</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
 <section id="save-timing-file" class="level2">
 <h2 class="anchored" data-anchor-id="save-timing-file">Save timing file</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>timing_fn <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"timing-data-"</span>, <span class="fu">format</span>(<span class="fu">Sys.time</span>(), <span class="st">"%Y-%m-%d-%H%M%S"</span>), <span class="st">".csv"</span>)</span>
-<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">write_csv</span>(timing_df, <span class="fu">file.path</span>(<span class="st">"csv"</span>, timing_fn))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>timing_fn <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"timing-data-"</span>, <span class="fu">format</span>(<span class="fu">Sys.time</span>(), <span class="st">"%Y-%m-%d-%H%M%S"</span>), <span class="st">".csv"</span>)</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">write_csv</span>(timing_df, <span class="fu">file.path</span>(<span class="st">"csv"</span>, timing_fn))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="logout" class="level2">
 <h2 class="anchored" data-anchor-id="logout">Logout</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">logout_db</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">logout_db</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
 </div>
+
+
 </section>
 
-</main>
-<!-- /main column -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1256,6 +1347,18 @@ Note
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./sessions-folders.html" class="pagination-link" aria-label="Sessions &amp; Folders">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Sessions &amp; Folders</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./records-measures.html" class="pagination-link" aria-label="Records and Measures">
+        <span class="nav-page-text"><span class="chapter-title">Records and Measures</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

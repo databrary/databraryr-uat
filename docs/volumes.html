@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quick-start.html">Authorized Investigators</a></li><li class="breadcrumb-item"><a href="./volumes.html"><span class="chapter-title">Volumes</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quick-start.html">Read Only</a></li><li class="breadcrumb-item"><a href="./volumes.html"><span class="chapter-title">Volumes</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -153,7 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Authorized Investigators</span></a>
+ <span class="menu-text">Read Only</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -161,7 +161,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./quick-start.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quick Start: R</span></a>
+  <a href="./quick-start.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quick Start</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -191,6 +191,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Upload and Edit</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./upload.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Create/Update/Delete</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./records-measures.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Records and Measures</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -212,7 +233,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quick-start.html">Authorized Investigators</a></li><li class="breadcrumb-item"><a href="./volumes.html"><span class="chapter-title">Volumes</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quick-start.html">Read Only</a></li><li class="breadcrumb-item"><a href="./volumes.html"><span class="chapter-title">Volumes</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-title">Volumes</span></h1>
 </div>
@@ -393,12 +414,13 @@ NULL</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volume_folders</span>(<span class="at">vol_id =</span> <span class="dv">1</span>, <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 10
-  folder_id folder_name  folder_release folder_file_count folder_accessible_fi…¹
-      &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;                      &lt;int&gt;                  &lt;int&gt;
-1      9807 Top-level m… public                         7                      7
-# ℹ abbreviated name: ¹​folder_accessible_file_count
-# ℹ 5 more variables: folder_has_full_access &lt;lgl&gt;,
+<pre><code># A tibble: 1 × 12
+  folder_id folder_name         folder_release folder_native_accessible
+      &lt;int&gt; &lt;chr&gt;               &lt;chr&gt;                             &lt;int&gt;
+1      9807 Top-level materials public                                0
+# ℹ 8 more variables: folder_native_inaccessible &lt;int&gt;,
+#   folder_linked_accessible &lt;int&gt;, folder_linked_inaccessible &lt;int&gt;,
+#   folder_has_full_access &lt;lgl&gt;,
 #   folder_contains_different_release_levels &lt;lgl&gt;, folder_created_at &lt;chr&gt;,
 #   folder_updated_at &lt;chr&gt;, vol_id &lt;int&gt;</code></pre>
 </div>
@@ -586,7 +608,7 @@ NULL</code></pre>
 <pre><code>Found n = 24 sessions in vol_id 1</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 24 × 7
+<pre><code># A tibble: 24 × 9
    session_id session_name                   session_release session_source_date
         &lt;int&gt; &lt;chr&gt;                          &lt;chr&gt;           &lt;chr&gt;              
  1       6256 Advisory Board Meeting         public          2013-10-28         
@@ -600,8 +622,9 @@ NULL</code></pre>
  9      10991 Regional Workshop at Penn Sta… public          2016-03-25         
 10      11362 Regional Workshop at Universi… public          2016-04-15         
 # ℹ 14 more rows
-# ℹ 3 more variables: session_file_count &lt;int&gt;,
-#   session_accessible_file_count &lt;int&gt;, session_has_full_access &lt;lgl&gt;</code></pre>
+# ℹ 5 more variables: session_native_accessible &lt;int&gt;,
+#   session_native_inaccessible &lt;int&gt;, session_linked_accessible &lt;int&gt;,
+#   session_linked_inaccessible &lt;int&gt;, session_has_full_access &lt;lgl&gt;</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_volume_tags</span>(<span class="at">vol_id =</span> <span class="dv">1</span>, <span class="at">vb =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">

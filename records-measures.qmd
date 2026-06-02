@@ -1,0 +1,539 @@
+---
+title: "Records and Measures"
+format: html
+params:
+  test_vol_id: 1777
+  test_endpoint: "production" # {production,staging}
+  prod_api: "https://api.databrary.org"
+  staging_api: "https://api.stg-databrary.its.nyu.edu"
+---
+
+## About
+
+This page documents testing of the functions that relate to records and measures.
+
+::: callout-important
+Most of the examples below were created by Pawel Armatys from Montrose Software.
+:::
+
+## Setup
+
+```{r}
+#| label: check-endpoint
+#| 
+assertthat::is.string(params$test_endpoint)
+assertthat::is.string(params$prod_api)
+assertthat::is.string(params$staging_api)
+
+this_endpoint <- databraryr:::DATABRARY_BASE_URL
+
+if (params$test_endpoint == "production") {
+  message("Test target: Production API.")
+  if (this_endpoint == params$prod_api) {
+    message("Databraryr API target endpoint is correct.")
+  } else {
+    message(paste0(
+      "Target: ",
+      params$test_endpoint,
+      " | databraryr base: ",
+      this_endpoint
+    ))
+    stop(
+      "`databraryr` API target endpoint does not match testing target endpoint. Check ~/.Renviron."
+    )
+  }
+} else if (params$test_endpoint == "staging") {
+  message("Test target: Staging API.")
+  if (this_endpoint == params$staging_api) {
+    message("Databraryr API target endpoint is correct.")
+  } else {
+    message(paste0(
+      "Target: ",
+      params$test_endpoint,
+      " | databraryr base: ",
+      this_endpoint
+    ))
+    stop(
+      "`databraryr` API target endpoint does not match testing target endpoint. Check ~/.Renviron."
+    )
+  }
+} else {
+  stop("API endpoint not specified properly")
+}
+```
+
+```{r}
+#| label: "login to Databrary"
+library(databraryr)
+
+login_db(email = Sys.getenv("DATABRARY_LOGIN"),
+         password = Sys.getenv("DATABRARY_PASSWORD"),
+         client_id = Sys.getenv("DATABRARY_CLIENT_ID"),
+         client_secret = Sys.getenv("DATABRARY_CLIENT_SECRET"),
+         store = FALSE,
+         overwrite = FALSE,
+         vb = TRUE)
+```
+## List categories and metrics
+
+```{r}
+#| label: list-categories 
+cats <- list_categories()
+cats
+```
+
+### Participant
+
+Show category 1 (participant) metrics.
+
+```{r}
+participant_metrics <- cats$metrics[[which(cats$category_id == 1)]]
+purrr::map_dfr(participant_metrics, ~ tibble::tibble(
+  metric_id   = .x$metric_id,
+  metric_name = .x$metric_name,
+  metric_type = .x$metric_type,
+  required    = .x$metric_required
+))
+
+```
+
+Show category definition.
+
+```{r}
+get_category_by_id(category_id = 1)
+```
+
+### Pilot metrics
+
+```{r}
+pilot_metrics <- cats$metrics[[which(cats$category_id == 2)]]
+purrr::map_dfr(pilot_metrics, ~ tibble::tibble(
+  metric_id   = .x$metric_id,
+  metric_name = .x$metric_name,
+  metric_type = .x$metric_type,
+  required    = .x$metric_required
+))
+
+```
+
+Show category definition.
+
+```{r}
+get_category_by_id(category_id = 2)
+```
+
+### Exclusion metrics
+
+```{r}
+exclusion_metrics <- cats$metrics[[which(cats$category_id == 3)]]
+purrr::map_dfr(exclusion_metrics, ~ tibble::tibble(
+  metric_id   = .x$metric_id,
+  metric_name = .x$metric_name,
+  metric_type = .x$metric_type,
+  required    = .x$metric_required
+))
+
+```
+
+Show category definition.
+
+```{r}
+get_category_by_id(category_id = 3)
+```
+
+### Condition metrics
+
+```{r}
+condition_metrics <- cats$metrics[[which(cats$category_id == 4)]]
+purrr::map_dfr(condition_metrics, ~ tibble::tibble(
+  metric_id   = .x$metric_id,
+  metric_name = .x$metric_name,
+  metric_type = .x$metric_type,
+  required    = .x$metric_required
+))
+
+```
+
+Show category definition.
+
+```{r}
+get_category_by_id(category_id = 4)
+```
+
+### Group metrics
+
+```{r}
+group_metrics <- cats$metrics[[which(cats$category_id == 5)]]
+purrr::map_dfr(group_metrics, ~ tibble::tibble(
+  metric_id   = .x$metric_id,
+  metric_name = .x$metric_name,
+  metric_type = .x$metric_type,
+  required    = .x$metric_required
+))
+
+```
+
+Show category definition.
+
+```{r}
+get_category_by_id(category_id = 5)
+```
+
+### Task metrics
+
+```{r}
+task_metrics <- cats$metrics[[which(cats$category_id == 6)]]
+purrr::map_dfr(task_metrics, ~ tibble::tibble(
+  metric_id   = .x$metric_id,
+  metric_name = .x$metric_name,
+  metric_type = .x$metric_type,
+  required    = .x$metric_required
+))
+
+```
+
+Show category definition.
+
+```{r}
+get_category_by_id(category_id = 6)
+```
+
+### Context metrics
+
+```{r}
+context_metrics <- cats$metrics[[which(cats$category_id == 7)]]
+purrr::map_dfr(task_metrics, ~ tibble::tibble(
+  metric_id   = .x$metric_id,
+  metric_name = .x$metric_name,
+  metric_type = .x$metric_type,
+  required    = .x$metric_required
+))
+
+```
+
+Show category definition.
+
+```{r}
+get_category_by_id(category_id = 7)
+```
+
+## Show/edit categories enabled
+
+```{r}
+#| label: get-volume-enabled-categories
+#| 
+enabled <- get_volume_enabled_categories(vol_id = params$test_vol_id)
+purrr::map_chr(enabled, "name")
+```
+
+Enable a category that is not currently enabled.
+
+```{r}
+#| label: enable-volume-category
+
+enabled_ids <- purrr::map_int(enabled, "id")
+not_enabled <- !((1:7) %in% enabled_ids)
+if (sum(not_enabled) > 0) {
+  new_category <- sample((1:7)[not_enabled], 1)
+  new_category
+}
+
+# Enable a single additional category
+enable_volume_category(vol_id = params$test_vol_id, category_id = new_category)
+before_categories <- get_volume_enabled_categories(vol_id = params$test_vol_id) |>
+  purrr::map_chr("name")
+
+before_categories
+```
+
+Replace enabled categories.
+
+```{r}
+#| label: set-volume-enabled-categories
+#| 
+# Or replace the full enabled set in one call
+set_volume_enabled_categories(vol_id = params$test_vol_id, category_ids = c(1L, 6L, 7L))
+after_categories <- get_volume_enabled_categories(vol_id = params$test_vol_id) |>
+  purrr::map_chr("name")
+
+after_categories
+```
+
+## Create record
+
+```{r}
+#| label: create-volume-record
+
+p_name <- date() |> stringr::str_replace_all(pattern = "[ ]+", "-")
+p001 <- create_volume_record(
+  vol_id      = params$test_vol_id,
+  category_id = 1L,
+  # participant
+  name        = p_name, # stored as metric 1 "ID"
+  measures    = list(
+    "5" = "Female", # metric 5: gender
+    "4" = list(year = 2000, month = 6, day = 15)  # metric 4: birthdate
+  )
+)
+
+p001
+```
+
+```{r}
+#| label: create-random-string-for-task-name
+name_str <- sample(letters, 5) |> 
+  paste(collapse="")
+task <- create_volume_record(
+  vol_id      = params$test_vol_id,
+  category_id = 6L,           # task
+  name        = name_str
+)
+task$record_id
+```
+
+Modify the task record by adding a description field.
+
+```{r}
+#| label: add-description-to-task-record
+# Add a description to the task record
+set_record_measure(
+  vol_id    = params$test_vol_id,
+  record_id = p001$record_id,  
+  metric_id = 30L,               # description
+  value     = paste0("Participants searched for ", name_str, " among distractors.")
+)
+
+```
+
+Modify the prior gender value.
+
+```{r}
+#| label: set-record-measure
+# Update gender on the participant record
+set_record_measure(
+  vol_id    = params$test_vol_id,
+  record_id = p001$record_id,  
+  metric_id = 5L,
+  value     = "Male"           # overwrites previous "Female"
+)
+
+```
+
+::: callout-note
+`set_record_measure()` returns the raw measure object. `update_volume_record()` accepts a full measures list and returns the updated record in the same shape as create_volume_record(). Because it validates that all required metrics are present, it is safer to fetch current measures first and merge your change in.
+:::
+
+```{r}
+#| label: change-gender-to-non-binary
+current <- get_volume_record_by_id(vol_id = params$test_vol_id, record_id = p001$record_id)
+new_measures <- utils::modifyList(current$measures, list("5" = "Non-binary"))
+updated_p001 <- update_volume_record(
+  vol_id    = params$test_vol_id,
+  record_id = p001$record_id,
+  measures  = new_measures
+)
+updated_p001$measures[["5"]]
+```
+
+## Link record to session as default
+
+```{r}
+#| label: create-session-w-default-records
+session <- create_session(
+  vol_id         = params$test_vol_id,
+  name           = "Sub-P001 Wave 1",
+  date           = list(year = "1975", month = "10", day = "31"),
+  default_records = c(p001$record_id, task$record_id)
+)
+session$id
+```
+
+```{r}
+#| label: add-default-record-to-session
+add_default_record_to_session(
+  vol_id     = params$test_vol_id,
+  session_id = session$id,
+  record_id  = p001$record_id 
+)
+```
+
+```{r}
+#| label: get-volume-record-by-id
+
+this_volume_record <- get_volume_record_by_id(
+  vol_id    = params$test_vol_id,
+  record_id = p001$record_id
+)
+
+this_volume_record$default_sessions
+```
+
+Remove default from this session.
+
+```{r}
+#| label: remove-default-record-from-session
+remove_default_record_from_session(
+  vol_id     = params$test_vol_id,
+  session_id = session$id,
+  record_id  = task$record_id
+)
+```
+
+## Assign records to a specific file
+
+```{r}
+#| label: list-volume-assets
+
+vol_assets <- list_volume_assets(vol_id = params$test_vol_id)
+sessions_w_assets <- vol_assets |>
+  dplyr::select(session_id) |>
+  unique()
+
+pick_session_id <- sample(sessions_w_assets$session_id, 1)
+assets <- list_session_assets(vol_id = params$test_vol_id, session_id = pick_session_id)
+assets[, c("asset_id", "asset_name")]
+```
+
+Assign a task record to the 1st file.
+
+```{r}
+#| label: assign-record-to-file
+assign_record_to_file(
+  vol_id     = params$test_vol_id,
+  session_id = pick_session_id,
+  file_id    = assets$asset_id[1],
+  record_id  = task$record_id  # 53139
+)
+
+```
+
+## Edit records
+
+::: {.callout-warning}
+Editing records edits them globally.
+:::
+
+```{r}
+#| label: edit-measure-30
+set_record_measure(
+  vol_id    = params$test_vol_id,
+  record_id = task$record_id,  
+  metric_id = 30L,
+  value     = "UPDATED: Target was always a red circle. Revised 2024-10-01."
+)
+```
+
+Now, confirm the change.
+
+```{r}
+#| label: get-updated-measure-info-from-volume
+get_volume_record_by_id(
+  vol_id    = params$test_vol_id,
+  record_id = task$record_id
+)$measures[["30"]]
+
+```
+
+## List volume records
+
+All.
+
+```{r}
+#| label: list-all-volume-records
+# All records
+list_volume_records(vol_id = params$test_vol_id)
+```
+
+Participant only, showing the first record.
+
+```{r}
+#| label: list-volume-participant-records
+this_vol_particip_records <- list_volume_records(vol_id = params$test_vol_id, 
+                                                 category_id = 1L)
+
+this_vol_particip_records$record_measures[1]
+```
+
+Delete (softly) a record from all sessions and files.
+
+```{r}
+#| label: soft-delete-record-from-sessions-files
+p001
+
+delete_volume_record(vol_id = params$test_vol_id, record_id = p001$record_id)
+
+after_vol_particip_records <- list_volume_records(vol_id = params$test_vol_id, 
+                                                 category_id = 1L)
+```
+
+Confirm deletion.
+
+```{r}
+#| label: confirm-record-deletion
+p001$record_id %in% after_vol_particip_records$record_id
+```
+
+## Bulk operations
+
+```{r}
+#| label: create-10-participant-records-at-once
+
+if (params$test_endpoint == "staging") {
+  # Create ten participant records at once
+  records_tbl <- bulk_create_records(
+    vol_id       = params$test_vol_id,
+    record_names = paste0("P", sprintf("%03d", 1:10)),
+    category_id  = 1L
+  )
+  records_tbl
+} else {
+  message("Not on staging. Skipping test.")
+}
+```
+
+Assign all of them as defaults to a (randomly chosen) session.
+
+```{r}
+#| label: bulk-assign-records-to-randomly-chosen-session
+
+if (params$test_endpoint == "staging") {
+  available_sessions <- list_volume_sessions(vol_id = params$test_vol_id)
+  pick_session_id <- sample(available_sessions$session_id, 1)
+  
+  bulk_assign_records(
+    vol_id     = params$test_vol_id,
+    session_id = pick_session_id,
+    record_ids = records_tbl$record_id
+  )
+} else {
+  message("Not on staging. Skipping test.")
+}
+```
+
+Remove all assignments from the previously chosen session.
+
+```{r}
+#| label: bulk-unassign
+
+if (params$test_endpoint == "staging") {
+  bulk_unassign_records(
+    vol_id     = params$test_vol_id,
+    session_id = pick_session_id,
+    record_ids = records_tbl$record_id
+  )
+} else {
+  message("Not on staging. Skipping test.")
+}
+```
+
+Delete all records in volume.
+
+::: {.callout-warning}
+This is a highly destructive action.
+Use with care.
+:::
+
+```r
+# Delete all records
+bulk_delete_records(vol_id = vol_id, record_ids = records_tbl$record_id)
+```
